@@ -1,0 +1,39 @@
+const app=require("../app.js");
+
+const { createServer }=require("http");
+const dotenv=require("dotenv")
+dotenv.config()
+
+const PORT = (process.env.PORT || '3000');
+const HOST = (process.env.HOST || 'localhost');
+console.log(PORT);
+app.set('port', PORT);
+app.set('host', HOST);
+app.set('env', process.env.ENV);
+
+const server = createServer(app);
+
+server.listen(PORT);
+server.on('error', onError);
+//server.on('listening', onListening);
+console.log(`Server running at http://${HOST}:${PORT}/`); 
+
+function onError(error) {
+    if (error.syscall !== 'listen') {
+      throw error;
+    }
+  
+    var bind = 'Port ' + PORT;
+  
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+      case 'EACCES':
+        console.error(bind + ' requires elevated privileges');
+        process.exit(1);
+      case 'EADDRINUSE':
+        console.error(bind + ' is already in use');
+        process.exit(1);
+      default:
+        throw error;
+    }
+  }
