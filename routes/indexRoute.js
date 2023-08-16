@@ -6,7 +6,7 @@ router.use(bodyParser.json());
 
 router.get("/", async function (req, res) {
 
-  res.render("uploadResume");
+  res.render("index");
 });
 
 module.exports = router;
