@@ -19,7 +19,7 @@ app.use(logger("dev"));
 app.use(express.static(path.join(__dirname, "public"))); //All static assets in the public folder
 
 const dburl =
-  "mongodb+srv://Menna:Empower123@database.z3i1hgm.mongodb.net/Empower?retryWrites=true&w=majority";
+  "mongodb+srv://Menna:Empower123@database.z3i1hgm.mongodb.net/EmPower?retryWrites=true&w=majority";
 mongoose
   .connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((err) => console.log(err));

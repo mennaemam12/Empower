@@ -28,6 +28,11 @@ const jobSchema = new Schema ({
         required:[true,'Company is required'],
         trim:true
     },
+    Location:{
+        type:String,
+        required:[true,'Location is required'],
+        trim:true
+    },
     Place:{
         type:String,
         required:[true,'Work place is required'],
@@ -46,5 +51,5 @@ const jobSchema = new Schema ({
 
 },{timestamp:true});
 
-const Job= mongoose.model('Job',userSchema);
-module.exports=Job;
+const jobs= mongoose.model('jobs',jobSchema);
+module.exports=jobs;
