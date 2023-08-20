@@ -63,14 +63,14 @@
             <div class="upload-container">
                 <form id="upload-form" action="/uploadResume" method="post" enctype="multipart/form-data">
                     <input type="file" id="resume-upload" name="resume" class="hidden">
-                    <label for="resume-upload" class="upload-button" >Upload Resume</label>
+                    <label for="resume-upload" class="upload-button" id="uploadLabel" >Upload Resume</label>
                </form>  
             </div>
 
             <div id="pdf-container" class="pdf-container">
                 <iframe id="pdf-viewer" class="pdf-viewer"></iframe>
               </div>
-            <div id="pdf-not-found" class="pdf-not-found">Resume Not Uploaded</div>
+            <div id="pdf-not-found" class="pdf-not-found"></div>
 
         </div>
         
@@ -94,6 +94,7 @@
         
             <!-- Template Javascript -->
             <script src="/js/main.js"></script>
+            <script src="/js/uploadResume.js"></script>
 
             <script>
                 document.addEventListener("DOMContentLoaded", () => {

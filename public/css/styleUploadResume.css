@@ -1,5 +1,5 @@
     .main-container{
-        height: 500px;
+        height: 800px;
     }
   
   .upload-container {
@@ -30,8 +30,10 @@
   }
 
   .pdf-container {
-    width: 80%;
-    max-width: 800px;
+    margin-left: 7%;
+    margin-top: 6%;
+    width: 50%;
+    max-width: 550px;
     height: 600px;
     border: 1px solid #ccc;
     overflow: hidden;
