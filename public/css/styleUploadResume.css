@@ -1,0 +1,51 @@
+    .main-container{
+        height: 500px;
+    }
+  
+  .upload-container {
+    position: relative;
+    margin-left: 23%;
+  }
+  
+  .upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2a3766;
+    width: 700px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background-color: #20c997;
+  }
+  
+  /* Hide the default file input */
+  .hidden {
+    display: none;
+  }
+
+  .pdf-container {
+    width: 80%;
+    max-width: 800px;
+    height: 600px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  
+  
+  
+  
+  
