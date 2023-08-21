@@ -7,6 +7,8 @@ const path = require('path');
 
 const indexRoute = require("./routes/indexRoute.js");
 const uploadResumeRoute = require("./routes/uploadResume.js");
+const reg = require("./routes/reg.js");
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,5 +32,6 @@ app.use(cors({ origin: true }));
 
 app.use("/", indexRoute);
 app.use("/uploadResume",uploadResumeRoute);
+app.use("/reg",reg);
 
 module.exports= app;

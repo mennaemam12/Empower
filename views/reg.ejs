@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+      <!-- Favicon -->
+      <link href="/img/favicon.ico" rel="icon">
+
+      <!-- Google Web Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+      
+      <!-- Icon Font Stylesheet -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  
+      <!-- Libraries Stylesheet -->
+      <link href="/lib/animate/animate.min.css" rel="stylesheet">
+      <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+      <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/reg.css" rel="stylesheet">
+</head>
+<body>
+    <div class="margins12">
+        <!-- Spinner Start -->
+        <!-- Navbar Start -->
+        <%-include("partials/nav.ejs")%> 
+        <!-- Navbar End -->
+        <div class="background1"></div>
+            <div class="forms">
+                <div class="leftsection11">
+                    <form class="form" id="Form1" method="post" action="/reg.ejs">
+                        <p class="title">Register </p>
+                        <p class="message">Signup now and get full access to our app. </p>
+                            <div class="flex">
+                            <label class="spacingbet">
+                                <input required="" placeholder="First Name" name="Firstname" type="text" class="input">
+                                
+                            </label>
+                            <label class="spacingbet">
+                                <input required="" placeholder="Last Name" name="Lastname"  type="text" class="input">
+                             
+                            </label>
+                        </div>    
+                        <label class="spacingbet">
+                            <input required="" placeholder="Email" name="Email"  type="email" class="input">
+                            <div id='emailerr' class='err'></div>
+                            <i class="error-icon fas fa-exclamation-circle" id="er1"></i>
+                        </label> 
+                            
+                        <label class="spacingbet"> 
+                            <input required="" placeholder="Password" name="Password" type="password" class="input">
+                      
+                            <div id='passerr' class='err'></div>
+                            <i class="error-icon fas fa-exclamation-circle" id="er2"></i>
+                        </label>
+                        <label class="spacingbet">
+                            <input required="" placeholder="Confirm Password" name="Cpassword" type="password" class="input">
+                            <div id='cpasserr' class='err'></div>
+                            <i class="error-icon fas fa-exclamation-circle" id="er3"></i>
+                        </label>
+                        <button class="submit">Submit</button>
+                        <p class="signin">Already have an acount ? <button class="signinbut" id="signinbut" type="button">Sign in</button></p>
+                    </form>
+
+
+
+                    
+                    <form class="form" id="Form2">
+                        <p class="title margintitle">Sign in </p>
+                        <p class="message">Sign in now and get full access to our app. </p>       
+                        <label class="spacingbet">
+                            <input required="" placeholder="Email" type="email" class="input">
+                            <div id='semailerr' class='err'></div>
+                            <i class="error-icon fas fa-exclamation-circle" id="er4"></i>
+                        </label> 
+                            
+                        <label class="spacingbet"> 
+                            <input required="" placeholder="Password" type="password" class="input">
+                            <div id='spasserr' class='err'></div>
+                            <i class="error-icon fas fa-exclamation-circle" id="er5"></i>
+                   
+                        </label>
+                        <button  class="submit marginsign">Sign in</button>
+                        <p class="signin">Create new One? <button class="signinbut" id="register" type="button">Register</button></p>
+                    </form>
+                </div>
+            </div>
+            <div class="rightsection">
+                Find Jobs Through Your <b> Community
+            </div>
+            <div class="rightsectionbot">
+                Unlock a world of job opportunities by signing in to your account! 
+                We've curated a wide range of exciting job offers from various industries,
+                and to gain access to these exclusive opportunities,
+                all you need to do is log in to your account.
+                Your personalized dashboard awaits, 
+                where you can explore job listings tailored to your skills and preferences.
+                <!-- Don't miss out on potential career advancements –
+                signing in allows you to apply for jobs seamlessly, 
+                receive updates on the latest openings, 
+                and connect with employers actively seeking candidates like you.
+                Your dream job could be just a few clicks away, -->
+                so log in today and take the next step towards your professional journey!
+            </div>
+            
+            <!-- <div class="regimg">
+                <img  id="img" class="regimg1" src="./img/reg1.png" alt="">
+            </div>
+            -->
+        
+
+        <!-- <div><img src="./img/reg1.png" alt=""></div> -->
+
+
+
+
+
+    </div>
+
+
+
+
+
+    
+</body>
+<script src="./js/reg.js"></script>
+</html>
