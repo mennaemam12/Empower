@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
       const extension = path.extname(file.originalname);
-      cb(null,"Menna Resume"  + extension);
+      cb(null,"resume"  + extension);
 
       //file.fieldname + '-' + uniqueSuffix
     }
@@ -26,5 +26,7 @@ const storage = multer.diskStorage({
 router.post('/',(req, res, next) => {
     console.log('Reached the upload route');
     next();}, upload.single('resume'),uploadController.saveResume);
+
+router.post('/filter',uploadController.filterJobs)
 
 module.exports = router;
