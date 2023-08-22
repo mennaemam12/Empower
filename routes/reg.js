@@ -18,7 +18,5 @@ router.use(session({
   })
 
 
-router.post('/',(req,res)=>
-{
-});
+router.post('/',registration);
 module.exports = router;

@@ -86,7 +86,7 @@ function validatepass(input1,input2){
        document.getElementById('passerr').innerHTML='';
        document.getElementById('er2').style.opacity='0';
    }
-   if(input1.length<=7)
+   if(input1.length<=2)
    {
        check=false;
        document.getElementById('passerr').innerHTML='Check Your Password must be 8 char';
@@ -162,7 +162,7 @@ $(document).ready(function () {
      $.ajax({
        url: '/reg',
        method: 'POST',
-       data: {Firstname:Firstname,Lastname:Lastname,email:email,pass:pass},
+       data: {Firstname:Firstname,Lastname:Lastname,email:email,pass:pass,accessibilityValue:accessibilityValue,page:"signup"},
 
       //  success: function (response) {
       //    if (response.result == "success") {
