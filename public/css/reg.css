@@ -68,7 +68,7 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
     max-width: 450px;
     background-color: rgba(255, 255, 255, 1); /* Initial background color (fully opaque white) */
     padding: 20px;
@@ -78,7 +78,7 @@
   #Form2
   {
     display: none;
-    height: 510px;
+    height: 585px;
   }
   .signinbut
   {
@@ -222,8 +222,8 @@
   .rightsection
   {
     position: relative;
-    margin-left: 4%;
-    margin-top: -40%;
+    margin-left: 10%;
+    margin-top: -35%;
     width: 50%;
     color: #fff;
     font-size: 50px;
@@ -232,7 +232,7 @@
   .rightsectionbot
   {
     position: relative;
-    margin-left: 4%;
+    margin-left: 10%;
     margin-top: 2%;
     width: 35%;
     color: #fff;
@@ -250,6 +250,28 @@
         color: #7c142c;
         font-size: smaller;
         padding: 0;
-        margin-bottom: -6%;
+        margin-bottom: -7%;
         margin-left: 2%;
     }
+    #accessibilityDropdown {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      width: 200px;
+      font-size: 16px;
+      color: #333;
+      outline: none;
+  }
+
+  /* Styling for the dropdown options */
+  #accessibilityDropdown option {
+      background-color: #fff;
+      font-size: 14px;
+      color: #555;
+  }
+
+  /* Styling for the dropdown when hovered */
+  #accessibilityDropdown:hover {
+      border-color: #999;
+  }

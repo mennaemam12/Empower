@@ -28,12 +28,17 @@ const UserSchema = new Schema ({
         required:[true,'Company is required'],
         trim:true
     },
+    disability:{
+        type:String,
+        required:[true,'skills are required'],
+        trim:true
+    },
     Skills:{
         type:Array,
         required:[true,'skills are required'],
         trim:true
     },
-    CvURL:{
+    Urls:{
         type:String,
         required:[true,'Work place is required'],
         trim:true

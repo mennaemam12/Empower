@@ -34,37 +34,44 @@
         <div class="background1"></div>
             <div class="forms">
                 <div class="leftsection11">
-                    <form class="form" id="Form1" method="post" action="/reg.ejs">
+                    <form class="form" id="Form1" method="post" action="/reg">
                         <p class="title">Register </p>
                         <p class="message">Signup now and get full access to our app. </p>
                             <div class="flex">
                             <label class="spacingbet">
-                                <input required="" placeholder="First Name" name="Firstname" type="text" class="input">
+                                <input required="" placeholder="First Name" id="Firstname" name="Firstname" type="text" class="input">
                                 
                             </label>
                             <label class="spacingbet">
-                                <input required="" placeholder="Last Name" name="Lastname"  type="text" class="input">
+                                <input required="" placeholder="Last Name" id="Lastname" name="Lastname"  type="text" class="input">
                              
                             </label>
                         </div>    
                         <label class="spacingbet">
-                            <input required="" placeholder="Email" name="Email"  type="email" class="input">
+                            <input required="" placeholder="Email" name="Email" id="Email"  type="email" class="input">
                             <div id='emailerr' class='err'></div>
                             <i class="error-icon fas fa-exclamation-circle" id="er1"></i>
                         </label> 
                             
                         <label class="spacingbet"> 
-                            <input required="" placeholder="Password" name="Password" type="password" class="input">
+                            <input required="" placeholder="Password" id="Password" name="Password" type="password" class="input">
                       
                             <div id='passerr' class='err'></div>
                             <i class="error-icon fas fa-exclamation-circle" id="er2"></i>
                         </label>
                         <label class="spacingbet">
-                            <input required="" placeholder="Confirm Password" name="Cpassword" type="password" class="input">
+                            <input required="" placeholder="Confirm Password" id="Cpassword" name="Cpassword" type="password" class="input">
                             <div id='cpasserr' class='err'></div>
                             <i class="error-icon fas fa-exclamation-circle" id="er3"></i>
                         </label>
-                        <button class="submit">Submit</button>
+                        <label for="accessibilityDropdown">Select Your Accessibility Condition:</label>
+                        <select id="accessibilityDropdown" name="accessibilityCondition">
+                            <option value="deaf">Deaf</option>
+                            <option value="blind">Blind</option>
+                            <option value="colourBlind">Colour Blind</option>
+                            <option value="adhd">ADHD</option>
+                        </select>
+                        <button class="submit" type="submit">Submit</button>
                         <p class="signin">Already have an acount ? <button class="signinbut" id="signinbut" type="button">Sign in</button></p>
                     </form>
 
@@ -91,23 +98,7 @@
                     </form>
                 </div>
             </div>
-            <div class="rightsection">
-                Find Jobs Through Your <b> Community
-            </div>
-            <div class="rightsectionbot">
-                Unlock a world of job opportunities by signing in to your account! 
-                We've curated a wide range of exciting job offers from various industries,
-                and to gain access to these exclusive opportunities,
-                all you need to do is log in to your account.
-                Your personalized dashboard awaits, 
-                where you can explore job listings tailored to your skills and preferences.
-                <!-- Don't miss out on potential career advancements –
-                signing in allows you to apply for jobs seamlessly, 
-                receive updates on the latest openings, 
-                and connect with employers actively seeking candidates like you.
-                Your dream job could be just a few clicks away, -->
-                so log in today and take the next step towards your professional journey!
-            </div>
+            
             
             <!-- <div class="regimg">
                 <img  id="img" class="regimg1" src="./img/reg1.png" alt="">
@@ -117,10 +108,23 @@
 
         <!-- <div><img src="./img/reg1.png" alt=""></div> -->
 
-
-
-
-
+    </div>
+    <div class="rightsection">
+        Find Jobs Through Your <b> Community
+    </div>
+    <div class="rightsectionbot">
+        Unlock a world of job opportunities by signing in to your account! 
+        We've curated a wide range of exciting job offers from various industries,
+        and to gain access to these exclusive opportunities,
+        all you need to do is log in to your account.
+        Your personalized dashboard awaits, 
+        where you can explore job listings tailored to your skills and preferences.
+        <!-- Don't miss out on potential career advancements –
+        signing in allows you to apply for jobs seamlessly, 
+        receive updates on the latest openings, 
+        and connect with employers actively seeking candidates like you.
+        Your dream job could be just a few clicks away, -->
+        so log in today and take the next step towards your professional journey!
     </div>
 
 
@@ -129,5 +133,11 @@
 
     
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity=
+  "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous">
+</script>
 <script src="./js/reg.js"></script>
 </html>

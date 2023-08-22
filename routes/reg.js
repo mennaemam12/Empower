@@ -1,14 +1,10 @@
-module.exports = router;
 const Router=require('express');
 const router=Router();
-// const registration=require("../controllers/login_controller.js")
+const registration=require("../controllers/registration.controller.js")
 const session = require('express-session');
 const mongoose=require('mongoose');
 const bodyparser=require('body-parser'); 
-require('../database/');
-const user = require('../database/schemas/user');
-var nodemailer = require('nodemailer');
-const bcrypt = require('bcrypt');
+const user = require('../models/User.schema.js');
 router.use(session({
     secret: 'your-secret-key',
     resave: false,
@@ -22,5 +18,7 @@ router.use(session({
   })
 
 
-router.post('/',registration);
+router.post('/',(req,res)=>
+{
+});
 module.exports = router;
