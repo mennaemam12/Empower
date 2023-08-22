@@ -164,39 +164,21 @@ $(document).ready(function () {
        method: 'POST',
        data: {Firstname:Firstname,Lastname:Lastname,email:email,pass:pass,accessibilityValue:accessibilityValue,page:"signup"},
 
-      //  success: function (response) {
-      //    if (response.result == "success") {
-      //      if(response.pending1==="waiting")
-      //      {
-      //         document.getElementById('container').style.display="none";
-      //         document.getElementById('outcontainer').style.display="block"
-
-      //      }
-      //      else if(response.pending1==="true")
-      //      {
-      //          sessionStorage.setItem('ongo', response.Role);
-      //          sessionStorage.setItem('username',response.UserName);
-      //          sessionStorage.setItem('Email',response.Email);
-      //          sessionStorage.setItem('Phone',response.Phone);
-      //          window.location.replace("/");
-               
-      //      }
-      //      else
-      //      {
-      //          console.log("not accepted by admin")
-      //      }
-      //    }
-      //    else
-      //    {
-      //      document.getElementById('nameErr').innerHTML=response.error1;
-      //      document.getElementById('er1').style.opacity='1';
-      //      document.getElementById('emailErr').innerHTML=response.error2;
-      //      document.getElementById('er2').style.opacity='1';
-      //    }
+       success: function (response) {
+         if (response.result == "success") {
+          
+               sessionStorage.setItem('ongo', "true");
+               sessionStorage.setItem('Email',response.Email);
+               window.location.replace("/");
+         }
+         else
+         {
+           document.getElementById('emailerr').innerHTML=response.error2;
+           document.getElementById('er1').style.opacity='1';
+         }
 
 
-         //document.querySelector('h1').innerHTML=response.data1;
-      //  },
+       },
        error: function (error) {
          console.error(error); // Log any errors that occurred
        },

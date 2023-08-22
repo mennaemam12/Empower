@@ -7,40 +7,38 @@ const Schema = mongoose.Schema;
 app.use(express.urlencoded({extended:true}));
 
 const UserSchema = new Schema ({
-    FirstName:{
+    Firstname:{
         type:String,
         trim:true,
         required:[true,'Name is required'],
     },
-    LastName:{
+    Lastname:{
         type:String,
-        required:[true,'Description is required'],
+        required:[true,'name is required'],
         trim:true
     },
-    Email:{
+    email:{
         type:String,
-        required:[true,'Disability is required'],
+        required:[true,'email is required'],
         trim:true
 
     },
-    Password:{
+    pass:{
         type:String,
-        required:[true,'Company is required'],
+        required:[true,'pass is required'],
         trim:true
     },
-    disability:{
+    accessibilityValue:{
         type:String,
-        required:[true,'skills are required'],
+        required:[true,'disabilities are required'],
         trim:true
     },
     Skills:{
         type:Array,
-        required:[true,'skills are required'],
         trim:true
     },
     Urls:{
         type:String,
-        required:[true,'Work place is required'],
         trim:true
     },
 },{timestamp:true});

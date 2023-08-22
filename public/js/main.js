@@ -1,3 +1,14 @@
+let ongo = sessionStorage.getItem('ongo');
+
+if(ongo == 'true'){
+   document.getElementById("changable").innerHTML="Jobs Applied"
+   document.getElementById("changable").setAttribute("href", "uploadResume");
+}
+
+
+
+
+
 (function ($) {
     "use strict";
 
@@ -78,4 +89,7 @@
     });
     
 })(jQuery);
+
+
+
 

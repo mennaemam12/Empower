@@ -17,23 +17,21 @@ let registration= async (req,res)=>
     // let{username_in,pass_in,page1}=req.body;
     if(page=="signup")
     {
-        // let user1=await user.find().where('username').equals(username);
-        // let user2=await user.find().where("email").equals(email);
-        // if(user1.length==0&&user2.length==0)
-        // {
+        let user2=await user.find().where("email").equals(email);
+        console.log(user2);
+        if(user2.length==0)
+        {
                       
-        //     const pass= await bcrypt.hash(pass1, 10);
-        //     user.create({username,email,phone,pass,Role,Pending});
-        //     res.send({result:"success",pending1:Pending,UserName:username,Email:email,
-        //     Phone:phone,Role:Role});
-        //     req.session.username =username;
-        //     req.session.save();
-        // }
-        // else
-        // {
-        //     res.send({error1:"Username is already taken",error2:"Email is already taken"});
-        // }
-        // user1=undefined; 
+            const pass1= await bcrypt.hash(pass, 10);
+            user.create({Firstname,Lastname,email,pass,accessibilityValue});
+             res.send({result:"success",Email:email});
+             req.session.email =email;
+             req.session.save();
+        }
+        else
+        {
+            res.send({error2:"Email is already taken"});
+        }
     }
     // else if(page1=="signin")
     // {
