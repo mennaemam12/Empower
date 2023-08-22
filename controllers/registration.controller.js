@@ -17,7 +17,6 @@ let registration= async (req,res)=>
     // let{username_in,pass_in,page1}=req.body;
     if(page=="signup")
     {
-      console.log("here1");
         // let user1=await user.find().where('username').equals(username);
         // let user2=await user.find().where("email").equals(email);
         // if(user1.length==0&&user2.length==0)
