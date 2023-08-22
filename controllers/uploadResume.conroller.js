@@ -6,7 +6,6 @@ const fs = require('fs');
 const Job = require('../models/jobs.schema.js');
 
 const getUploadResume=async function (req, res) {
-
     res.render("uploadResume");
 };
 
@@ -29,7 +28,7 @@ const filterJobs=async function (req, res){
         
         //var jobs=Jobs.toArray();
         const words = pdfText.toLowerCase().split(/\s+/);
-        var jobs= await Job.find()
+        await Job.find()
         .then((data)=>{
         const sortedData =data.map(job => {
             const keywords=job.Skills;
@@ -40,9 +39,9 @@ const filterJobs=async function (req, res){
                 return { job, matchingCount };
             }
           }).sort((a, b) => b.matchingCount - a.matchingCount);
-          
           console.log(sortedData);
-          //res.send(sortedData)
+          res.send(sortedData);
+        
         })
 
     } catch (error) {
