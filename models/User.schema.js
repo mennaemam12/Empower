@@ -38,8 +38,8 @@ const UserSchema = new Schema ({
         trim:true
     },
     Urls:{
-        type:String,
-        trim:true
+        type:Array,
+        trim:true   
     },
 },{timestamp:true});
 
