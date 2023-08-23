@@ -27,7 +27,11 @@
     "mongoose": "^7.4.3",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+<<<<<<< HEAD
     "start": "^5.1.0",
+=======
+    "pdf-parse": "^1.1.1",
+>>>>>>> bbc0fbcfb5bc2094bd03d85a1f80ed5011ffecb1
     "validator": "^13.11.0"
   }
 }
