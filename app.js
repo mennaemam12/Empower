@@ -10,6 +10,7 @@ const uploadResumeRoute = require("./routes/uploadResume.js");
 const reg = require("./routes/reg.js");
 
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());

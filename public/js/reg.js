@@ -162,7 +162,7 @@ $(document).ready(function () {
      $.ajax({
        url: '/reg',
        method: 'POST',
-       data: {Firstname:Firstname,Lastname:Lastname,email:email,pass:pass,accessibilityValue:accessibilityValue,page:"signup"},
+       data: {Firstname:Firstname,Lastname:Lastname,email:email,pass1:pass,accessibilityValue:accessibilityValue,page:"signup"},
 
        success: function (response) {
          if (response.result == "success") {
