@@ -41,9 +41,7 @@ let registration= async (req,res)=>
         {
          result=await bcrypt.compare(inpass, user1[0].pass);
         }
-      
-        
-        if(user1.length==0)
+        if(user1.length==0||result==false)
         {
             res.send({error1:"Email is incorrect",error2:"Password is incorrect"});
         }

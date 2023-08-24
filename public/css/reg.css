@@ -181,6 +181,10 @@
   {
     margin-bottom: 0%;
   }
+  .morespacing
+  {
+    margin-bottom: -5%;
+  }
   .form label .input:focus + span,.form label .input:valid + span {
     bottom: 54px;
     font-size: 0.7em;
@@ -277,6 +281,10 @@
   }
   #inemail
   {
-    margin-bottom: 5%;
+    margin-bottom: 0%;
     margin-top: 5%;
+  }
+  #semailerr
+  {
+    margin-bottom: 1%;
   }
