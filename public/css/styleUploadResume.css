@@ -107,6 +107,12 @@
      margin-left: 32%;
      margin-top: 3%;
   }
+
+  .disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    /* Additional styles to indicate that the element is disabled */
+  }
   
   
   

@@ -56,4 +56,8 @@ function calculateMatchingWordCount(sentence, words) {
     return matchingCount;
   }
 
-  module.exports={getUploadResume,saveResume,filterJobs};
+  const editResume=async function(req,res){
+
+  }
+
+  module.exports={getUploadResume,saveResume,filterJobs,editResume};

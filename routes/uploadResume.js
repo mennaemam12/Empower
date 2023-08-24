@@ -29,4 +29,6 @@ router.post('/',(req, res, next) => {
 
 router.post('/filter',uploadController.filterJobs)
 
+router.post('/edit',uploadController.editResume)
+
 module.exports = router;

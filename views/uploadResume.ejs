@@ -69,8 +69,8 @@
         <div class="main-container">
             <div class="upload-container">
                 <form id="upload-form" action="/uploadResume" method="post" enctype="multipart/form-data">
-                    <input type="file" id="resume-upload" name="resume" class="hidden">
                     <label for="resume-upload" class="upload-button" id="uploadLabel" >Upload Resume</label>
+                    <input type="file" id="resume-upload" name="resume" class="hidden">
                </form>  
             </div>
         <div>
@@ -79,8 +79,8 @@
                     <button id="openPopup">View Resume</button>
                 </div>
                 <div style="margin-left: 5%;">
-                    <form id="edit-form" action="" method="post" enctype="multipart/form-data">
-                        <input type="file" id="resume-edit" name="resume" class="hidden">
+                    <form id="edit-form" action="/uploadResume/edit" method="post" enctype="multipart/form-data">
+                        <input type="file" id="resume-edit" name="newResume" class="hidden">
                         <label for="resume-edit" id="edit-button" >Edit Resume</label>
                    </form>  
                 </div>
