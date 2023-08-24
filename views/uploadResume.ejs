@@ -79,7 +79,7 @@
                     <button id="openPopup">View Resume</button>
                 </div>
                 <div style="margin-left: 5%;">
-                    <form id="edit-form" method="post" action="/uploadResume/filter/edit"  enctype="multipart/form-data">
+                    <form id="edit-form" method="post" action="/uploadResume/edit"  enctype="multipart/form-data">
                         <input type="file" id="resume-edit" name="newResume" class="hidden">
                         <label for="resume-edit" id="edit-button" >Edit Resume</label>
                    </form>  
@@ -134,7 +134,21 @@
                     }
                   });
                 });
-              </script>
+
+
+                document.addEventListener("DOMContentLoaded", () => {
+                  const resumeUploadInput = document.getElementById("resume-edit");
+                  const uploadForm = document.getElementById("edit-form");
+              
+                  resumeUploadInput.addEventListener("change", () => {
+                    // Check if a file is selected
+                    if (resumeUploadInput.files.length > 0) {
+                      // Submit the form
+                      uploadForm.submit();
+                    }
+                  });
+                });
+            </script>
               
     
 </body>

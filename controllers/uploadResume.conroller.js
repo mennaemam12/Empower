@@ -21,7 +21,6 @@ const filterJobs=async function (req, res){
     const filePath ="public"+ req.body.Path;
     try {
         const dataBuffer = await pdf(fs.readFileSync(filePath));
-        console.log(dataBuffer);
         const pdfText = dataBuffer.text;
         
         
@@ -39,7 +38,6 @@ const filterJobs=async function (req, res){
                 return { job, matchingCount };
             }
           }).sort((a, b) => b.matchingCount - a.matchingCount);
-          console.log(sortedData);
           res.send(sortedData);
         
         })
