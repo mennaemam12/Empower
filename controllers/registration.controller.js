@@ -24,9 +24,11 @@ let registration= async (req,res)=>
                       
             const pass= await bcrypt.hash(pass1, 10);
             user.create({Firstname,Lastname,email,pass,accessibilityValue});
-             res.send({result:"success",Email:email});
              req.session.email =email;
+             let user1=await user.find().where('email').equals(email);
+             req.session.user=user1[0];
              req.session.save();
+             res.send({result:"success",Email:email});
         }
         else
         {
@@ -47,9 +49,10 @@ let registration= async (req,res)=>
         }
         else
         {
-             res.send({success:"success",email:user1[0].email});
              req.session.email = user1[0].email;
+             req.session.user=user1[0];
              req.session.save();
+             res.send({success:"success",email:user1[0].email});
         }
     }
    
