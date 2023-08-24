@@ -56,25 +56,5 @@ function calculateMatchingWordCount(sentence, words) {
     return matchingCount;
   }
 
-  const editResume=async function(req,res){
-    const oldPdfPath = path.join(uploadsDirectory, 'document.pdf');
 
-    fs.unlink(oldPdfPath, (err) => {
-      if (err && err.code !== 'ENOENT') {
-        console.error('Error deleting old PDF:', err);
-      }
-  
-      // Upload the new PDF
-      upload(req, res, (err) => {
-        if (err) {
-          console.error('Error uploading new PDF:', err);
-          return;
-        }
-        console.log('New PDF uploaded successfully');
-        res.redirect('/'); // Redirect to a success page or wherever needed
-      });
-    });
-
-  }
-
-  module.exports={getUploadResume,saveResume,filterJobs,editResume};
+  module.exports={getUploadResume,saveResume,filterJobs};

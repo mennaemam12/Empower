@@ -29,6 +29,20 @@ router.post('/',(req, res, next) => {
 
 router.post('/filter',uploadController.filterJobs)
 
-router.post('/edit',uploadController.editResume)
+router.post('/edit',async(req,res)=>{
+  console,log("menna");
+      const oldPdfPath = path.join(__dirname, 'public', 'uploads', req.session.email.indexOf("@")+" resume"+'.pdf');
+
+      fs.unlink(oldPdfPath, (err) => {
+        if (err && err.code !== 'ENOENT') {
+          console.error('Error deleting old PDF:', err);
+        }
+
+        // Upload the new PDF
+        upload.single('newResume');
+          res.redirect('/uploadResume'); // Redirect to a success page or wherever needed
+
+      });
+})
 
 module.exports = router;
