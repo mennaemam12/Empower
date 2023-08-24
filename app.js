@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const logger=require("morgan");
 const mongoose=require("mongoose")
 const path = require('path');
+const session = require("express-session");
 
 const indexRoute = require("./routes/indexRoute.js");
 const uploadResumeRoute = require("./routes/uploadResume.js");
@@ -16,6 +17,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static("public"));
+
+app.use(
+  session({
+    name: `daffyduck`,
+    secret: "session",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 app.set("view engine", "ejs");
 app.use(logger("dev"));

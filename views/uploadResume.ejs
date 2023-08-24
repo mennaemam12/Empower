@@ -48,6 +48,11 @@
         <!-- Navbar End -->
         
         <!-- Header Start -->
+        <% if(email!="") {%>
+            <p id="email" style="display: none;"><%=email%></p>
+         <% }else{ %>
+            <p id="email" style="display: none;">none</p>
+            <% } %>
         <div class="container-xxl py-5 bg-dark page-header mb-5">
             <div class="container my-5 pt-5 pb-4">
                 <h1 class="display-3 text-white mb-3 animated slideInDown">Upload Resume</h1>

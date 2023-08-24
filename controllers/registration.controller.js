@@ -1,14 +1,9 @@
 const Router=require('express');
 const router=Router();
-const session = require('express-session');
 const mongoose=require('mongoose');
 const user = require('../models/User.schema');
 const bcrypt = require('bcrypt');
-router.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: false
-  }));
+
 
 let errornum=3;
 let registration= async (req,res)=>
@@ -27,6 +22,7 @@ let registration= async (req,res)=>
              req.session.email =email;
              let user1=await user.find().where('email').equals(email);
              req.session.user=user1[0];
+             req.session.authenticated=true;
              req.session.save();
              res.send({result:"success",Email:email});
         }
@@ -51,6 +47,7 @@ let registration= async (req,res)=>
         {
              req.session.email = user1[0].email;
              req.session.user=user1[0];
+             req.session.authenticated=true;
              req.session.save();
              res.send({success:"success",email:user1[0].email});
         }

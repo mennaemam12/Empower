@@ -3,14 +3,19 @@ const editButton = document.getElementById('edit-button');
 const closePopupButton = document.getElementById('closePopup');
 const pdfPopup = document.getElementById('pdfPopup');
 const pdfFrame = document.getElementById('pdfFrame');
-const pdfUrl = '/uploads/resume.pdf'; // Replace with actual URL 
+const email=document.getElementById("email");
+const fileName=email.innerHTML.substring(0, email.innerHTML.indexOf("@"))
+const pdfUrl = `/uploads/${fileName} resume.pdf`; // Replace with actual URL 
 
+
+if(email.innerHTML!="none"){
 fetch(pdfUrl)
   .then(response => {
     if (response.ok) {
       openPopupButton.style.display = 'block';
       editButton.style.display = 'block';
       document.getElementById("uploadLabel").innerHTML="Resume Uploaded";
+      document.getElementById("uploadLabel").disabled=true;
       pdfToText();
     } else {
       openPopupButton.style.display = 'none';
@@ -20,6 +25,11 @@ fetch(pdfUrl)
   .catch(error => {
     console.error('Error checking PDF availability:', error);
   });
+}
+else{
+  openPopupButton.style.display = 'none';
+  editButton.style.display = 'none';
+}
 
 openPopupButton.addEventListener('click', () => {
   pdfFrame.src = pdfUrl;
