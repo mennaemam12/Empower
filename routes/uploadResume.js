@@ -29,8 +29,6 @@ router.post('/',(req, res, next) => {
     next();}, upload.single('resume'),uploadController.saveResume);
 
 router.post('/filter',uploadController.filterJobs)
-<<<<<<< HEAD
-=======
 
 router.post('/edit',async(req,res)=>{
       
@@ -55,5 +53,4 @@ router.post('/edit',async(req,res)=>{
       });
 })
 
->>>>>>> 24e30e5f0cfd23bb7fd3e52d7c63bac28b7ae7f8
 module.exports = router;

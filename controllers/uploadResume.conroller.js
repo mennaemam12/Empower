@@ -41,12 +41,7 @@ const filterJobs=async function (req, res){
                 return { job, matchingCount };
             }
           }).sort((a, b) => b.matchingCount - a.matchingCount);
-<<<<<<< HEAD
           res.send({ success: true, sortedData: sortedData, Applied: appliedJobIds });
-=======
-          res.send(sortedData);
->>>>>>> 24e30e5f0cfd23bb7fd3e52d7c63bac28b7ae7f8
-        
         })
 
     } catch (error) {
