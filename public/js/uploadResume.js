@@ -15,7 +15,7 @@ fetch(pdfUrl)
       openPopupButton.style.display = 'block';
       editButton.style.display = 'block';
       document.getElementById("uploadLabel").innerHTML="Resume Uploaded";
-      document.getElementById("uploadLabel").disabled=true;
+      document.getElementById("uploadLabel").classList.add('disabled');
       pdfToText();
     } else {
       openPopupButton.style.display = 'none';

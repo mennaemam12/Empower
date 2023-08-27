@@ -68,9 +68,9 @@
 
         <div class="main-container">
             <div class="upload-container">
-                <form id="upload-form" action="/uploadResume" method="post" enctype="multipart/form-data">
-                    <input type="file" id="resume-upload" name="resume" class="hidden">
+                <form id="upload-form" method="post" action="/uploadResume"  enctype="multipart/form-data">
                     <label for="resume-upload" class="upload-button" id="uploadLabel" >Upload Resume</label>
+                    <input type="file" id="resume-upload" name="resume" class="hidden">
                </form>  
             </div>
         <div>
@@ -79,8 +79,8 @@
                     <button id="openPopup">View Resume</button>
                 </div>
                 <div style="margin-left: 5%;">
-                    <form id="edit-form" action="" method="post" enctype="multipart/form-data">
-                        <input type="file" id="resume-edit" name="resume" class="hidden">
+                    <form id="edit-form" method="post" action="/uploadResume/edit"  enctype="multipart/form-data">
+                        <input type="file" id="resume-edit" name="newResume" class="hidden">
                         <label for="resume-edit" id="edit-button" >Edit Resume</label>
                    </form>  
                 </div>
@@ -134,7 +134,21 @@
                     }
                   });
                 });
-              </script>
+
+
+                document.addEventListener("DOMContentLoaded", () => {
+                  const resumeUploadInput = document.getElementById("resume-edit");
+                  const uploadForm = document.getElementById("edit-form");
+              
+                  resumeUploadInput.addEventListener("change", () => {
+                    // Check if a file is selected
+                    if (resumeUploadInput.files.length > 0) {
+                      // Submit the form
+                      uploadForm.submit();
+                    }
+                  });
+                });
+            </script>
               
     
 </body>
