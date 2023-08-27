@@ -28,5 +28,4 @@ router.post('/',(req, res, next) => {
     next();}, upload.single('resume'),uploadController.saveResume);
 
 router.post('/filter',uploadController.filterJobs)
-
 module.exports = router;

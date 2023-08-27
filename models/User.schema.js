@@ -41,6 +41,18 @@ const UserSchema = new Schema ({
         type:Array,
         trim:true   
     },
+    NationalID:{
+        type:String,
+        trim:true
+    },
+    Appliedjobs:{
+        type:Array,
+        trim:true
+    },
+    HRmessage:{
+        type:String,
+        trim:true
+    }
 },{timestamp:true});
 
 const jobs= mongoose.model('User',UserSchema);

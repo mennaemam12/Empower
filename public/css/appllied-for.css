@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    font-family: "Heebo",sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #666565;
+    background-color: #EFFDF5;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.main-container {
+    height: 900px;
+}
+.job-item {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+.disabled-button {
+    cursor: not-allowed;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .expand-icon {
+    cursor: pointer;
+}
+
+.expanded-content {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+.comment-icon {
+    font-size: 24px; /* Adjust the size as needed */
+    color: #007bff; /* Adjust the color to match your design */
+    cursor: pointer;
+}

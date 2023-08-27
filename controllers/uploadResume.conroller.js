@@ -4,6 +4,7 @@ const pdf = require('pdf-parse');
 const fs = require('fs');
 
 const Job = require('../models/jobs.schema.js');
+const Users=require('../models/User.schema.js')
 
 const getUploadResume=async function (req, res) {
     res.render("uploadResume",{email:(req.session.authenticated)?req.session.email:""});
@@ -20,6 +21,8 @@ const filterJobs=async function (req, res){
     console.log(req.Path);
     const filePath ="public"+ req.body.Path;
     try {
+        const usersWithAppliedJobs = await Users.find({}, 'Appliedjobs');
+        const appliedJobIds = usersWithAppliedJobs.flatMap(user => user.Appliedjobs);
         const dataBuffer = await pdf(fs.readFileSync(filePath));
         console.log(dataBuffer);
         const pdfText = dataBuffer.text;
@@ -39,8 +42,7 @@ const filterJobs=async function (req, res){
                 return { job, matchingCount };
             }
           }).sort((a, b) => b.matchingCount - a.matchingCount);
-          console.log(sortedData);
-          res.send(sortedData);
+          res.send({ success: true, sortedData: sortedData, Applied: appliedJobIds });
         
         })
 
@@ -55,5 +57,6 @@ function calculateMatchingWordCount(sentence, words) {
     const matchingCount = sentenceWords.filter(word => words.includes(word)).length;
     return matchingCount;
   }
+
 
   module.exports={getUploadResume,saveResume,filterJobs};

@@ -6,9 +6,11 @@ const getIndex=async function (req, res) {
     var Jobs;
 
     Jobs=await Job.find();
-    console.log(Jobs);
-
     res.render("index",{jobs:Jobs});
   };
 
-  module.exports={getIndex};
+  const getJobDetails = async(req, res) => {
+      var jobDetails= await Job.findById(req.params.id);
+      res.render('job-detail', {jobDetails});
+    };  
+  module.exports={getIndex,getJobDetails};
