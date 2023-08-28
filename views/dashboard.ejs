@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <div id="sidebar">
+        <div class="header">Admin Dashboard</div>
+        <a class="nav-link" href="#">Dashboard</a>
+        <a class="nav-link" href="#">Job Listings</a>
+        <a class="nav-link" href="#">Applicants</a>
+        <a class="nav-link" href="#">Settings</a>
+        <a class="nav-link" href="#">Logout</a>
+    </div>
+    <div id="welcome-content">
+            <h1>Applicant Filtering</h1>
+        <div class="filter-section">
+        <h2>Filter Applicants</h2>
+        <div style="display: flex;">
+            <div>
+                <label for="job-select">Select Job:</label>
+                <select id="job-select" name="job">
+                    <option value="">select job</option>
+                    <% if(jobs!==undefined){ %>
+                        <% jobs.forEach(job=>{%>
+                          <option value=<%=job.Name%>><%=job.Name%></option>
+                    <% }) %>
+                    <% } %>
+                    <!-- Add more job options here -->
+                </select>
+            </div>
+            
+            <div style="margin-left: 50px;">
+                <label for="company-select">Select Company:</label>
+                <select id="company-select" name="company" placeholder="company">
+                    <option value="">select company</option>
+                    <% if(jobs!==undefined){ %>
+                        <% jobs.forEach(job=>{%>
+                            <option value=<%=job.Company%>><%=job.Company%></option>
+                    <% }) %>
+                    <% } %>
+                    <!-- Add more job options here -->
+                </select>
+            </div>
+            <div style="margin-left: 90px; width: 100px;">
+                <button id="filter-button">Filter</button>
+            </div>
+        </div>
+        </div>
+        <div id="applicant-list">
+            
+        </div>
+    </div>
+    <script src="/js/hr-filtering.js"></script>
+</body>
+</html>

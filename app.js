@@ -9,6 +9,8 @@ const indexRoute = require("./routes/indexRoute.js");
 const uploadResumeRoute = require("./routes/uploadResume.js");
 const reg = require("./routes/reg.js");
 const appliedfor=require("./routes/applied-for");
+const dashboard=require("./routes/dashboard.js");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -42,4 +44,6 @@ app.use("/", indexRoute);
 app.use("/uploadResume",uploadResumeRoute);
 app.use("/reg",reg);
 app.use("/appliedfor",appliedfor);
+app.use("/dashboard",dashboard);
+
 module.exports= app;

@@ -23,6 +23,7 @@ const filterJobs=async function (req, res){
     try {
         const usersWithAppliedJobs = await Users.find({}, 'Appliedjobs');
         const appliedJobIds = usersWithAppliedJobs.flatMap(user => user.Appliedjobs);
+        console.log(appliedJobIds);
         const dataBuffer = await pdf(fs.readFileSync(filePath));
         const pdfText = dataBuffer.text;
         
