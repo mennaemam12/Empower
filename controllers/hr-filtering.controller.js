@@ -54,7 +54,7 @@ const filter=async function(req,res){
             }
         }
         }).sort((a, b) => b.matchingCount - a.matchingCount);
-        res.render("dashboard",{sortedData:sortedData,job:chosenJob.Name,company:chosenJob.Company});
+        res.render("dashboard",{jobs:jobs,sortedData:sortedData,job:chosenJob.Name,company:chosenJob.Company});
             
 }
     

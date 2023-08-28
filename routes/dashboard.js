@@ -7,7 +7,7 @@ router.use(bodyParser.json());
 
 router.get("/",async (req,res)=>{
     const jobs=await Job.find();
-    res.render("dashboard",{jobs});
+    res.render("dashboard",{jobs:jobs,sortedData:"",job:"",company:""});
 })
 
 router.post("/select",filtering.select);
