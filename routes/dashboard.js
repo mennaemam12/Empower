@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 const Job = require('../models/jobs.schema.js')
+const filtering=require('../controllers/hr-filtering.controller');
 router.use(bodyParser.json());
 
 router.get("/",async (req,res)=>{
@@ -9,6 +10,9 @@ router.get("/",async (req,res)=>{
     res.render("dashboard",{jobs});
 })
 
-router.post("/select",)
+router.post("/select",filtering.select);
+router.post("/filter",filtering.filter);
+
+
 
 module.exports = router;

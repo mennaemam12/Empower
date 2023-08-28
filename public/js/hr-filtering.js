@@ -10,18 +10,16 @@ document.addEventListener("DOMContentLoaded", function() {
         method: "POST",
         data: { job: selectedJob,filterJob:true},
         success: function (companies) {
-            const jobSelect = $("#job-select");
-            jobSelect.empty();
-            jobSelect.append($('<option>', {
-                value: "",
-                text: "select job"
-              }));
-            $.each(companies, function(index, option) {
-                jobSelect.append($('<option>', {
-                  value: option.value,
-                  text: option.text
+            const compSelect = $("#company-select");
+            compSelect.empty();
+     
+            for (let i = 0; i < companies.length; i++) {
+                const companyName = companies[i];
+                compSelect.append($('<option>', {
+                  value: companyName,
+                  text: companyName
                 }));
-            });
+            }
         },
         error: function (err) {
             console.log(err);
@@ -37,18 +35,17 @@ document.addEventListener("DOMContentLoaded", function() {
         method: "POST",
         data: { company: selectedCompany,filterJob:false},
         success: function (jobs) {
-            const compSelect = $("#company-select");
-            compSelect.empty();
-            compSelect.append($('<option>', {
-                value: "",
-                text: "select company"
-              }));
-            $.each(jobs, function(index, option) {
+            console.log(jobs);
+            const jobSelect = $("#job-select");
+            jobSelect.empty();
+
+            for (let j = 0; j < jobs.length; j++) {
+                const jobName = jobs[j];
                 jobSelect.append($('<option>', {
-                  value: option.value,
-                  text: option.text
+                  value: jobName,
+                  text: jobName
                 }));
-            });
+            }
         },
         error: function (err) {
             console.log(err);

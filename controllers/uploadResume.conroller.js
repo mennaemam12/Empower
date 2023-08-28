@@ -27,9 +27,6 @@ const filterJobs=async function (req, res){
         const dataBuffer = await pdf(fs.readFileSync(filePath));
         const pdfText = dataBuffer.text;
         
-        
-        
-        //var jobs=Jobs.toArray();
         const words = pdfText.toLowerCase().split(/\s+/);
         await Job.find()
         .then((data)=>{
@@ -55,7 +52,7 @@ function calculateMatchingWordCount(sentence, words) {
      const sentenceWords = sentence.toLowerCase().split(/\s+/);
     const matchingCount = sentenceWords.filter(word => words.includes(word)).length;
     return matchingCount;
-  }
+}
 
 
   module.exports={getUploadResume,saveResume,filterJobs};

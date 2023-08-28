@@ -22,34 +22,34 @@
         <div class="filter-section">
         <h2>Filter Applicants</h2>
         <div style="display: flex;">
-            <div>
-                <label for="job-select">Select Job:</label>
-                <select id="job-select" name="job">
-                    <option value="">select job</option>
-                    <% if(jobs!==undefined){ %>
-                        <% jobs.forEach(job=>{%>
-                          <option value=<%=job.Name%>><%=job.Name%></option>
-                    <% }) %>
-                    <% } %>
-                    <!-- Add more job options here -->
-                </select>
-            </div>
-            
-            <div style="margin-left: 50px;">
-                <label for="company-select">Select Company:</label>
-                <select id="company-select" name="company" placeholder="company">
-                    <option value="">select company</option>
-                    <% if(jobs!==undefined){ %>
-                        <% jobs.forEach(job=>{%>
-                            <option value=<%=job.Company%>><%=job.Company%></option>
-                    <% }) %>
-                    <% } %>
-                    <!-- Add more job options here -->
-                </select>
-            </div>
-            <div style="margin-left: 90px; width: 100px;">
-                <button id="filter-button">Filter</button>
-            </div>
+            <form action="/dashboard/filter" method="post"></form>
+                <div>
+                    <label for="job-select">Select Job:</label>
+                    <select id="job-select" name="job">
+                        <option value="">select job</option>
+                        <% if(jobs!==undefined){ %>
+                            <% jobs.forEach(job=>{%>
+                            <option value=<%=job.Name%>><%=job.Name%></option>
+                        <% }) %>
+                        <% } %>
+                    </select>
+                </div>
+                
+                <div style="margin-left: 50px;">
+                    <label for="company-select">Select Company:</label>
+                    <select id="company-select" name="company" >
+                        <option value="">select company</option>
+                        <% if(jobs!==undefined){ %>
+                            <% jobs.forEach(job=>{%>
+                                <option value=<%=job.Company%> ><%=job.Company%></option>
+                        <% }) %>
+                        <% } %>
+                    </select>
+                </div>
+                <div style="margin-left: 90px; width: 100px;">
+                    <button id="filter-button" type="submit">Filter</button>
+                </div>
+            </form>
         </div>
         </div>
         <div id="applicant-list">
