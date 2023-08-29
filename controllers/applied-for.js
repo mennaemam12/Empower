@@ -5,7 +5,7 @@ const User=require('../models/User.schema.js');
  
 const getapplied= async (req,res)=>
 {
-    const Applied= await User.find({}, 'Appliedjobs');
+    const Applied= await User.find({}, 'Appliedjobs').where('_id').equals(req.session.user._id);
     const appliedJobIds = Applied.flatMap(user => user.Appliedjobs);
     const getjobs = await Job.find().where('_id').equals(appliedJobIds);
     res.render("applied-for",{getjobs});
