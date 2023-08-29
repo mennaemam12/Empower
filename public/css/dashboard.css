@@ -71,14 +71,101 @@ body {
     width: 100px;
   }
   
-  #applicant-list {
+  .applicant-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px;
+  }
+  
+  /* Style for each applicant card */
+  .applicant {
     background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .applicant h4 {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #333333;
+  }
+  
+  .applicant h4:first-child {
+    font-size: 1.5rem;
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    margin-left: 5%;
-    height:400px;
-    width:900px;
-    /* Applicant list styles */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width:90%;
+    min-height:90%;
+    overflow: auto;
+   
   }
+
+  #resume-iframe {
+    width: 100%;
+    height: 520px;
+    margin-top:20px;
+    border: none;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .view-resume-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #2a3766;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .view-resume-button:hover {
+    background-color: #4c5b91;
+    transform: scale(1.05);
+  }
+  
+  .view-resume-button:active {
+    background-color: #4c5b91;
+    transform: scale(1);
+  }
+  
+  
+  
+  
+  

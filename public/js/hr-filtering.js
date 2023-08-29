@@ -61,6 +61,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  function openResumePopup(resumeUrl) {
+    const popup = document.getElementById("resume-popup");
+    const iframe = document.getElementById("resume-iframe");
+    iframe.src = resumeUrl;
+    popup.style.display = "block";
+  }
+  
+  function closeResumePopup() {
+    const popup = document.getElementById("resume-popup");
+    const iframe = document.getElementById("resume-iframe");
+    iframe.src = "";
+    popup.style.display = "none";
+  }
+
  
  
   

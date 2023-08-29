@@ -54,19 +54,30 @@
         </div>
         
         <% if(sortedData!=""){%>
-            <div id="applicant-list">
+            <div id="applicant-list" class="applicant-list">
                 <%for(var k=0;k<sortedData.length;k++){%>
-                    <div id="user" >
-                        <h4><%=k+1%>-</h4>
+                    <div id="user" class="applicant" >
+                        <h4 style="float:left;"><%=k+1%>-</h4>
                         <h4>Name: <%=sortedData[k].user.Firstname%> <%=sortedData[k].user.Lastname%></h4>
                         <h4>Email: <%=sortedData[k].user.email%></h4>
-                        <h4>Disability: <%=sortedData[k].user.accessibilityValue %></h4>         
+                        <h4>Disability: <%=sortedData[k].user.accessibilityValue %></h4>
+                        <%var fileName=sortedData[k].user.email.substring(0, sortedData[k].user.email.indexOf("@")); %>
+                        <a href="#" class="view-resume-button" 
+                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Resume</a>        
                     </div>
                 <%}%>
             </div>
         <% } %>
-        
     </div>
+
+    <div id="resume-popup" class="popup">
+        <div class="popup-content">
+        <span class="close-button" onclick="closeResumePopup()">&times;</span>
+        <iframe id="resume-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+
     <script src="/js/hr-filtering.js"></script>
 </body>
 </html>
