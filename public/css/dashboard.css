@@ -11,7 +11,7 @@ body {
     background-color: #2a3766;
     color: #ffffff;
     padding-top: 20px;
-    height: 100vh;
+    height: 1000px;
   }
 
   #sidebar a{
@@ -72,7 +72,13 @@ body {
   }
   
   #applicant-list {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    margin-left: 10%;
+    margin-left: 5%;
+    height:400px;
+    width:900px;
     /* Applicant list styles */
   }

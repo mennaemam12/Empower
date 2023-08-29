@@ -52,4 +52,19 @@ document.addEventListener("DOMContentLoaded", function() {
           },
         });
     });
+
+    const submitButton = document.getElementById("filter-button");
+    const form = document.getElementById("myForm");
+  
+    submitButton.addEventListener("click", function() {
+      form.submit();
+    });
   });
+
+ 
+ 
+  
+  
+  
+  
+  

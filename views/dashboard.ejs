@@ -22,7 +22,7 @@
         <div class="filter-section">
         <h2>Filter Applicants</h2>
         <div style="display: flex;">
-            <form action="/dashboard/filter" method="post"></form>
+            <form id="myForm" action="dashboard/filter" method="post"></form>
                 <div>
                     <label for="job-select">Select Job:</label>
                     <select id="job-select" name="job">
@@ -52,9 +52,29 @@
             </form>
         </div>
         </div>
-        <div id="applicant-list">
-            
-        </div>
+        
+        <% if(sortedData!=""){%>
+            <div id="applicant-list"></div>
+                <% var i=0; %>
+                <% sortedData.forEach(data=>{%>
+                    <div id="user" style="display: flex;">
+                        <div>
+                            <h4><%=i%>-</h4>
+                        </div>
+                        <div>
+                            <h4>Name: <%=data.user.Firstname%> <%=data.user.Lastname%></h4>
+                        </div>
+                        <div>
+                            <h4>Email: <%=data.user.email%></h4>
+                        </div>
+                        <div>
+                            <h4>Disability: <%=data.user.accessibilityValue %></h4>
+                        </div>
+                    </div>
+                <%})%>
+            </div>
+        <% } %>
+        
     </div>
     <script src="/js/hr-filtering.js"></script>
 </body>

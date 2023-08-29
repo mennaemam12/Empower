@@ -1,5 +1,8 @@
 const Job = require('../models/jobs.schema.js')
 const Users=require('../models/User.schema.js')
+const path = require('path');
+const pdf = require('pdf-parse');
+const fs = require('fs');
 
 const select=async function(req,res){
     const jobs=await Job.find();
@@ -38,13 +41,15 @@ const filter=async function(req,res){
     })
 
     const sortedData =users.map(async user => {
-        const fileName=user.email.innerHTML.substring(0, user.email.innerHTML.indexOf("@"));
-        const filePath = `public/uploads/${fileName} resume.pdf`; 
-        const dataBuffer = await pdf(fs.readFileSync(filePath));
-        const pdfText = dataBuffer.text;
-        const words = pdfText.toLowerCase().split(/\s+/);
-
+        
         if(user.Appliedjobs.includes(jobid)){
+            const fileName=user.email.substring(0, user.email.indexOf("@"));
+            const filePath = `public/uploads/${fileName} resume.pdf`; 
+            const dataBuffer = await pdf(fs.readFileSync(filePath));
+            const pdfText = dataBuffer.text;
+            const words = pdfText.toLowerCase().split(/\s+/);
+
+
             const keywords=chosenJob.Skills;
             const matchingCount = keywords.reduce((total,sentence ) => {
                 return total + calculateMatchingWordCount(sentence, words);
