@@ -21,7 +21,7 @@ const filterJobs=async function (req, res){
     console.log(req.Path);
     const filePath ="public"+ req.body.Path;
     try {
-        const usersWithAppliedJobs = await Users.find({}, 'Appliedjobs');
+        const usersWithAppliedJobs = await Users.find({}, 'Appliedjobs').where('email').equals(req.session.email)
         const appliedJobIds = usersWithAppliedJobs.flatMap(user => user.Appliedjobs);
         console.log(appliedJobIds);
         const dataBuffer = await pdf(fs.readFileSync(filePath));

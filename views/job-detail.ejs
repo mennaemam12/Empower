@@ -192,9 +192,8 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/wow/wow.min.js"></script>
     <script src="/lib/easing/easing.min.js"></script>
@@ -204,8 +203,8 @@
     <!-- Template Javascript -->
     <script src="/js/main.js"></script>
     <script>
-   $(".apply-button").click(function (event) {
-  event.preventDefault(); // Prevent default form submission behavior
+$(".apply-button").click(function (event) {
+  event.preventDefault();
   const jobId = $(this).data("jobid");
   const button = $(this);
 
@@ -229,10 +228,10 @@ function applyForJob(jobId, button) {
       button.text("Applied");
       button.attr("disabled", true);
 
-      // Store the applied job ID in local storage
-      const appliedJobIds = JSON.parse(localStorage.getItem("appliedJobIds")) || [];
+      // Store the applied job ID in session storage
+      const appliedJobIds = JSON.parse(sessionStorage.getItem("appliedJobIds")) || [];
       appliedJobIds.push(jobId);
-      localStorage.setItem("appliedJobIds", JSON.stringify(appliedJobIds));
+      sessionStorage.setItem("appliedJobIds", JSON.stringify(appliedJobIds));
     },
     error: function (err) {
       console.log("Error submitting application:", err);
@@ -240,9 +239,8 @@ function applyForJob(jobId, button) {
   });
 }
 
-// When the page loads, retrieve applied job IDs from local storage and update buttons
 $(document).ready(function () {
-  const appliedJobIds = JSON.parse(localStorage.getItem("appliedJobIds")) || [];
+  const appliedJobIds = JSON.parse(sessionStorage.getItem("appliedJobIds")) || [];
 
   $(".apply-button").each(function () {
     const jobId = $(this).data("jobid");
@@ -252,7 +250,7 @@ $(document).ready(function () {
   });
 });
 
-    </script>
+</script>
 </body>
 
 </html>

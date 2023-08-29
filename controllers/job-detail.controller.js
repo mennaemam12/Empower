@@ -17,9 +17,8 @@ const btnId=async function (req, res){
       }
       user.Appliedjobs.push(jobId);
       await user.save();
-      
-  
-      res.json({ message: 'Job application saved successfully' });
+      const appliedJobIds = await Users.find({ email: req.session.email }, 'Appliedjobs');
+      res.json({ success: true, appliedJobIds });
     }
     catch (error) {
         console.error('Error applying for job:', error);
