@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -21,8 +21,8 @@
             <h1>Applicant Filtering</h1>
         <div class="filter-section">
         <h2>Filter Applicants</h2>
-        <div style="display: flex;">
-            <form id="myForm" action="dashboard/filter" method="post"></form>
+        <div >
+            <form id="myForm" action="dashboard/filter" method="post" style="display: flex;">
                 <div>
                     <label for="job-select">Select Job:</label>
                     <select id="job-select" name="job">
@@ -54,24 +54,15 @@
         </div>
         
         <% if(sortedData!=""){%>
-            <div id="applicant-list"></div>
-                <% var i=0; %>
-                <% sortedData.forEach(data=>{%>
-                    <div id="user" style="display: flex;">
-                        <div>
-                            <h4><%=i%>-</h4>
-                        </div>
-                        <div>
-                            <h4>Name: <%=data.user.Firstname%> <%=data.user.Lastname%></h4>
-                        </div>
-                        <div>
-                            <h4>Email: <%=data.user.email%></h4>
-                        </div>
-                        <div>
-                            <h4>Disability: <%=data.user.accessibilityValue %></h4>
-                        </div>
+            <div id="applicant-list">
+                <%for(var k=0;k<sortedData.length;k++){%>
+                    <div id="user" >
+                        <h4><%=k+1%>-</h4>
+                        <h4>Name: <%=sortedData[k].user.Firstname%> <%=sortedData[k].user.Lastname%></h4>
+                        <h4>Email: <%=sortedData[k].user.email%></h4>
+                        <h4>Disability: <%=sortedData[k].user.accessibilityValue %></h4>         
                     </div>
-                <%})%>
+                <%}%>
             </div>
         <% } %>
         

@@ -34,14 +34,13 @@ const filter=async function(req,res){
     var jobid="";
     var chosenJob="";
     jobs.forEach(job=>{
-        if(job.Name===req.body.job && job.Company===req.body.company){
+        if(job.Name.includes(req.body.job) && job.Company.includes(req.body.company)){
             jobid=job._id;
             chosenJob=job;
         }
     })
-
-    const sortedData =users.map(async user => {
-        
+    console.log("jobid:  "+jobid);
+    const sortedData =await Promise.all(users.map(async user => {
         if(user.Appliedjobs.includes(jobid)){
             const fileName=user.email.substring(0, user.email.indexOf("@"));
             const filePath = `public/uploads/${fileName} resume.pdf`; 
@@ -58,8 +57,12 @@ const filter=async function(req,res){
                 return { user, matchingCount };
             }
         }
-        }).sort((a, b) => b.matchingCount - a.matchingCount);
-        res.render("dashboard",{jobs:jobs,sortedData:sortedData,job:chosenJob.Name,company:chosenJob.Company});
+        }));
+      
+
+        const filteredSortedData = sortedData.filter(data => data);
+        filteredSortedData.sort((a, b) => b.matchingCount - a.matchingCount);
+        res.render("dashboard",{jobs:jobs,sortedData:filteredSortedData,job:chosenJob.Name,company:chosenJob.Company});
             
 }
     
