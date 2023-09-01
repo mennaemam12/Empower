@@ -42,22 +42,68 @@ const filter=async function(req,res){
     console.log("jobid:  "+jobid);
     const sortedData =await Promise.all(users.map(async user => {
         if(user.Appliedjobs.includes(jobid)){
+
             const fileName=user.email.substring(0, user.email.indexOf("@"));
             const filePath = `public/uploads/${fileName} resume.pdf`; 
             const dataBuffer = await pdf(fs.readFileSync(filePath));
             const pdfText = dataBuffer.text;
             const words = pdfText.toLowerCase().split(/\s+/);
 
+            const userDisability=user.accessibilityValue.toLowerCase();
+            var userPosition;
+            
+            
+            const seniorPositionKeywords = [
+                'manager', 'director', 'supervisor', 'leader', 'head',
+                'chief', 'executive', 'president', 'vice president'
+            ];
+            const juniorPositionKeywords=[
+                'junior','entry-level','trainee','intern','assistant','associate','coordinator',
+                'analyst','apprentice','graduate'
+            ];
+            const managerPositions = seniorPositionKeywords.filter(keyword =>
+                pdfText.toLowerCase().includes(keyword)
+            );
+            const juniorPositions = juniorPositionKeywords.filter(keyword =>
+                pdfText.toLowerCase().includes(keyword)
+            );
+            if(managerPositions.length>juniorPositions.length){
+                userPosition="senior";  
+            }
+            else{
+                userPosition="junior";
+            }
+          
 
+            const jobDisabilities = chosenJob.Disability.toLowerCase();
+            const jobPosition = chosenJob.Position.toLowerCase();
+    
+            const matchingDisabilities = jobDisabilities.includes(userDisability) ? 1 : 0;
+            const matchingPosition = (jobPosition === userPosition)? 1 : 0;
             const keywords=chosenJob.Skills;
+
             const matchingCount = keywords.reduce((total,sentence ) => {
                 return total + calculateMatchingWordCount(sentence, words);
-            }, 0);
-            if(matchingCount!=0){
-                return { user, matchingCount };
-            }
+              }, 0);
+             
+            var matching;
+
+              if(matchingCount>30)
+                matching=5;
+              else if(matchingCount>20)
+                matching=4
+              else if(matchingCount>10)
+                matching=3;
+              else if(matchingCount==0)
+                matching=0;
+              else
+                matching=1;
+        
+              const totalMatchingScore = matchingDisabilities * 20 + matchingPosition * 10 + matching;
+              return {user, matchingScore: totalMatchingScore };
         }
-        }));
+        }))
+       
       
 
         const filteredSortedData = sortedData.filter(data => data);
