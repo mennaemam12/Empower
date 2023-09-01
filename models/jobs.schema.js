@@ -47,6 +47,11 @@ const jobSchema = new Schema ({
         type:Array,
         required:[true,'skills are required'],
         trim:true
+    },
+    Position:{
+        type:String,
+        required:[true,'Position is required'],
+        trim:true
     }
 
 },{timestamp:true});
