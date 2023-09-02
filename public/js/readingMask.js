@@ -22,7 +22,7 @@ for(var i=0;i<4;i++){
         console.log(jobs);
         readingMask.innerHTML=jobs[i].innerHTML;
         //readingMask.querySelector('h5').style.fontSize='35px';
-        readingMask.style.width='100%';
+       
         readingMask.style.display = 'block';
     });
     jobs[i].addEventListener('mouseleave', () => {
