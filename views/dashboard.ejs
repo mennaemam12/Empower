@@ -22,14 +22,18 @@
         <div class="filter-section">
         <h2>Filter Applicants</h2>
         <div >
-            <form id="myForm" action="dashboard/filter" method="post" style="display: flex;">
+            <form id="myForm" action="dashboard" method="post" style="display: flex;">
                 <div>
                     <label for="job-select">Select Job:</label>
                     <select id="job-select" name="job">
-                        <option value="">select job</option>
+                        <%if(sortedData!=""){%>
+                            <option value=<%=job%>><%=job%></option>
+                        <% }else{%>
+                            <option value="">select job</option>
+                        <% } %>
                         <% if(jobs!==undefined){ %>
                             <% jobs.forEach(job=>{%>
-                            <option value=<%=job.Name%>><%=job.Name%></option>
+                            <option value=<%=job.Name%> ><%=job.Name%> </option>
                         <% }) %>
                         <% } %>
                     </select>
@@ -38,7 +42,12 @@
                 <div style="margin-left: 50px;">
                     <label for="company-select">Select Company:</label>
                     <select id="company-select" name="company" >
-                        <option value="">select company</option>
+                        
+                        <%if(sortedData!=""){%>
+                            <option value=<%=company%> ><%=company%></option>
+                        <% }else{%>
+                            <option value="">select company</option>
+                        <% } %>
                         <% if(jobs!==undefined){ %>
                             <% jobs.forEach(job=>{%>
                                 <option value=<%=job.Company%> ><%=job.Company%></option>
@@ -63,7 +72,7 @@
                         <h4>Disability: <%=sortedData[k].user.accessibilityValue %></h4>
                         <%var fileName=sortedData[k].user.email.substring(0, sortedData[k].user.email.indexOf("@")); %>
                         <a href="#" class="view-resume-button" 
-                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Resume</a>        
+                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Resume </a>        
                     </div>
                 <%}%>
             </div>
