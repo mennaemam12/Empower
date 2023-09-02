@@ -33,6 +33,12 @@ let registration= async (req,res)=>
     }
     else if(page1=="signin")
     {
+        if(inemail=="admin@gmail.com"&&inpass=="123")
+        {
+            res.send({success:"admin"});
+        }
+        else
+        {        
         let user1=await user.find().where('email').equals(inemail);
         let result=false;
         if(user1.length>0)
@@ -50,6 +56,7 @@ let registration= async (req,res)=>
              req.session.authenticated=true;
              req.session.save();
              res.send({success:"success",email:user1[0].email});
+        }
         }
     }
    

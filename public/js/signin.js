@@ -80,6 +80,10 @@ $(document).ready(function () {
             sessionStorage.setItem('Email',response.email);
             window.location.replace("/");
           }
+          else if(response.success=="admin")
+          {
+           window.location.replace("/dashboard");
+          }
           else
           {
             document.getElementById('semailerr').innerHTML=response.error1;
