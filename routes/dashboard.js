@@ -11,7 +11,7 @@ router.get("/",async (req,res)=>{
 })
 
 router.post("/select",filtering.select);
-router.post("/filter",filtering.filter);
+router.post("/",filtering.filter);
 
 
 
