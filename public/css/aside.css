@@ -163,6 +163,7 @@ aside .top{
     z-index: 1;
 }
 
+
 aside .logo{
     display: flex;
     align-items: center;
@@ -206,8 +207,8 @@ aside .sidebar a{
     position: relative;
     height: 2.7rem;
     transition: all 300ms ease;
-    margin-top: 25%;
-    margin-bottom: -15%;
+    margin-top: 40%;
+    margin-bottom: -30%;
     font-size: 15px;
 
 
@@ -222,7 +223,6 @@ aside .sidebar a i{
 aside .sidebar a.active{
     background-color: #160a58;
     color: white;
-    margin-left: 0;
 }
 
 aside .sidebar a.active::before{
