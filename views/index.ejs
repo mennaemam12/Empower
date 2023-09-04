@@ -29,12 +29,22 @@
 
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
+
+    <style>
+        .reading-mask {
+            position: absolute;
+            background-color: white;
+            pointer-events: none; 
+            z-index: 9999; 
+            width: 500px; 
+        }
+    </style>
 </head>
 
 <body>
     <script src="https://kit.fontawesome.com/ee4053c9b9.js" crossorigin="anonymous"></script>
 
-    <div class="container-xxl bg-white p-0">
+    <div class="container-xxl bg-white p-0 "  >
         <!-- Spinner Start -->
      
         <!-- Spinner End -->
@@ -118,66 +128,60 @@
         </div>
         <!-- Search End -->
 
+        <div id="readingMask" class="reading-mask"></div>
 
         <!-- Category Start -->
         <div class="container-xxl py-5">
             <div class="container">
-                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
+                <h1 class="text-center mb-5 wow fadeInUp "  data-wow-delay="0.1s">Explore By Category</h1>
                 <div class="row g-4">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp"  data-wow-delay="0.1s" >
                         <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
-                            <h6 class="mb-3">Marketing</h6>
-                            <p class="mb-0">123 Vacancy</p>
+                            <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                            <h6 class="mb-3">Reading Mask</h6>
                         </a>
+                      
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-headset text-primary mb-4"></i>
                             <h6 class="mb-3">Customer Service</h6>
-                            <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
                             <h6 class="mb-3">Human Resource</h6>
-                            <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
                             <h6 class="mb-3">Project Management</h6>
-                            <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
                             <h6 class="mb-3">Business Development</h6>
-                            <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Sales & Communication</h6>
-                            <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
                             <h6 class="mb-3">Teaching & Education</h6>
-                            <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
                             <h6 class="mb-3">Design & Creative</h6>
-                            <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                 </div>
@@ -206,7 +210,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="col-lg-6 wow fadeIn " data-wow-delay="0.5s">
                         <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
                         <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                         <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
@@ -252,7 +256,7 @@
                                         <img class="flex-shrink-0 img-fluid border rounded" id="cimg"  src="/img/<%=job.Company%>.jpg" alt="<%=job.Company%> Logo" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3"><%=job.Name%></h5>
-                                            <h5 id="company" style="display:none;"><%=job.Company%></h5>
+                                            <h5 id=<%=job.Company%>  style="display:none;"><%=job.Company%></h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i><%=job.Location%></span>
                                             <span class="text-truncate me-3"><i class="fa-solid fa-map-pin" style="color:rgb(18, 18, 104)"></i> <%=job.Place%></span>
                                             <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i><%=job.Salary%></span>
@@ -418,6 +422,7 @@
  
      <!-- Template Javascript -->
      <script src="/js/main.js"></script>
+     <script src="/js/readingMask.js"></script>
  
     
 
