@@ -31,12 +31,18 @@
     <link href="/css/style.css" rel="stylesheet">
 
     <style>
-        .reading-mask {
+        .reading-mask,#job-mask {
             position: absolute;
             background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px; 
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
             pointer-events: none; 
             z-index: 9999; 
             width: 500px; 
+        }
+        #job-mask{
+            width:700px;
         }
     </style>
 </head>
@@ -136,7 +142,7 @@
                 <h1 class="text-center mb-5 wow fadeInUp "  data-wow-delay="0.1s">Explore By Category</h1>
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp"  data-wow-delay="0.1s" >
-                        <a class="cat-item rounded p-4" href="">
+                        <a class="cat-item rounded p-4" id="mask-button" onclick="buttonPressed('mask-button')">
                             <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
                             <h6 class="mb-3">Reading Mask</h6>
                         </a>
@@ -246,6 +252,7 @@
                             </a>
                         </li>
                     </ul>
+                    <div id="job-mask" ></div>
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <%if(jobs!==""){%>
