@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/aside.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/addposition.css">
 
 </head>
 <body>
@@ -88,6 +89,416 @@
         </div>
     </aside>
 <!-- END OF ASIDE -->
+
+
+
+
+
+
+
+<div class="class7">
+    <div class="class8">
+        <div class="class1 class2 ">
+            <span class="class4"><b> Add Job Details</b></span>
+        </div>
+        <div>
+            <div class="class9">
+                <form id="myFrom21" method='post' action='/addproduct' enctype="multipart/form-data">
+                    <section id="addtitle" class="addtitle">
+                        <div class="class12">
+                            <div class="class13">
+                                <label for="title" class="labol"> <br>
+                                    <span class="spano">Company Name *</span>
+                                </label>
+                                <div class="inputo">
+                                    <input id="title" name="title" spellcheck="false" class="inputo2"
+                                        maxlength="70" autocomplete="nope" value
+                                        placeholder="Enter Company Name">
+                                </div>
+                                <div class="inputo3">
+                                    <div id='titleErr' class='err margin00'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="addtitle" class="addtitle">
+                        <div class="class12">
+                            <div class="class13">
+                                <label for="title" class="labol"> <br>
+                                    <span class="spano">Location *</span>
+                                </label>
+                                <div class="inputo">
+                                    <input id="title" name="title" spellcheck="false" class="inputo2"
+                                        maxlength="70" autocomplete="nope" value
+                                        placeholder="Enter the Location">
+                                </div>
+                                <div class="inputo3">
+                                    <div id='titleErr' class='err margin00'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="addtitle" class="addtitle">
+                        <div class="class12">
+                            <div class="class13">
+                                <label for="title" class="labol"> <br>
+                                    <span class="spano">Job Title *</span>
+                                </label>
+                                <div class="inputo">
+                                    <input id="title" name="title" spellcheck="false" class="inputo2"
+                                        maxlength="70" autocomplete="nope" value
+                                        placeholder="Enter Job Title">
+                                </div>
+                                <div class="inputo3">
+                                    <div id='titleErr' class='err margin00'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="description" class="description">
+                        <div class="class12 class13 marginss">
+                            <label for="description" class="labol">
+                                <span class="spano">Description*</span>
+                            </label>
+                            <div class="class13 description2">
+                                <textarea id="description1" name="description" class=" radio2 "
+                                    placeholder="Enter a description for you post"></textarea>
+                            </div>
+                        </div>
+                        <div id='descriptionErr' class='err margin1'></div>
+
+                    </section>
+
+                    <section id="adddetails" class="adddetails">
+                        <div class="class12 class13 marginss1">
+                            <span>
+                                <span class="spano">Special Details*</span>
+                            </span>
+                            <div class="radio">
+                                <div class="radio2">
+                                    <div class="radio3"></div>
+                                    <label for="BathRooms" class="spano2">Work Models</label>
+                                    <div class="radio-input">
+                                        <input type="radio" id="value-1" name="value-radio" value=1>
+                                        <label for="value-1"> OnSite</label>
+                                        <input type="radio" id="value-2" name="value-radio" value=2>
+                                        <label for="value-2">Hybrid</label>
+                                        <input type="radio" id="value-3" name="value-radio" value=3>
+                                        <label for="value-3">Remotely</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                    <div class="radio2">
+                                        <div class="radio3"></div>
+                                     
+
+                                        <label for="Rooms" class="spano2">Disability</label>
+                                        <div class="radio-input">
+                                            <input type="radio" id="value-4" name="value2-radio" value="1">
+                                            <label for="value-4">Blind</label>
+                                            <input type="radio" id="value-5" name="value2-radio" value="2">
+                                            <label for="value-5">Deaf</label>
+                                            <input type="radio" id="value-6" name="value2-radio" value="3">
+                                            <label for="value-6">Autism</label>
+                                            <input type="radio" id="value-7" name="value2-radio" value="4">
+                                            <label for="value-7"> Color Blind</label>
+                                        </div>
+
+                                    </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <section id="addtype" class="addtpye">
+                        <div class="class12 class13" aria-label="Filterable input">
+                            <div>
+                                <div class="class13">
+                                    <label for="type" class="labol">
+
+                                        <span class="spano">Type *</span>
+
+                                    </label>
+                                    <div class="radio">
+                                        <div class="radio2">
+                                            <div></div>
+                                            <input type="radio" id="Type" name="Type" value="villa">
+                                            <img src="./images/villa4.png" alt="villa image" class="imgbox">
+                                            <div class="spano2">Villa</div>
+                                        </div>
+                                        <span class="radio">
+                                            <div class="radio2">
+                                                <div></div>
+                                                <input type="radio" id="Type" name="Type" value="Apartment">
+                                                <img src="./images/apartment2.png" alt="apartment image"
+                                                    class="imgbox">
+
+                                                <span class="spano3">Apartment</span>
+
+
+                                        </span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id='typeerr' class='err margin22'></div>
+                    </section>
+                    <section id="addcondition" class="addcondition">
+                        <div class="class12 class13">
+                            <span>
+                                <img src="./images/document.png" alt="condition icon image" class="imgbox3">
+
+                                <span class="spanoo">Condition *</span>
+
+                            </span>
+                            <div class="radio">
+                                <div class="radio2">
+                                    <div class="radio3"></div>
+                                    <input type="radio" id="sale" name="Condition" value="sale">
+                                    <img src="./images/sale5.png" alt="sale image" class="imgbox">
+
+                                    <span class="spano2">Sale</span>
+                                </div>
+                                <span class="radio">
+                                    <div class="radio2">
+                                        <div class="radio3"></div>
+
+                                        <input type="radio" id="Rent" name="Condition" value="Rent">
+                                        <img src="./images/rent3.png" alt="rent image" class="imgbox">
+
+                                        <span class="spano2">Rent</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div id='conditionerr' class='err margin22'></div>
+                    </section>
+
+                    
+
+
+                    <section id="area" class="area">
+                        <div class="class12 class13">
+                            <label for="Area" class="labol">
+                                <img src="./images/area.png" alt="area icon image" class="imgbox2">
+                                <span class="spano">Area *</span>
+                            </label>
+                            <div class="inputo">
+                                <span class="EGP">
+                                    <span class="desc">Meters</span>
+                                </span>
+                                <input id="Area" name="Area" spellcheck="false" class="inputo2"
+                                    autocomplete="nope" type="number" value="">
+                            </div>
+                        </div>
+                        <div id='areaErr' class='err margin2'></div>
+
+                    </section>
+
+                    <section id="price" class="price">
+                        <div class="class12 class13">
+                            <label for="price" class="labol">
+                                <img src="./images/tags.png" alt="price icon image" class="imgbox2">
+
+                                <span class="spano">Price *</span>
+
+                            </label>
+                            <div class="inputo">
+                                <span class="EGP">
+                                    <span class="desc">EGP</span>
+                                </span>
+                                <input id="price1" name="price" spellcheck="false"
+                                    class="inputo2 [&::-webkit-inner-spin-button]:appearance-none"
+                                    autocomplete="nope" type="number">
+                            </div>
+                        </div>
+                        <div id='priceErr' class='err margin2'></div>
+
+                    </section>
+                    <section id="location" class="location">
+                        <div class="class12 class13">
+                            <div class="typeo" aria-label="Filterable input">
+                                <div>
+                                    <div class="class13">
+                                        <label for="type" class="labol">
+                                            <img src="./images/marker.png" alt="location icon image"
+                                                class="imgbox2">
+
+                                            <span class="spano">Location *</span>
+
+                                        </label>
+                                        <div class="inputo">
+                                            <input id="loc" name="loc" list="locations" class="inputo2"
+                                                spellcheck="false" autocomplete="nope" value>
+                                            <datalist id="locations" class="inputo2">
+                                                <option value="Cairo">
+                                                <option value="Giza">
+                                                <option value="Sharqya">
+                                                <option value="Gharbya">
+                                                <option value="Menofya">
+                                                <option value="Kafr-Elsheikh">
+                                                <option value="Beni-Suef">
+                                                <option value="Fayoum">
+                                                <option value="Daqhlya">
+                                                <option value="Asyout">
+                                                <option value="Alexandria">
+                                            </datalist>
+                                            <span>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='locerr' class='err margin3'></div>
+                    </section>
+
+
+
+
+                    <section id="name" class="name">
+                        <div class="class12 class13">
+                            <div class="class13">
+                                <label for="Name" class="labol">
+                                    <img src="./images/user.png" alt="name icon image" class="imgbox2">
+
+                                    <span class="spano">URL Location *</span>
+                                </label>
+                                <div class="inputo">
+                                    <input id="URL" name="URL" spellcheck="false" class="inputo2"
+                                        autocomplete="nope" value>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='URLerr' class='err margin3'></div>
+                    </section>
+
+
+                    <div class="class12 class13">
+                        <div class="class13">
+                            <label for="Name" class="labol">
+                                <img src="./images/user.png" alt="name icon image" class="imgbox2">
+
+                                <span class="spano">Enter the place *</span>
+                            </label>
+                            <div class="calssflex">
+                                <div class="inputo onwidth">
+                                    <input type="text" id="placeInput" class="inputo2"
+                                        placeholder="Enter a place" />
+                                </div>
+                                <button type="button" class="btnsearch" onclick="searchPlace()">Search</button>
+                            </div>
+                            <div class="infoof">
+                                <div>Enter the place of your property!</div>
+                                <div>After you enter the place you can edit your pin on the map!</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="coverfor">
+                        <div id="map"></div>
+                    </div>
+                    <p class="addressmap" id="locationAddress"></p>
+                    <div id='addressmaperr' class='err margin32'></div>
+
+
+
+
+
+
+                    <!-- <p>you can use the yellow man icon on the right to go to street view</p> -->
+
+
+
+
+                    
+
+                    <section id="addpic" class="addpic">
+                        <div class="container" style="margin-left: -400px;">
+                            <input type="file" id="file-input" accept="image/png, image/jpeg, image/webp"
+                                multiple />
+                            <label class="fio" for="file-input">
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                &nbsp; Choose Files To Upload
+                            </label>
+                            <div id="num-of-files">No Files Choosen</div>
+                            <div id="files-list"></div>
+                            <div id='imgerr' class='err margin31'></div>
+
+                    </section>
+
+
+
+
+                    <section id="submit">
+
+                        <button class="continue-application" id="prop-submit">
+                            <label id="prop-label" class="fade-label hidden">Your Post is Waiting For an Admin
+                                To Be Approved and You will recieve an Email Soon</label>
+                            <div>
+                                <div class="pencil"></div>
+                                <div class="folder">
+                                    <div class="top">
+                                        <svg viewBox="0 0 24 27">
+                                            <path
+                                                d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div class="paper"></div>
+                                </div>
+                            </div>
+                            Submit Application
+                        </button>
+                    </section>
+                </form>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 
 
