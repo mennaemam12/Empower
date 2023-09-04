@@ -325,8 +325,6 @@
       font-size: 17px;
       font-weight: 500;
       line-height: 19px;
-      -webkit-appearance: none;
-      -webkit-tap-highlight-color: transparent;
       padding: 14px 130px 14px 130px;
       transition: background 0.3s;
       color: var(--color);
@@ -707,4 +705,29 @@
       .custum-file-upload input {
         display: none;
       }
-    
+    /* Style for the spans within the skillsContainer */
+#skillsContainer span {
+    background-color: rgb(18, 18, 131);
+    border-radius: 14px;
+    padding: 5px 20px;
+    margin-right: 5px;
+    margin-top: 5%;
+    font-size: 16px;
+    color: white; /* You can change the text color as needed */
+}
+.skillsContainer    
+{
+    width: 630px;
+    height: 200px;
+    margin-top: 10%;
+    margin-bottom: -7%;
+    background-color: rgb(231, 231, 231);
+    border: 1px dashed rgb(178, 178, 178);
+    margin-left: -12%;
+}
+#skillsContainer
+{
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
