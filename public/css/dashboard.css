@@ -112,9 +112,21 @@ body {
     border-radius: 6px;
     padding: 20px;
     margin-top: 2%;
-    width: 1000px;
-    text-align: center;
-    display: flex;
+    width: 1010px;
+    text-align: left;
+    display: block;
+    margin-left: 1%;
+  }
+  .titles
+  {
+    font-family: 'BW Gradual Bold';
+    font-size: 17px;
+    font-weight: 1000; 
+  }
+  .titles1
+  {
+
+    margin-bottom: 1%;
   }
   
   .applicant h4 {
@@ -168,8 +180,9 @@ body {
     cursor: pointer;
   }
   
-  .view-resume-button {
-    margin-top: 0px;
+  .view-resume-button,.view-profile-button,.accept-button {
+    
+    margin-right: 15%;
     padding: 10px 20px;
     background-color: #2a3766;
     color: #ffffff;
@@ -179,16 +192,38 @@ body {
     cursor: pointer;
     font-size: 10px;
     transition: background-color 0.3s, transform 0.2s;
+    float: right;
+    text-align: center;
+    width: 115px;
+  }
+  .accept-button
+  {
+    margin-top: -10%;
+    background-color: rgb(8, 185, 8);
+  }
+  .view-profile-button
+  {
+    margin-top: -7%;
+  }
+  .view-resume-button
+  {
+   margin-top: -4%;
   }
 
-  .view-resume-button:hover {
+  .view-resume-button:hover,.view-profile-button:hover{
     background-color: #4c5b91;
     transform: scale(1.05);
   }
   
-  .view-resume-button:active {
+  .view-resume-button:active,.view-profile-button:hover{
     background-color: #4c5b91;
     transform: scale(1);
+  }
+
+  .accept-button:hover
+  {
+    background-color:rgb(8, 168, 8);
+    transform: scale(1.05);
   }
 
   .title12

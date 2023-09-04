@@ -157,15 +157,22 @@
         <% if(sortedData!=""){%>
             <div id="applicant-list" class="applicant-list">
                 <%for(var k=0;k<sortedData.length;k++){%>
-                    <div id="user" class="applicant" >
-                        <!-- <h4 style="float:left;"><%=k+1%>-</h4> -->
-                        <div>Name: <%=sortedData[k].user.Firstname%> <%=sortedData[k].user.Lastname%></div>
-                        <div>Email: <%=sortedData[k].user.email%></div>
-                        <div>Disability: <%=sortedData[k].user.accessibilityValue %></div>
-                        <%var fileName=sortedData[k].user.email.substring(0, sortedData[k].user.email.indexOf("@")); %>
+                    <div id="user">
+                        <div class="applicant">
+                          <div class="titles1"> <span class="titles">Name: </span><%=sortedData[k].user.Firstname%> <%=sortedData[k].user.Lastname%></div>
+                          <div class="titles1"><span class="titles">Email: </span><%=sortedData[k].user.email%></div>
+                          <div class="titles1"><span class="titles">Disability: </span><%=sortedData[k].user.accessibilityValue %></div>
+                          <%var fileName=sortedData[k].user.email.substring(0, sortedData[k].user.email.indexOf("@")); %>
+                        </div>
                         <a href="#" class="view-resume-button" 
-                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Resume </a>        
+                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Resume </a>  
+                        <a href="#" class="view-profile-button" 
+                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Profile </a> 
+                        <a href="#" class="accept-button" 
+                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">Accept CV </a> 
                     </div>
+                    
+                   
                 <%}%>
             </div>
         <% } %>
