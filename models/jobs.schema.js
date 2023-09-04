@@ -52,6 +52,12 @@ const jobSchema = new Schema ({
         type:String,
         required:[true,'Position is required'],
         trim:true
+    },
+    Companylogo:
+    {
+        type:String,
+        required:[true,'Logo is required'],
+        trim:true 
     }
 
 },{timestamp:true});
