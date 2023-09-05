@@ -4,7 +4,7 @@ const closePopupButton = document.getElementById('closePopup');
 const pdfPopup = document.getElementById('pdfPopup');
 const pdfFrame = document.getElementById('pdfFrame');
 const email=document.getElementById("email");
-const fileName=email.innerHTML.substring(0, email.innerHTML.indexOf("@"))
+const fileName=email.innerHTML.substring(0, email.innerHTML.indexOf("@"));
 const pdfUrl = `/uploads/${fileName} resume.pdf`; // Replace with actual URL 
 let appliedjobs=[];
 
@@ -97,3 +97,4 @@ function pdfToText() {
     },
   });
 }
+

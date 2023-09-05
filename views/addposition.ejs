@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/aside.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/addposition.css">
+
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <aside>
+        <div class="top">
+            <div class="logo">
+                <svg width="25" height="30" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="color: white;">
+                    <g clip-path="url(#clip0)">
+                        <path
+                            d="M17.6056 8.59195C19.4697 6.72793 21.2813 5.51209 21.6437 5.87442C22.01 6.24079 20.7942 8.04845 18.9261 9.91247C17.0621 11.7765 15.2504 12.9923 14.8881 12.63C14.5258 12.2677 15.7416 10.456 17.6056 8.59195Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M14.6419 5.62436C16.5059 3.76034 18.3176 2.54449 18.68 2.91086C19.0463 3.27722 17.8305 5.08488 15.9624 6.94891C14.0984 8.81293 12.2867 10.0328 11.9244 9.66644C11.558 9.30008 12.7779 7.49241 14.6419 5.62436Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M11.6759 2.66143C13.54 0.797407 15.3517 -0.422464 15.714 -0.0560999C16.0804 0.310264 14.8645 2.11793 12.9965 3.98195C11.1324 5.84598 9.32074 7.06585 8.95841 6.69949C8.59607 6.33312 9.81191 4.52546 11.6759 2.66143Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M4.10305 17.4845C5.96707 19.3486 7.18694 21.1602 6.82058 21.5226C6.45422 21.8889 4.64655 20.6731 2.78253 18.8051C0.9185 16.941 -0.30137 15.1293 0.0649938 14.767C0.431357 14.4047 2.23902 15.6205 4.10305 17.4845Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M7.06984 14.5219C8.93387 16.386 10.1537 18.1977 9.78737 18.56C9.42101 18.9264 7.61335 17.7105 5.74932 15.8425C3.8853 13.9784 2.66543 12.1667 3.03179 11.8044C3.39413 11.438 5.20582 12.6539 7.06984 14.5219Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M10.0327 11.5548C11.8968 13.4189 13.1166 15.2306 12.7503 15.5929C12.3839 15.9593 10.5762 14.7434 8.71221 12.8754C6.84819 11.0113 5.62832 9.19965 5.99468 8.83731C6.36105 8.47498 8.16871 9.69082 10.0327 11.5548Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M17.8361 26.717C19.7001 24.8529 21.5118 23.6371 21.8741 23.9994C22.2405 24.3658 21.0247 26.1734 19.1566 28.0375C17.2926 29.9015 15.4809 31.1173 15.1186 30.755C14.7562 30.3886 15.9721 28.581 17.8361 26.717Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M14.8725 23.7492C16.7365 21.8852 18.5482 20.6693 18.9106 21.0316C19.2769 21.398 18.0611 23.2057 16.193 25.0697C14.329 26.9337 12.5173 28.1536 12.155 27.7872C11.7886 27.4249 13.0045 25.6172 14.8725 23.7492Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M11.9045 20.7864C13.7685 18.9224 15.5802 17.7025 15.9425 18.0689C16.3089 18.4353 15.093 20.2429 13.225 22.107C11.3609 23.971 9.54926 25.1908 9.18692 24.8245C8.82458 24.4581 10.0404 22.6505 11.9045 20.7864Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M22.1265 17.8195C23.9905 19.6835 25.2064 21.4952 24.844 21.8575C24.4777 22.2239 22.67 21.0081 20.806 19.14C18.9419 17.276 17.7221 15.4643 18.0884 15.102C18.4508 14.7396 20.2584 15.9555 22.1265 17.8195Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M25.0913 14.8559C26.9553 16.7199 28.1712 18.5316 27.8089 18.894C27.4425 19.2603 25.6348 18.0445 23.7708 16.1764C21.9068 14.3124 20.6869 12.5007 21.0533 12.1384C21.4156 11.772 23.2273 12.9879 25.0913 14.8559Z"
+                            fill="currentColor"></path>
+                        <path
+                            d="M28.0562 11.8888C29.9202 13.7529 31.1401 15.5645 30.7737 15.9269C30.4073 16.2932 28.5997 15.0774 26.7357 13.2094C24.8716 11.3453 23.6518 9.53364 24.0181 9.1713C24.3805 8.80896 26.1881 10.0248 28.0562 11.8888Z"
+                            fill="currentColor"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0">
+                            <rect width="31" height="31" fill="white"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <h2 style="color: white;">Our<span style="color: white;">Name</span></h2>
+            </div>
+            <div class="close" id="close-btn">
+                <i class='bx bxs-log-out-circle'></i>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <a  href="/dashboard">
+                <i class='bx bxs-grid-alt'></i>
+                <h3>Applicant Filtering</h3>
+            </a>
+            <a class="active" href="/addposition">
+                <i class='bx bxs-user-account'></i>
+                <h3>Add Jobs</h3>
+            </a>
+            <a href="#">
+                <i class='bx bx-list-ol'></i>
+                <h3>Chating</h3>
+            </a>
+            <a href="/">
+                <i class='bx bxs-log-out'></i>
+                <h3>Back</h3>
+            </a>
+        </div>
+    </aside>
+<!-- END OF ASIDE -->
+
+
+
+
+
+
+
+<div class="class7">
+    <div class="class8">
+        <div class="class1 class2 ">
+            <span class="class4"><b> Add Job Details</b></span>
+        </div>
+        <div>
+            <div class="class9">
+                <form id="myFrom21" method='post' action='/addposition' enctype="multipart/form-data">
+                    <section id="addtitle" class="addtitle" style="display: flex; margin-left: -13%;">
+                        <label class="custum-file-upload" id="custum-file-upload" for="file">
+                            <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path fill="" d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+                            </div>
+                            <div class="text">
+                               <span>Click to upload image</span>
+                               </div>
+                               <input type="file" id="file">
+                            </label>
+                            <img id="uploaded-image" class="custum-file-upload" src="#" alt="Uploaded Image" style="display: none;">
+                            
+                        <div class="class12 editt12">
+                            <div class="class13">
+                                <label for="title" class="labol"> <br>
+                                    <span class="spano">Company Name *</span>
+                                </label>
+                                <div class="inputo editt">
+                                    <input id="CompanyName" name="title" spellcheck="false" class="inputo2"
+                                        maxlength="70" autocomplete="nope" value
+                                        placeholder="Enter Company Name">
+                                </div>
+                                <div class="inputo3">
+                                    <div id='CompanyErr' class='err margin00'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="location" class="location">
+                        <div class="class12 class13">
+                            <div class="typeo" aria-label="Filterable input">
+                                <div>
+                                    <div class="class13">
+                                        <label for="type" class="labol">
+                                       
+                                            <span class="spano">Location *</span>
+                                        </label>
+                                        <div class="inputo">
+                                            <input id="loc" name="loc" list="locations" class="inputo2"
+                                                spellcheck="false" autocomplete="nope" value placeholder="Choose the Location">
+                                            <datalist id="locations" class="inputo2">
+                                                <option value="Cairo">
+                                                <option value="Giza">
+                                                <option value="Sharqya">
+                                                <option value="Gharbya">
+                                                <option value="Menofya">
+                                                <option value="Kafr-Elsheikh">
+                                                <option value="Beni-Suef">
+                                                <option value="Fayoum">
+                                                <option value="Daqhlya">
+                                                <option value="Asyout">
+                                                <option value="Alexandria">
+                                            </datalist>
+                                            <span>
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='locerr' class='err margin3'></div>
+                    </section>
+
+
+                    <section id="addtitle" class="addtitle">
+                        <div class="class12">
+                            <div class="class13">
+                                <label for="title" class="labol"> <br>
+                                    <span class="spano">Job Title *</span>
+                                </label>
+                                <div class="inputo">
+                                    <input id="title" name="title" spellcheck="false" class="inputo2"
+                                        maxlength="70" autocomplete="nope" value
+                                        placeholder="Enter Job Title">
+                                </div>
+                                <div class="inputo3">
+                                    <div id='titleErr' class='err margin00'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section id="addtitle" class="addtitle">
+                        <div class="class12">
+                            <div class="class13">
+                                <label for="title" class="labol"> <br>
+                                    <span class="spano">Salary Range *</span>
+                                </label>
+                                <div class="inputo">
+                                    <input id="Salary" name="title" spellcheck="false" class="inputo2"
+                                        maxlength="70" autocomplete="nope" value
+                                        placeholder="Salary Range (MIN/MAX)">
+                                </div>
+                                <div class="inputo3">
+                                    <div id='Salaryerr' class='err margin00'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="description" class="description">
+                        <div class="class12 class13 marginss">
+                            <label for="description" class="labol">
+                                <span class="spano">Description*</span>
+                            </label>
+                            <div class="class13 description2">
+                                <textarea id="description1" name="description" class=" radio2 "
+                                    placeholder="Enter a description for you post"></textarea>
+                            </div>
+                        </div>
+                        <div id='descriptionErr' class='err margin1'></div>
+
+                    </section>
+                    <div class="skillsContainer">
+                        <div id="skillsContainer">
+
+                        </div>
+                    </div>
+                   
+                    <div class="class12 class13" style="margin-top: 8%;">
+                        <div class="class13">
+                            <label for="Name" class="labol">
+                                <span class="spano">Skills *</span>
+                            </label>
+                            <div class="calssflex">
+                                <div class="inputo onwidth">
+                                    <input type="text" id="Skills" class="inputo2" placeholder="Enter Skills Needed" />
+                                </div>
+                                <button type="button" class="btnsearch" onclick="addSkill()">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <section id="adddetails" class="adddetails">
+                        <div class="class12 class13 marginss1">
+                            <span>
+                                <span class="spano">Special Details*</span>
+                            </span>
+                            <div class="radio">
+                                <div class="radio2">
+                                    <div class="radio3"></div>
+                                    <label for="Rooms" class="spano2">Position Need:</label>
+                                    <div class="radio-input">
+                                        <input type="radio" id="value-8" name="value3-radio" value="Junior">
+                                        <label for="value-8">Junior</label>
+                                        <input type="radio" id="value-9" name="value3-radio" value="Senior">
+                                        <label for="value-9">Senior</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="radio2">
+                                    <div class="radio3"></div>
+                                    <label for="BathRooms" class="spano2">Work Models:</label>
+                                    <div class="radio-input">
+                                        <input type="radio" id="value-1" name="value-radio" value="OnSite">
+                                        <label for="value-1"> OnSite</label>
+                                        <input type="radio" id="value-2" name="value-radio" value="Hybrid">
+                                        <label for="value-2">Hybrid</label>
+                                        <input type="radio" id="value-3" name="value-radio" value="Remotely">
+                                        <label for="value-3">Remotely</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                    <div class="radio2">
+                                        <div class="radio3"></div>
+                                        <label for="Rooms" class="spano2">Disability:</label>
+                                        <div class="radio-input">
+                                            <input type="radio" id="value-4" name="value2-radio" value="Blind">
+                                            <label for="value-4">Blind</label>
+                                            <input type="radio" id="value-5" name="value2-radio" value="Deaf">
+                                            <label for="value-5">Deaf</label>
+                                            <input type="radio" id="value-6" name="value2-radio" value="Autism">
+                                            <label for="value-6">Autism</label>
+                                            <input type="radio" id="value-7" name="value2-radio" value="Color Blind">
+                                            <label for="value-7"> Color Blind</label>
+                                        </div>
+
+                                    </div>
+                                    
+                                   
+
+                            </div>
+                        </div>
+                    </section>
+
+
+                   
+                    <section id="submit">
+                        <button class="continue-application" id="prop-submit">Submit</button>
+                    </section>
+                   
+                </form>
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+   
+</body>
+</html>
+
+<script>
+    document.getElementById('file').addEventListener('change', function (e) {
+    const uploadedImage = document.getElementById('uploaded-image');
+    const imageframe=document.getElementById("custum-file-upload");
+    const file = e.target.files[0];
+
+    if (file) {
+        // Display the selected image
+        uploadedImage.style.display = 'flex';
+        uploadedImage.style.padding="1rem";
+        imageframe.style.display="none";
+        uploadedImage.src = URL.createObjectURL(file);
+    } else {
+        // If no file is selected, hide the image
+        uploadedImage.style.display = 'none';
+        uploadedImage.src = '#'; // Clear the image source
+    }
+});
+let number12=450;
+let i=2;
+let count=0;
+function addSkill() {
+    // Get the value from the input field
+    var skill = document.getElementById("Skills").value;
+
+    // Create a new span element for the skill
+    var skillSpan = document.createElement("span");
+    skillSpan.textContent = skill;
+
+    // Append the span to the skillsContainer
+    var skillsContainer = document.getElementById("skillsContainer");
+    skillsContainer.appendChild(skillSpan);
+
+    // Clear the input field after adding the skill
+    document.getElementById("Skills").value = "";
+
+    // Check if the total width of spans exceeds 600px
+    let totalWidth = 0;
+    var spans = skillsContainer.querySelectorAll('span');
+    var ko2;
+    spans.forEach(function (span) {
+        totalWidth += span.offsetWidth + parseInt(getComputedStyle(span).marginRight);
+
+    });
+
+    // If total width exceeds 600px, add a line break (up to 4 times)
+    if (totalWidth > number12) {
+        for (var i = 0; i < 2; i++) {
+            skillsContainer.appendChild(document.createElement('br')); 
+        } 
+        count++;
+        number12*=i; 
+        i+=0.2;  
+    }
+}
+</script>

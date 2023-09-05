@@ -6,8 +6,6 @@ const getjob=require('../controllers/job-detail.controller');
 router.use(bodyParser.json());
 
 router.get("/",indexController.getIndex);
-
-
 router.get("/job-detail/:id", indexController.getJobDetails);
 router.post("/job-detail/:id", getjob.btnId);
 
