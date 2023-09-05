@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Get references to the buttons and the common links container
     const viewLinksIndexButton = document.getElementById("viewLinksIndex");
-    const viewLinksCategoryButton = document.getElementById("viewLinksCategory");
     const linksContainer = document.getElementById("linksContainer");
 
     // Define the links for each page
