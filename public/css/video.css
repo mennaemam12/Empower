@@ -1,61 +1,42 @@
-@import url('https//fonts.googleapis.com/css2?family=Oswald&display=swap');
-*{
-    margin: 0;
-    padding: 0;
-   
-   
-    box-sizing: border-box;
-}
-
-
-body{
-    font-family: "Oswald",sans-serif;
-}
-
-.popup{
-    position: fixed;
+.popup {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0,.8);
-    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.095);
     opacity: 0;
-    z-index: 1;
-   
-
-
+    z-index: 10;
 }
 
-.popup video{
+.popup video {
     position: relative;
     max-width: 900px;
     outline: none;
-    box-shadow: 0 0 10px 10px rgba(255, 255,255, .4);
-
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.904);
+    z-index: 10;
 }
+
 .popup .close {
-    position: static;
-    top: 30px;
-    right: 3 0px;
-    max-width: 35px;
+    position: absolute;
+    color: red; /* Set the close icon color to red */
+    top: 5%;
+    right: 90px;
+    max-width: 330px;
     cursor: pointer;
     filter: invert(1);
-  }
+    z-index: 20; /* Bring the close button above the video */
+}
 
-  .popup .active{
+.popup.active {
     visibility: visible;
     opacity: 1;
+    z-index: 20; /* Bring the entire popup to the front */
+}
 
-
-  }
-
-  @media(max-width:991px)
-  {
-
-
-    .popup video{
+@media (max-width: 991px) {
+    .popup video {
         max-width: 90%;
     }
-  }
+}
