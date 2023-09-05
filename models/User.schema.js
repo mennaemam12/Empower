@@ -28,6 +28,14 @@ const UserSchema = new Schema ({
         required:[true,'pass is required'],
         trim:true
     },
+    Phone:{
+        type:String,
+        trim:true
+    },
+    Bio:{
+        type:String,
+        trim:true
+    },
     accessibilityValue:{
         type:String,
         required:[true,'disabilities are required'],
@@ -42,7 +50,7 @@ const UserSchema = new Schema ({
         trim:true   
     },
     NationalID:{
-        type:String,
+        type:Array,
         trim:true
     },
     Appliedjobs:{

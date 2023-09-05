@@ -9,6 +9,7 @@ const indexRoute = require("./routes/indexRoute.js");
 const uploadResumeRoute = require("./routes/uploadResume.js");
 const reg = require("./routes/reg.js");
 const appliedfor=require("./routes/applied-for");
+const profile=require('./routes/profile');
 const dashboard=require("./routes/dashboard.js");
 const addposition=require("./routes/addposition.js");
 
@@ -40,11 +41,11 @@ mongoose
 
 const cors = require("cors");
 app.use(cors({ origin: true }));
-
 app.use("/", indexRoute);
 app.use("/uploadResume",uploadResumeRoute);
 app.use("/reg",reg);
 app.use("/appliedfor",appliedfor);
+app.use("/myprofile",profile);
 app.use("/dashboard",dashboard);
 app.use("/addposition",addposition);
 
