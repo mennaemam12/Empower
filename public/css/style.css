@@ -460,7 +460,7 @@
   }
   #viewLinksIndex {
   background-color: #fff;
-  border: 1px solid #ddd;
+  
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -468,7 +468,7 @@
 }
 
 #viewLinksIndex:hover {
-  background-color: #eee;
+    border: 1px solid #ddd;
 }
 
 #viewLinksIndex i {
