@@ -75,6 +75,24 @@ document.addEventListener("DOMContentLoaded", function() {
     popup.style.display = "none";
   }
 
+  function accept(){
+    const user=document.getElementById("userId");
+    const job=document.getElementById("jobId");
+    const accepted=document.getElementById(user.innerHTML);
+    $.ajax({
+      url: `/dashboard/accept`,
+      method: "POST",
+      data:{user:user.innerHTML,job:job.innerHTML},
+      success: function (success) {
+          $(accepted).html("CV Accepted");
+      },
+      error: function (err) {
+          console.log(err);
+        },
+      });
+    
+  }
+
  
  
   

@@ -4,7 +4,7 @@ const btnId=async function (req, res){
     try {
     const { jobId } = req.body;
     const user = await Users.findById(req.session.user._id);
-    if (!user) {
+      if (!user) {
         return res.status(404).json({ error: 'User not found' });
       }
       if (user.Appliedjobs.includes(jobId)) {
