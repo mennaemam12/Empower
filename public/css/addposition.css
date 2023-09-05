@@ -41,6 +41,7 @@
         -webkit-transition: max-width .25s ease-in;
         transition: max-width .25s ease-in;
         width: 100%;
+        margin-bottom: 3%;
     } 
     .class8{
         margin-top: 2%;
@@ -49,11 +50,12 @@
         padding-bottom: 1.6rem;
         background-color:#ffffff;
         margin-left: 15%;
+        margin-bottom: 10%;
         
     
     }
     .class9{
-        padding-top: 1.2rem;
+        padding-top: 2rem;
         padding-left: 17.2rem;
         
     
@@ -83,6 +85,7 @@
       margin-left: -6.2rem;
       margin-top: 7%;
       margin-bottom: 1.6rem;
+      
     }
    
     .class13 {
@@ -123,8 +126,11 @@
     .spano2{
        padding-left: 10px;
        padding-top: 8px;
-       font-size: 1.5rem;
+       font-size: 1.6rem;
        font-family: 'BW Gradual Bold';
+       color: #3a3a3a;
+       margin-bottom: 2%;
+
     }
     .spano3{
        padding-left: 2px;
@@ -142,6 +148,17 @@
         width: 650px;
         display: -ms-flexbox;
         display: flex;
+    }
+    .editt
+    {
+        width: 500px;
+
+    }
+    .editt12
+    {
+        margin-left: 1%;
+        margin-top: 10%;
+        margin-bottom: -3%;
     }
     .onwidth
     {
@@ -305,184 +322,23 @@
       cursor: pointer;
       position: relative;
       border-radius: 5px;
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 500;
       line-height: 19px;
-      -webkit-appearance: none;
-      -webkit-tap-highlight-color: transparent;
-      padding: 17px 29px 17px 69px;
+      padding: 14px 130px 14px 130px;
       transition: background 0.3s;
       color: var(--color);
       background: var(--bg, var(--background));
-      margin-left: 500px;
-      margin-top: 10%;
+      margin-top: 5%;
+      margin-left: 10%;
+      text-align: center;
+    }
+    .continue-application:hover
+    {
+        background-color: #09177f;
     }
     
-    .continue-application > div {
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: 53px;
-      position: absolute;
-      overflow: hidden;
-      border-radius: 5px 0 0 5px;
-      background: var(--background-left);
-    }
-    
-    .continue-application > div .folder {
-      width: 23px;
-      height: 27px;
-      position: absolute;
-      left: 15px;
-      top: 13px;
-    }
-    
-    .continue-application > div .folder .top {
-      left: 0;
-      top: 0;
-      z-index: 2;
-      position: absolute;
-      transform: translateX(var(--fx, 0));
-      transition: transform 0.4s ease var(--fd, 0.3s);
-    }
-    
-    .continue-application > div .folder .top svg {
-      width: 24px;
-      height: 27px;
-      display: block;
-      fill: var(--folder);
-      transform-origin: 0 50%;
-      transition: transform 0.3s ease var(--fds, 0.45s);
-      transform: perspective(120px) rotateY(var(--fr, 0deg));
-    }
-    
-    .continue-application > div .folder:before, .continue-application > div .folder:after,
-    .continue-application > div .folder .paper {
-      content: "";
-      position: absolute;
-      left: var(--l, 0);
-      top: var(--t, 0);
-      width: var(--w, 100%);
-      height: var(--h, 100%);
-      border-radius: 1px;
-      background: var(--b, var(--folder-inner));
-    }
-    
-    .continue-application > div .folder:before {
-      box-shadow: 0 1.5px 3px var(--shadow), 0 2.5px 5px var(--shadow), 0 3.5px 7px var(--shadow);
-      transform: translateX(var(--fx, 0));
-      transition: transform 0.4s ease var(--fd, 0.3s);
-    }
-    
-    .continue-application > div .folder:after,
-    .continue-application > div .folder .paper {
-      --l: 1px;
-      --t: 1px;
-      --w: 21px;
-      --h: 25px;
-      --b: var(--paper-behind);
-    }
-    
-    .continue-application > div .folder:after {
-      transform: translate(var(--pbx, 0), var(--pby, 0));
-      transition: transform 0.4s ease var(--pbd, 0s);
-    }
-    
-    .continue-application > div .folder .paper {
-      z-index: 1;
-      --b: var(--paper);
-    }
-    
-    .continue-application > div .folder .paper:before, .continue-application > div .folder .paper:after {
-      content: "";
-      width: var(--wp, 14px);
-      height: 2px;
-      border-radius: 1px;
-      transform: scaleY(0.5);
-      left: 3px;
-      top: var(--tp, 3px);
-      position: absolute;
-      background: var(--paper-lines);
-      box-shadow: 0 12px 0 0 var(--paper-lines), 0 24px 0 0 var(--paper-lines);
-    }
-    
-    .continue-application > div .folder .paper:after {
-      --tp: 6px;
-      --wp: 10px;
-    }
-    
-    .continue-application > div .pencil {
-      height: 2px;
-      width: 3px;
-      border-radius: 1px 1px 0 0;
-      top: 8px;
-      left: 105%;
-      position: absolute;
-      z-index: 3;
-      transform-origin: 50% 19px;
-      background: var(--pencil-cap);
-      transform: translateX(var(--pex, 0)) rotate(35deg);
-      transition: transform 0.4s ease var(--pbd, 0s);
-    }
-    
-    .continue-application > div .pencil:before, .continue-application > div .pencil:after {
-      content: "";
-      position: absolute;
-      display: block;
-      background: var(--b, linear-gradient(var(--pencil-top) 55%, var(--pencil-middle) 55.1%, var(--pencil-middle) 60%, var(--pencil-bottom) 60.1%));
-      width: var(--w, 5px);
-      height: var(--h, 20px);
-      border-radius: var(--br, 2px 2px 0 0);
-      top: var(--t, 2px);
-      left: var(--l, -1px);
-    }
-    
-    .continue-application > div .pencil:before {
-      -webkit-clip-path: polygon(0 5%, 5px 5%, 5px 17px, 50% 20px, 0 17px);
-      clip-path: polygon(0 5%, 5px 5%, 5px 17px, 50% 20px, 0 17px);
-    }
-    
-    .continue-application > div .pencil:after {
-      --b: none;
-      --w: 3px;
-      --h: 6px;
-      --br: 0 2px 1px 0;
-      --t: 3px;
-      --l: 3px;
-      border-top: 1px solid var(--pencil-top);
-      border-right: 1px solid var(--pencil-top);
-    }
-    
-    .continue-application:before, .continue-application:after {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 2px;
-      border-radius: 1px;
-      background: var(--color);
-      transform-origin: 9px 1px;
-      transform: translateX(var(--cx, 0)) scale(0.5) rotate(var(--r, -45deg));
-      top: 26px;
-      right: 16px;
-      transition: transform 0.3s;
-    }
-    
-    .continue-application:after {
-      --r: 45deg;
-    }
-    
-    .continue-application:hover {
-      --cx: 2px;
-      --bg: var(--background-hover);
-      --fx: -40px;
-      --fr: -60deg;
-      --fd: .15s;
-      --fds: 0s;
-      --pbx: 3px;
-      --pby: -3px;
-      --pbd: .15s;
-      --pex: -24px;
-    }
+ 
     
     
     
@@ -588,10 +444,11 @@
     .btnsearch
     {
       font-family: 'BW Gradual Bold';
-      background-color: #7c142c;
+
+      background-color: #09177f;
       color: #ffffff;
       border-radius:10%;
-      border: 1px solid #7c142c;
+      border: 1px solid #09177f;
       margin-left: 1%;
       width: 100px;
     }
@@ -793,5 +650,84 @@
   
     
     
-    
-    
+
+
+
+
+
+
+
+
+
+      
+      .custum-file-upload {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        gap: 20px;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        border: 2px dashed #cacaca;
+        background-color: rgba(255, 255, 255, 1);
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0px 48px 35px -48px rgba(0,0,0,0.1);
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+      
+      .custum-file-upload .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .custum-file-upload .icon svg {
+        height: 35px;
+        fill: rgba(75, 85, 99, 1);
+      }
+      
+      .custum-file-upload .text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .custum-file-upload .text span {
+        font-weight: 400;
+        color: rgba(75, 85, 99, 1);
+        font-size: 9px;
+      }
+      
+      .custum-file-upload input {
+        display: none;
+      }
+    /* Style for the spans within the skillsContainer */
+#skillsContainer span {
+    background-color: rgb(18, 18, 131);
+    border-radius: 14px;
+    padding: 5px 20px;
+    margin-right: 5px;
+    margin-top: 5%;
+    font-size: 16px;
+    color: white; /* You can change the text color as needed */
+}
+.skillsContainer    
+{
+    width: 630px;
+    height: 200px;
+    margin-top: 10%;
+    margin-bottom: -7%;
+    background-color: rgb(231, 231, 231);
+    border: 1px dashed rgb(178, 178, 178);
+    margin-left: -12%;
+}
+#skillsContainer
+{
+    margin-top: 3%;
+    margin-left: 3%;
+}
+

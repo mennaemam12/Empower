@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <!-- Favicon -->
+    <link href="/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Add this before your profile.js script -->
+
+    <!-- Template Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/profile.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+  <body>
+    <%-include("partials/nav.ejs")%> 
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="avatar">
+          <img src="" alt="User Avatar" />
+        </div>
+        <% if (getprofile.length > 0) { %>
+          <h1><%= getprofile[0].Firstname %></h1>
+          <p>Cairo, Egypt</p>
+        <% } else { %>
+          <h1>User Not Found</h1>
+        <% } %>
+      </div>
+    </div>
+      <div class="profile-content">
+        <div class="section">
+          <form action="/myprofile/update" method="POST">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="<%= getprofile[0].Firstname %>"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="<%= getprofile[0].Lastname %>"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="<%= getprofile[0].email %>"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Phone number</label>
+                <input
+                  type="text"
+                  placeholder="Write Your Phone Number"
+                  class="form-control"
+                  id="phone-input"
+                  name="phone"
+                  value="<%= getprofile[0].Phone %>"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea class="form-control bio" id="bio-input" name="bio" rows="4" placeholder="Tell Us About Yourself More !"> <%= getprofile[0].Bio %></textarea>
+                <button type="submit" id="submit-button" class="btn btn-primary position">Update</button>
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+        <div class="section">
+          <h2>Skills</h2>
+          <ul class="skills-list" id="skills-list">
+            <!-- Existing skills from the database -->
+            <% getprofile[0].Skills.forEach(skill => { %>
+              <li><%= skill %></li>
+            <% }) %>
+          </ul>
+          <div class="add-skill">
+            <input type="text" id="new-skill" placeholder="Add a new skill">
+            <button id="add-skill-button" class="btn btn-primary">Add</button>
+          </div>
+        </div>
+        <div class="section">
+          <h2>Certificates and Achievements</h2>
+          <form action="/myprofile" method="POST" enctype="multipart/form-data">
+              <input type="file" id="file-input" name="files" accept="image/png, image/jpeg, image/webp, application/pdf" multiple />
+              <label class="fio" for="file-input">
+                  <img src="../img/plus.png" class="plus-img">
+              </label>
+              <div id="num-of-files">No Files Chosen</div>
+              <div id="files-list"></div>
+              <div id='imgerr' class='err margin31'></div>
+              <button class="buton" type="submit">Upload Files</button>
+          </form>
+      
+          <!-- Uploaded files previews -->
+          <div id="uploaded-images-preview">
+            <% getprofile[0].Urls.forEach((file, index) => { %>
+              <div class="file-preview" id="file-preview-<%= index %>">
+                <span class="file-name"><%= file %></span>
+                <div class="file-preview-content">
+                  <% if (file && file.match(/\.(png|jpeg|jpg|webp)$/i)) { %>
+                    <!-- Use an absolute path for images -->
+                    <img src="/uploads/<%= file %>" alt="Preview" />
+                  <% } else if (file && file.match(/\.(pdf)$/i)) { %>
+                    <!-- Use an absolute path for PDFs -->
+                    <a href="/uploads/<%= file %>" target="_blank">Open PDF</a>
+                  <% } %>
+                </div>
+              </div>
+            <% }); %>
+        </div>        
+      </div>
+      <div class="section">
+        <h2>National ID</h2>
+        <form action="/myprofile/national" method="POST" enctype="multipart/form-data" id="national-id-form">
+          <input type="file" id="file-input-national-id" name="nationalIdFiles" accept="image/png, image/jpeg, image/webp, application/pdf" multiple />
+          <label class="fio" for="file-input-national-id">
+              <img src="../img/plus.png" class="plus-img">
+          </label>
+          <div id="num-of-files-national-id">No Files Chosen</div>
+          <div id="files-list-national-id"></div>
+          <div id='imgerr' class='err margin31'></div>
+          <button class="buton" type="submit">Upload Files</button>
+      </form>
+      
+      <!-- Uploaded files previews -->
+      <div id="uploaded-images-preview">
+        <% getprofile[0].NationalID.forEach((file1, index) => { %>
+          <div class="file-preview" id="file-preview-<%= index %>">
+            <span class="file-name"><%= file1 %></span>
+            <div class="file-preview-content">
+              <% if (file1 && file1.match(/\.(png|jpeg|jpg|webp)$/i)) { %>
+                <!-- Use an absolute path for images -->
+                <img src="/uploads/<%= file1 %>" alt="Preview" />
+              <% } else if (file1 && file1.match(/\.(pdf)$/i)) { %>
+                <!-- Use an absolute path for PDFs -->
+                <a href="/uploads/<%= file1 %>" target="_blank">Open PDF</a>
+              <% } %>
+            </div>
+          </div>
+        <% }); %>
+    </div>  
+    </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    let fileInputNationalId = document.getElementById("file-input-national-id");
+    let fileListNationalId = document.getElementById("files-list-national-id");
+    let numOfFilesNationalId = document.getElementById("num-of-files-national-id");
+
+    function updateNumOfFilesNationalId() {
+        const selectedFiles = fileListNationalId.querySelectorAll(".file-item").length;
+        numOfFilesNationalId.textContent = selectedFiles > 0 ? `${selectedFiles} Files Selected` : "No Files Chosen";
+    }
+
+    function createFileItemNationalId(file) {
+        let listItem = document.createElement("div");
+        listItem.className = "file-item"; // Add a class for styling
+        let fileName = file.name;
+        let fileSize = (file.size / 1024).toFixed(1);
+
+        // Create the structure for each file item
+        listItem.innerHTML = `
+            <span class="img1s">${fileName}</span>
+            <span class="filesize">${fileSize}KB</span>
+            <div class="btnmarg">
+                <button class="buton">Remove</button>
+            </div>
+        `;
+
+        // Adding event listener to remove button
+        let button = listItem.querySelector(".buton");
+        button.addEventListener("click", () => {
+            listItem.remove();
+            fileInputNationalId.value = ''; // Clear the file input selection
+            updateNumOfFilesNationalId();
+        });
+
+        return listItem;
+    }
+
+    fileInputNationalId.addEventListener("change", () => {
+        for (const file of fileInputNationalId.files) {
+            let listItem = createFileItemNationalId(file);
+            fileListNationalId.appendChild(listItem);
+        }
+
+        updateNumOfFilesNationalId();
+    });
+
+    // Prevent the form from submitting and refreshing the page
+});
+  </script>
+  <script src="../js/profile.js"></script>
+</html>

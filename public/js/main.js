@@ -1,8 +1,8 @@
 let ongo = sessionStorage.getItem('ongo');
 
 if(ongo == 'true'){
-   document.getElementById("changable").innerHTML="Jobs Applied"
-   document.getElementById("changable").setAttribute("href", "uploadResume");
+   document.getElementById("changable").innerHTML="My Profile"
+   document.getElementById("changable").setAttribute("href", "myprofile");
 }
 
 
