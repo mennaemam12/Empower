@@ -1,40 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Get references to the buttons and the common links container
     const viewLinksIndexButton = document.getElementById("viewLinksIndex");
-    const linksContainer = document.getElementById("linksContainer");
 
-    // Define the links for each page
-    const indexLinks = [
-        { text: "Link 1", url: "https://example.com/link1" },
-        { text: "Link 2", url: "https://example.com/link2" },
-        // Add more links as needed
-    ];
 
-    const categoryLinks = [
-        { text: "Category Link 1", url: "https://example.com/category/link1" },
-        { text: "Category Link 2", url: "https://example.com/category/link2" },
-        // Add more links as needed
-    ];
+    const linksList = document.getElementById("linksList");
 
-    // Function to display links in the common links container
-    function displayLinks(links) {
+
+    const links = tempDiv.querySelectorAll('a');
+
+
+    // Function to display links in the modal container
+    function displayLinks() {
         // Clear previous content
-        linksContainer.innerHTML = "";
+        linksList.innerHTML = "";
 
         // Create a list of links
-        const ul = document.createElement("ul");
-
         links.forEach(function (link) {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = link.url;
-            a.textContent = link.text;
+            a.href = link.href;
+            a.textContent = link.innerHTML;
             li.appendChild(a);
-            ul.appendChild(li);
+            linksList.appendChild(li);
         });
-
-        // Append the list to the container
-        linksContainer.appendChild(ul);
     }
 
     // Add click event listener to the "View Links" button
@@ -55,4 +43,3 @@ document.addEventListener("DOMContentLoaded", function () {
         return allLinks;
     }
 });
-
