@@ -457,3 +457,24 @@
     background-position: right;
     transition-duration: 1s;
   }
+  #viewLinksIndex {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#viewLinksIndex:hover {
+  background-color: #eee;
+}
+
+#viewLinksIndex i {
+  font-size: 24px;
+}
+
+#viewLinksIndex h6 {
+  font-size: 16px;
+  margin-top: 10px;
+}

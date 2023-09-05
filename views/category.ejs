@@ -75,12 +75,15 @@
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                            <h6 class="mb-3">Customer Service</h6>
-                            <p class="mb-0">123 Vacancy</p>
-                        </a>
+<!-- Add a "View Links" button to open the common links container -->
+<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+    <a class="cat-item rounded p-4" href="javascript:void(0);" id="viewLinksCategory">
+        <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+        <h6 class="mb-3">View Links</h6>
+        <p class="mb-0">123 Vacancy</p>
+    </a>
+</div>
+
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="">
@@ -199,6 +202,66 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+<!-- JavaScript to handle "View Links" buttons -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get references to the buttons and the common links container
+        const viewLinksIndexButton = document.getElementById("viewLinksIndex");
+        const viewLinksCategoryButton = document.getElementById("viewLinksCategory");
+        const linksContainer = document.getElementById("linksContainer");
+
+        // Define the links for each page
+        const indexLinks = [
+            { text: "Link 1", url: "https://example.com/link1" },
+            { text: "Link 2", url: "https://example.com/link2" },
+            // Add more links as needed
+        ];
+
+        const categoryLinks = [
+            { text: "Category Link 1", url: "https://example.com/category/link1" },
+            { text: "Category Link 2", url: "https://example.com/category/link2" },
+            // Add more links as needed
+        ];
+
+        // Function to display links in the common links container
+        function displayLinks(links) {
+            // Clear previous content
+            linksContainer.innerHTML = "";
+
+            // Create a list of links
+            const ul = document.createElement("ul");
+
+            links.forEach(function(link) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.url;
+                a.textContent = link.text;
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+
+            // Append the list to the container
+            linksContainer.appendChild(ul);
+        }
+
+        // Add click event listeners to the buttons
+        viewLinksIndexButton.addEventListener("click", function() {
+            displayLinks(indexLinks);
+        });
+
+        viewLinksCategoryButton.addEventListener("click", function() {
+            displayLinks(categoryLinks);
+        });
+    });
+</script>
+
+
+
+<!-- Common Links Container -->
+<div id="linksContainer" class="container-fluid bg-dark text-white-50 mt-2">
+    <!-- Links will be displayed here -->
+</div>
+
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
