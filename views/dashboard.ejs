@@ -103,7 +103,7 @@
                     <label for="job-select">Select Job:</label>
                     <select class="selecting" id="job-select" name="job">
                         <% if(sortedData!=""){%>
-                            <option value=<%=job.Name%><%=job.Name%>></option>
+                            <option value=<%=job.Name%>><%=job.Name%></option>
                         <%}else{%>
                         <option class="options" value="">select job</option>
                         <%}%>
@@ -119,7 +119,7 @@
                     <label for="company-select">Select Company:</label>
                     <select class="selecting" id="company-select" name="company" >
                         <% if(sortedData!=""){%>
-                            <option value=<%=job.Company%><%=job.Company%>></option>
+                            <option value=<%=job.Company%>><%=job.Company%></option>
                         <%}else{%>
                         <option class="options"  value="">select company</option>
                         <%}%>
@@ -153,7 +153,11 @@
                          
                         <p id="userId" style="display: none;"><%=sortedData[k].user._id%></p>
                         <p id="jobId" style="display: none;"><%=job._id%></p>
-                        <a class="accept-button" href="#" id="<%=sortedData[k].user._id%>" onclick="accept()">Accept CV </a> 
+                        <%if(sortedData[k].user.acceptedCV.includes(job._id)){%>
+                            <a class="cv-accepted" href="#" id="<%=sortedData[k].user._id%>">CV Accepted </a> 
+                        <%}else{%>
+                            <a class="accept-button" href="#" id="<%=sortedData[k].user._id%>" onclick="accept()">Accept CV </a> 
+                        <%}%>
                     </div>
                     
                    

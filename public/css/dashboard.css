@@ -181,7 +181,7 @@ body {
     cursor: pointer;
   }
   
-  .view-resume-button,.view-profile-button,.accept-button {
+  .view-resume-button,.view-profile-button,.accept-button,.cv-accepted {
     
     margin-right: 15%;
     padding: 10px 20px;
@@ -197,7 +197,7 @@ body {
     text-align: center;
     width: 115px;
   }
-  .accept-button
+  .accept-button,.cv-accepted
   {
     margin-top: -10%;
     background-color: rgb(8, 185, 8);

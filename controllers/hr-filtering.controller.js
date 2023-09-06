@@ -121,6 +121,8 @@ function calculateMatchingWordCount(sentence, words) {
 }
 
 const acceptApplicant=async function(req,res){
+      console.log(req.body.user);
+      console.log(req.body.job);
       const user= await Users.findById(req.body.user);
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -128,7 +130,7 @@ const acceptApplicant=async function(req,res){
       if (user.acceptedCV.includes(req.body.job)) {
         return res.status(400).json({ error: 'Cv already accepted' });
       }
-      user.acceptedCV.push(req.params.job);
+      user.acceptedCV.push(req.body.job);
       await user.save();
       res.send("success")
 }
