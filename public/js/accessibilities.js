@@ -205,7 +205,7 @@ function textalign()
         textalign1logoL.style.color="green";
 
 
-        var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+        var elementsWithClassReading12 = document.querySelectorAll(".reading12 , a");
         elementsWithClassReading12.forEach(function(element) {
         element.style.textAlign = "left"; // Set text alignment to left
         });
@@ -223,7 +223,7 @@ function textalign()
     textalign1logoR.style.color="green";
 
 
-    var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+    var elementsWithClassReading12 = document.querySelectorAll(".reading12  , a");
     elementsWithClassReading12.forEach(function(element) {
     element.style.textAlign = "right"; // Set text alignment to left
     });
@@ -240,7 +240,7 @@ function textalign()
     textalign1logoC.style.color="green";
 
 
-    var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+    var elementsWithClassReading12 = document.querySelectorAll(".reading12  , a");
     elementsWithClassReading12.forEach(function(element) {
     element.style.textAlign = "center"; // Set text alignment to left
     });
@@ -257,7 +257,7 @@ function textalign()
     textalign1logo.style.color="#25316D";
 
 
-    var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+    var elementsWithClassReading12 = document.querySelectorAll(".reading12  , a");
     elementsWithClassReading12.forEach(function(element) {
     element.style.textAlign = ""; // Set text alignment to left
     });
