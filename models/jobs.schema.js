@@ -56,7 +56,6 @@ const jobSchema = new Schema ({
     Companylogo:
     {
         type:String,
-        required:[true,'Logo is required'],
         trim:true 
     }
 
