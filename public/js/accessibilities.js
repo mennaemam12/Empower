@@ -1,7 +1,9 @@
 let colorblindcounter=[1,2,3];
 let textenlargementcounter=[1,2,3];
+let highlightlinkscounter=[1,2]
 let i=0;
 let j=0;
+let k=0;
 function colorblind() {
     
     if(colorblindcounter[i]==1)
@@ -117,10 +119,38 @@ function textenlargement() {
     text1.forEach(function(element) {
         element.style.transform="scale(1)";
     });
-
    }
-
-
-
-
 }
+
+function highlightlinks()
+{
+    if(highlightlinkscounter[i]==1)
+    {
+        i++
+    var allAnchorElements = document.querySelectorAll("a, h6,button");
+    allAnchorElements.forEach(function(anchorElement) {
+    anchorElement.style.color = "yellow";        
+    anchorElement.style.backgroundColor = "black"; 
+    anchorElement.style.textDecoration = "underline"; 
+
+     });
+    }
+   else
+   {
+    i=0;
+    var allAnchorElements = document.querySelectorAll("a,h6,button");
+    allAnchorElements.forEach(function(anchorElement) {
+    anchorElement.style.color = "";      
+    anchorElement.style.backgroundColor = "";
+    anchorElement.style.textDecoration = ""; 
+
+     });
+   }
+}
+
+
+
+
+
+
+
