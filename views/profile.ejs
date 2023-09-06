@@ -31,7 +31,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   </head>
   <body>
-    <%-include("partials/nav.ejs")%> 
+    <% if(viewer==="user"){%>
+        <%-include("partials/nav.ejs")%> 
+    <%}%>
     <div class="profile-container">
       <div class="profile-header">
         <div class="avatar">
@@ -81,6 +83,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Phone number</label>
+                <% if(viewer==="user") {%>
                 <input
                   type="text"
                   placeholder="Write Your Phone Number"
@@ -89,6 +92,27 @@
                   name="phone"
                   value="<%= getprofile.Phone %>"
                 >
+                <% }else if(viewer==="admin" && getprofile.Phone==undefined){%>
+                  <input
+                  type="text"
+                  placeholder="Not Provided"
+                  class="form-control"
+                  id="phone-input"
+                  name="phone"
+                  value="<%= getprofile.Phone %>"
+                  readonly
+                   >
+                <%}else{%>
+                  <input
+                  type="text"
+                  placeholder="Write Your Phone Number"
+                  class="form-control"
+                  id="phone-input"
+                  name="phone"
+                  value="<%= getprofile.Phone %>"
+                  readonly
+                   >
+                  <% } %>
               </div>
             </div>
             <div class="col-md-12">
@@ -98,8 +122,12 @@
                 <% if(getprofile.Bio!=undefined) {
                     bio=getprofile.Bio; 
                  } %>
+                 <%if(viewer==="user"){%>
                 <textarea class="form-control bio" id="bio-input" name="bio" rows="4" placeholder="Tell Us About Yourself More !"><%=bio%></textarea>         
                 <button type="submit" id="submit-button" class="btn btn-primary position">Update</button>
+                <%}else if(viewer==="admin" && bio===""){%>
+                  <textarea class="form-control bio" id="bio-input" name="bio" rows="4" placeholder="Not Provided" readonly><%=bio%></textarea>
+                <%}%>
               </div>
             </div>
           </form>
@@ -113,23 +141,27 @@
               <li><%= skill %></li>
             <% }) %>
           </ul>
-          <div class="add-skill">
-            <input type="text" id="new-skill" placeholder="Add a new skill">
-            <button id="add-skill-button" class="btn btn-primary">Add</button>
-          </div>
+          <%if(viewer==="user"){%>
+            <div class="add-skill">
+              <input type="text" id="new-skill" placeholder="Add a new skill">
+              <button id="add-skill-button" class="btn btn-primary">Add</button>
+            </div>
+          <%}%>
         </div>
         <div class="section">
           <h2>Certificates and Achievements</h2>
-          <form action="/myprofile" method="POST" enctype="multipart/form-data">
-              <input type="file" id="file-input" name="files" accept="image/png, image/jpeg, image/webp, application/pdf" multiple />
-              <label class="fio" for="file-input">
-                  <img src="../img/plus.png" class="plus-img">
-              </label>
-              <div id="num-of-files">No Files Chosen</div>
-              <div id="files-list"></div>
-              <div id='imgerr' class='err margin31'></div>
-              <button class="buton" type="submit">Upload Files</button>
-          </form>
+          <%if(viewer==="user"){%>
+              <form action="/myprofile" method="POST" enctype="multipart/form-data">
+                  <input type="file" id="file-input" name="files" accept="image/png, image/jpeg, image/webp, application/pdf" multiple />
+                  <label class="fio" for="file-input">
+                      <img src="../img/plus.png" class="plus-img">
+                  </label>
+                  <div id="num-of-files">No Files Chosen</div>
+                  <div id="files-list"></div>
+                  <div id='imgerr' class='err margin31'></div>
+                  <button class="buton" type="submit">Upload Files</button>
+              </form>
+          <%}%>
       
           <!-- Uploaded files previews -->
           <div id="uploaded-images-preview">
@@ -151,16 +183,18 @@
       </div>
       <div class="section">
         <h2>National ID</h2>
-        <form action="/myprofile/national" method="POST" enctype="multipart/form-data" id="national-id-form">
-          <input type="file" id="file-input-national-id" name="nationalIdFiles" accept="image/png, image/jpeg, image/webp, application/pdf" multiple />
-          <label class="fio" for="file-input-national-id">
-              <img src="../img/plus.png" class="plus-img">
-          </label>
-          <div id="num-of-files-national-id">No Files Chosen</div>
-          <div id="files-list-national-id"></div>
-          <div id='imgerr' class='err margin31'></div>
-          <button class="buton" type="submit">Upload Files</button>
-      </form>
+        <%if(viewer==="user"){%>
+            <form action="/myprofile/national" method="POST" enctype="multipart/form-data" id="national-id-form">
+              <input type="file" id="file-input-national-id" name="nationalIdFiles" accept="image/png, image/jpeg, image/webp, application/pdf" multiple />
+              <label class="fio" for="file-input-national-id">
+                  <img src="../img/plus.png" class="plus-img">
+              </label>
+              <div id="num-of-files-national-id">No Files Chosen</div>
+              <div id="files-list-national-id"></div>
+              <div id='imgerr' class='err margin31'></div>
+              <button class="buton" type="submit">Upload Files</button>
+            </form>
+        <%}%>
       
       <!-- Uploaded files previews -->
       <div id="uploaded-images-preview">

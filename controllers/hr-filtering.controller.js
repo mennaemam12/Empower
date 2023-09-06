@@ -137,7 +137,7 @@ const acceptApplicant=async function(req,res){
 
 const viewProfile=async function(req,res){
     var getprofile= await Users.findById(req.params.id);
-    res.render('profile', {getprofile,viewer:"user"});
+    res.render('profile', {getprofile,viewer:"admin"});
 }
 
 module.exports={select,filter,acceptApplicant,viewProfile};
