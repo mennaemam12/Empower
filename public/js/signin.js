@@ -76,6 +76,7 @@ $(document).ready(function () {
           {
             sessionStorage.setItem('ongo', "true");
             sessionStorage.setItem('Email',response.email);
+            sessionStorage.setItem('disability',response.disability);
             window.location.replace("/");
           }
           else if(response.success=="admin")

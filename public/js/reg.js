@@ -183,6 +183,7 @@ $(document).ready(function () {
           
                sessionStorage.setItem('ongo', "true");
                sessionStorage.setItem('Email',response.Email);
+               sessionStorage.setItem('disability',accessibilityValue);
                window.location.replace("/");
          }
          else
