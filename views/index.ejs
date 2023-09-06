@@ -31,6 +31,7 @@
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/video.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/chat.css">
 
 
 
@@ -48,13 +49,21 @@
         #job-mask{
             width:700px;
         }
+        .chat-bar-collapsible {
+            position: fixed;
+            bottom: 0;
+            right: 50px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            margin-right: -2%;
+            }
     </style>
 </head>
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/ee4053c9b9.js" crossorigin="anonymous"></script>
-
+    
     <div class="container-xxl bg-white p-0 "  >
         <!-- Spinner Start -->
      
@@ -62,8 +71,9 @@
 
 
         <!-- Navbar Start -->
-        <%-include("partials/nav.ejs")%> 
         <%-include("partials/chat.ejs")%> 
+        <%-include("partials/nav.ejs")%> 
+       
         <!-- Navbar End -->
 
 
@@ -209,7 +219,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <a class="cat-item rounded p-4" href="" onclick="buttonPressed13()" style="cursor: pointer;">
+                        <a class="cat-item rounded p-4"  onclick="colorblind()" style="cursor: pointer;">
                             <i class="fa-solid fa-eye speaker"></i>
                             <h6 class="mb-3 screenr12 reading12">Color Blind</h6>
                         </a>
@@ -480,6 +490,7 @@
      <script src="/js/main.js"></script>
      <script src="/js/readingMask.js"></script>
      <script src="./js/screen_reader.js"></script>
+     <script src="./js/accessibilities.js"></script>
     
 
 </body>
