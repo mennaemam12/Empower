@@ -54,58 +54,54 @@ function addSkill() {
 }
 
 
-
-
 $(document).ready(function () {
     $('#myFrom21').submit(function (event) {
-      event.preventDefault();
+      event.preventDefault(); 
+      const skillValues = [];
+      const CompanyName = $('#CompanyName').val();
+      const loc = $('#loc').val();
+      const title = $('#title').val();
+      const Salary = $('#Salary').val();
+      const description = $('#description1').val();
+      $('#skillsContainer span').each(function(index, element) {
+        skillValues.push($(element).text());
+       });
+      const work_models = $('input[name="value-radio"]:checked').val();
+      const Disability = $('input[name="value2-radio"]:checked').val();
+      const position_nedd = $('input[name="value3-radio"]:checked').val();
 
-    //   const img12=$('#file')[0].files[0]
-    //   const companyName = $("#CompanyName").val();
-    //   const location = $("#loc").val();
-    //   const jobTitle = $("#title").val();
-    //   const salaryRange = $("#Salary").val();
-    //   const description = $("#description1").val();
-    //   const skillsSpans = $("#skillsContainer").find("span");
-    //   let skills=[];
-    //   const positionNeed = $("input[name='value3-radio']:checked").val();
-    //   const workModel = $("input[name='value-radio']:checked").val();
-    //   const disability = $("input[name='value2-radio']:checked").val();
 
+      
+  
+        const formData = new FormData();
+        formData.append('CompanyName', CompanyName);
+        formData.append('loc', loc);
+        formData.append('imageFile', $('#file')[0].files[0]);
+        formData.append('title', title);
+        formData.append('Salary', Salary);
+        formData.append('description', description);
+        skillValues.forEach(function(skill) {
+            formData.append('skills', skill);
+        });
+        formData.append('work_models', work_models);
+        formData.append('Disability', Disability);
+        formData.append('position_need', position_nedd);
 
-     const formData = new FormData();
-     formData.append("file", $('#file')[0].files[0]); 
-     formData.append("CompanyName", companyName);
-     formData.append("loc", location);
-     formData.append("title", jobTitle);
-     formData.append("Salary", salaryRange);
-     formData.append("description1", description);
+// Now, the formData object contains all the variables you want to send in your POST request
 
-     skillsSpans.each(function(index, element) {
-         formData.append("skills[]", $(element).text()); 
-     });
-
-     formData.append("positionNeed", positionNeed);
-     formData.append("workModel", workModel);
-     formData.append("disability", disability);
     
-     $.ajax({
+  
+      $.ajax({
         url: '/addposition',
-        type: 'POST',
+        method: 'POST',
         data: formData,
         processData: false,
-        contentType: false, // Your FormData object
-        success: function(response) {
-            // Handle the response here
+        contentType: false,
+        success: function (response) {
         },
-        error: function(error) {
-            // Handle any errors here
-        }
-    });
-    
-
-
-
-
+        error: function (error) {
+          console.error(error); // Log any errors that occurred
+        },
+      });
     });
   });
