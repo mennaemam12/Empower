@@ -40,6 +40,6 @@ document.querySelectorAll('.reading12').forEach(element => {
 
         setTimeout(() => {
             hasBeenRead = false;
-        }, 100);
+        }, 10);
     });
 });

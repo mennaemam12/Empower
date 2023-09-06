@@ -35,7 +35,7 @@ function getTime() {
 
 function firstBotMessage() {
     let firstMessage = "How's it going?"
-    document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
+    document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span class="reading12">' + firstMessage + '</span></p>';
 
     let time = getTime();
 
@@ -51,7 +51,7 @@ function getResponse() {
         return;
     }
 
-    let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+    let userHtml = '<p class="userText"><span class="reading12">' + userText + '</span></p>';
 
     $("#textInput").val("");
     $("#chatbox").append(userHtml);
@@ -64,7 +64,7 @@ function getResponse() {
 
 
 function buttonSendText(sampleText) {
-    let userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
+    let userHtml = '<p class="userText"><span class="reading12">' + sampleText + '</span></p>';
 
     $("#textInput").val("");
     $("#chatbox").append(userHtml);
@@ -97,7 +97,7 @@ function getChatAnswer(message) {
         method: 'POST',
         data: { message: message },
         success: (response) => {
-            const botHtml = `<p class="botText"><span> ${response.answer} </span></p>`;
+            const botHtml = `<p class="botText "><span class="reading12"> ${response.answer} </span></p>`;
             $("#chatbox").append(botHtml);
         },
         error: (error) => {
