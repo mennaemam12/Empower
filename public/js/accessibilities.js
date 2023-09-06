@@ -1,9 +1,13 @@
 let colorblindcounter=[1,2,3];
 let textenlargementcounter=[1,2,3];
-let highlightlinkscounter=[1,2]
+let highlightlinkscounter=[1,2];
+let hideimagescounter=[1,2];
+let textalgincounter=[1,2,3,4];
 let i=0;
 let j=0;
 let k=0;
+let x=0;
+let y=0;
 function colorblind() {
     
     if(colorblindcounter[i]==1)
@@ -146,6 +150,121 @@ function highlightlinks()
 
      });
    }
+}
+function hideimages()
+{
+    if(hideimagescounter[i]==1)
+    {
+        let hideimage = document.getElementById("hideimage");
+        hideimage.style.border = "1px solid green";
+        let hideimagelogo = document.getElementById("hideimagelogo");
+        hideimagelogo.style.transition = "color 0.5s ease";
+        hideimagelogo.style.color="green";
+
+        i++
+    var allAnchorElements = document.querySelectorAll("img");
+    allAnchorElements.forEach(function(anchorElement) {
+    anchorElement.style.display = "none";        
+     });
+    }
+   else
+   {
+    let hideimage = document.getElementById("hideimage");
+    hideimage.style.border = "0px solid green";
+    let hideimagelogo = document.getElementById("hideimagelogo");
+    hideimagelogo.style.transition = "color 0.5s ease";
+    hideimagelogo.style.color="#25316D";
+    i=0;
+    var allAnchorElements = document.querySelectorAll("img");
+    allAnchorElements.forEach(function(anchorElement) {
+    anchorElement.style.display = "block";        
+     });
+   }
+
+
+
+}
+
+
+
+
+function textalign()
+{
+    let textalign1logo = document.getElementById("textalign1logo");
+    let textalign1logoL = document.getElementById("textalign1logoL");
+    let textalign1logoR = document.getElementById("textalign1logoR");
+    let textalign1logoC = document.getElementById("textalign1logoC");
+    if(textalgincounter[i]==1)
+    {
+        i++;
+        let textalign1 = document.getElementById("textalign1");
+        textalign1.style.border = "1px solid green";
+        textalign1logo.style.display="none";
+        textalign1logoL.style.display="block";
+        textalign1logoL.style.transition = "color 0.5s ease";
+        textalign1logoL.style.color="green";
+
+
+        var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+        elementsWithClassReading12.forEach(function(element) {
+        element.style.textAlign = "left"; // Set text alignment to left
+        });
+      
+    
+    }
+   else if(textalgincounter[i]==2)
+   {
+    i++;
+    let textalign1 = document.getElementById("textalign1");
+    textalign1.style.border = "1px solid green";
+    textalign1logoL.style.display="none";
+    textalign1logoR.style.display="block";
+    textalign1logoR.style.transition = "color 0.5s ease";
+    textalign1logoR.style.color="green";
+
+
+    var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+    elementsWithClassReading12.forEach(function(element) {
+    element.style.textAlign = "right"; // Set text alignment to left
+    });
+  
+   }
+   else if(textalgincounter[i]==3)
+   {
+    i++;
+    let textalign1 = document.getElementById("textalign1");
+    textalign1.style.border = "1px solid green";
+    textalign1logoR.style.display="none";
+    textalign1logoC.style.display="block";
+    textalign1logoC.style.transition = "color 0.5s ease";
+    textalign1logoC.style.color="green";
+
+
+    var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+    elementsWithClassReading12.forEach(function(element) {
+    element.style.textAlign = "center"; // Set text alignment to left
+    });
+
+   }
+   else
+   {
+    i=0;
+    let textalign1 = document.getElementById("textalign1");
+    textalign1.style.border = "0px solid green";
+    textalign1logoC.style.display="none";
+    textalign1logo.style.display="block";
+    textalign1logo.style.transition = "color 0.5s ease";
+    textalign1logo.style.color="#25316D";
+
+
+    var elementsWithClassReading12 = document.querySelectorAll(".reading12");
+    elementsWithClassReading12.forEach(function(element) {
+    element.style.textAlign = ""; // Set text alignment to left
+    });
+   }
+
+
+
 }
 
 
