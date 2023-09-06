@@ -64,6 +64,10 @@ const UserSchema = new Schema ({
     acceptedCV:{
         type:Array,
         trim:true
+    },
+    acceptedJob:{
+        type:Array,
+        trim:true
     }
 },{timestamp:true});
 

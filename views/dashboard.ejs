@@ -153,10 +153,12 @@
                          
                         <p id="userId" style="display: none;"><%=sortedData[k].user._id%></p>
                         <p id="jobId" style="display: none;"><%=job._id%></p>
-                        <%if(sortedData[k].user.acceptedCV.includes(job._id)){%>
-                            <a class="cv-accepted" href="#" id="<%=sortedData[k].user._id%>">CV Accepted </a> 
+                        <%if(sortedData[k].user.acceptedJob.includes(job._id)){%>
+                            <a class="cv-accepted" href="#" id="<%=sortedData[k].user._id%>" >Accepted </a> 
+                        <% }else if(sortedData[k].user.acceptedCV.includes(job._id)){ %>
+                            <a class="cv-accepted" href="#" id="<%=sortedData[k].user._id%>" onclick="finalAcceptance('<%=sortedData[k].user._id%>')">Send Offer </a>
                         <%}else{%>
-                            <a class="accept-button" href="#" id="<%=sortedData[k].user._id%>" onclick="accept()">Accept CV </a> 
+                            <a class="accept-button" href="#" id="<%=sortedData[k].user._id%>" onclick="accept('<%=sortedData[k].user._id%>')">Accept CV </a> 
                         <%}%>
                     </div>
                     
