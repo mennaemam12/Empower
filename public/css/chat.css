@@ -1,11 +1,11 @@
-.chat-bar-collapsible {
+/* .chat-bar-collapsible {
     position: fixed;
     bottom: 0;
     right: 50px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 2;
     margin-right: -2%;
-}
+} */
 
 .collapsible {
     background-color: #282b51;
@@ -20,7 +20,6 @@
     border-radius: 10px 10px 0px 0px;
     border-bottom: none;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
-
 }
 
 .content {
