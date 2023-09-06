@@ -176,7 +176,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="linksModalLabel">Links</h5>
+                                    <h5 class="modal-title reading12" id="linksModalLabel">Links</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -194,7 +194,7 @@
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="cat-item rounded p-4" data-bs-toggle="modal" data-bs-target="#linksModal" id="viewLinksIndex">
                             <i class="fa-solid fa-link text-primary mb-4" style="font-size: 2.3em;"></i>
-                            <h6 class="mb-3">View Links</h6>
+                            <h6 class="mb-3 reading12">View Links</h6>
                         </a>
                     </div>
                     
@@ -268,11 +268,11 @@
                         <h1 class="mb-4 reading12">We Help To Get The Best Job And Find A Talent</h1>
                         <p class="mb-4 reading12">Welcome to Empower, where we believe that diversity is not just a buzzword; it's the heart and soul of who we are. We are a job application platform dedicated to empowering individuals with disabilities to thrive in the professional world.
                            Our journey began with a simple yet profound vision: to create a space where everyone, regardless of their physical or cognitive challenges, could find meaningful employment opportunities. We understand that disability is not a limitation but rather a unique perspective, and we are committed to breaking down barriers and reshaping the job application landscape.</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Inclusivity</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Tailored Support</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Enlightened Employers</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Advocacy</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3 reading12" href="/about">Read More</a>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Inclusivity</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Tailored Support</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Enlightened Employers</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Advocacy</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3 reading12 " href="/about">Read More</a>
                     </div>
                     
                     <!-- <div class="popup" id="videoPopup">
@@ -331,21 +331,21 @@
                               <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" id="cimg"  src="/img/<%=job.Company%>.jpg" alt="<%=job.Company%> Logo" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded reading12" id="cimg"  src="/img/<%=job.Company%>.jpg" alt="<%=job.Company%> Logo" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
-                                            <h5 class="mb-3"><%=job.Name%></h5>
-                                            <h5 id="<%=job.Company%>" style="display:none;"><%=job.Company%></h5>
-                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i><%=job.Location%></span>
-                                            <span class="text-truncate me-3"><i class="fa-solid fa-map-pin" style="color:rgb(18, 18, 104)"></i> <%=job.Place%></span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i><%=job.Salary%></span>
+                                            <h5 class="mb-3 reading12"><%=job.Name%></h5>
+                                            <h5 class="reading12" id="<%=job.Company%>" style="display:none;"><%=job.Company%></h5>
+                                            <span class="text-truncate me-3 reading12"><i class="fa fa-map-marker-alt text-primary me-2 reading12"></i><%=job.Location%></span>
+                                            <span class="text-truncate me-3 reading12"><i class="fa-solid fa-map-pin" style="color:rgb(18, 18, 104) reading12"></i> <%=job.Place%></span>
+                                            <span class="text-truncate me-0 reading12"><i class="far fa-money-bill-alt text-primary me-2 reading12"></i><%=job.Salary%></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
                                             <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                            <button class="btn btn-primary view-button" data-jobid="<%=job._id%>">View Details</button>
+                                            <button class="btn btn-primary view-button reading12" data-jobid="<%=job._id%>">View Details</button>
                                         </div>
-                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                        <small class="text-truncate reading12"><i class="far fa-calendar-alt text-primary me-2 reading12"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
                                 </div>
                               </div>
@@ -469,7 +469,6 @@
 
 
        
-    <!-- JavaScript Libraries -->
      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
      <script src="/lib/wow/wow.min.js"></script>
@@ -477,7 +476,7 @@
      <script src="/lib/waypoints/waypoints.min.js"></script>
      <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
      
-     <!-- Template Javascript -->
+
      <script src="/js/main.js"></script>
      <script src="/js/readingMask.js"></script>
      <script src="/js/screen_reader.js"></script>
