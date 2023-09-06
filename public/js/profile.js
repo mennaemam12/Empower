@@ -1,3 +1,18 @@
+let ongo = sessionStorage.getItem('ongo');
+
+if(ongo == 'true'){
+   document.getElementById("changable").innerHTML="My Profile"
+   document.getElementById("changable").setAttribute("href", "myprofile");
+   document.getElementById("upload").style.display="flex";
+    document.getElementById("dropdown").style.display="flex";
+}
+else
+{
+    document.getElementById("upload").style.display="none";
+    document.getElementById("dropdown").style.display="none";
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     let fileInput = document.getElementById("file-input");
     let fileList = document.getElementById("files-list");
