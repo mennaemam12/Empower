@@ -1,11 +1,12 @@
 let colorblindcounter=[1,2,3];
+let textenlargementcounter=[1,2,3];
 let i=0;
+let j=0;
 function colorblind() {
     
     if(colorblindcounter[i]==1)
     {
         i++;
-        
         var styleElement = document.getElementById("custom-css");
     if (!styleElement) {
         styleElement = document.createElement("style");
@@ -23,9 +24,13 @@ function colorblind() {
         // Otherwise, set the CSS rule
         styleElement.innerHTML = cssText;
     }
+
     }
     else if(colorblindcounter[i]==2)
     {
+        let colorblind12 = document.getElementById("colorblind");
+        colorblind12.style.border = "2px solid balck";
+
         var styleElement = document.getElementById("custom-css");
 
          if (styleElement) {
@@ -50,6 +55,7 @@ function colorblind() {
         // Otherwise, set the CSS rule
         styleElement.innerHTML = cssText;
     }
+   
     }
    else
    {
@@ -62,4 +68,59 @@ function colorblind() {
    }
 
    }
+}
+
+
+function textenlargement() {
+    if(textenlargementcounter[i]==1)
+    {
+        let textenlarge = document.getElementById("textenlarge");
+        textenlarge.style.border = "1px solid green";
+        let textenlargelogo = document.getElementById("textenlargelogo");
+        textenlargelogo.style.transition = "color 0.5s ease";
+        textenlargelogo.style.color="green";
+
+        console.log("weselna?")
+        i++
+        let text1=document.querySelectorAll(".reading12");
+        text1.forEach(function(element) {
+            element.style.transform="scale(1.1)";
+        });
+    }
+    else if(textenlargementcounter[i]==2)
+    {
+        let textenlarge = document.getElementById("textenlarge");
+        textenlarge.style.border = "1px solid green";
+        let textenlargelogo = document.getElementById("textenlargelogo");
+        textenlargelogo.style.transition = "color 0.5s ease";
+        textenlargelogo.style.color="green";
+
+
+        i++
+        let text1=document.querySelectorAll(".reading12");
+        text1.forEach(function(element) {
+            element.style.transform="scale(1.15)";
+        });
+    }
+   else
+   {
+    let textenlarge = document.getElementById("textenlarge");
+        textenlarge.style.border = "0px solid green";
+        let textenlargelogo = document.getElementById("textenlargelogo");
+        textenlargelogo.style.transition = "color 0.5s ease";
+        textenlargelogo.style.color="#25316D";
+
+
+    i=0;
+    console.log("hena");
+    let text1=document.querySelectorAll(".reading12");
+    text1.forEach(function(element) {
+        element.style.transform="scale(1)";
+    });
+
+   }
+
+
+
+
 }
