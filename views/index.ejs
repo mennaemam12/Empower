@@ -31,6 +31,7 @@
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/video.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/chat.css">
 
 
 
@@ -54,7 +55,7 @@
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/ee4053c9b9.js" crossorigin="anonymous"></script>
-
+    
     <div class="container-xxl bg-white p-0 "  >
         <!-- Spinner Start -->
      
@@ -62,7 +63,9 @@
 
 
         <!-- Navbar Start -->
+        <%-include("partials/chat.ejs")%> 
         <%-include("partials/nav.ejs")%> 
+       
         <!-- Navbar End -->
 
 
@@ -134,12 +137,12 @@
                     </div>
                     <div class="col-md-2">
 
-                        <button class="chatBtn" onclick="openForm()">
+                        <!-- <button class="chatBtn" onclick="openForm()">
                             <svg height="1.6em" fill="white" xml:space="preserve" viewBox="0 0 1000 1000" y="0px" x="0px" version="1.1">
                               <path d="M881.1,720.5H434.7L173.3,941V720.5h-54.4C58.8,720.5,10,671.1,10,610.2v-441C10,108.4,58.8,59,118.9,59h762.2C941.2,59,990,108.4,990,169.3v441C990,671.1,941.2,720.5,881.1,720.5L881.1,720.5z M935.6,169.3c0-30.4-24.4-55.2-54.5-55.2H118.9c-30.1,0-54.5,24.7-54.5,55.2v441c0,30.4,24.4,55.1,54.5,55.1h54.4h54.4v110.3l163.3-110.2H500h381.1c30.1,0,54.5-24.7,54.5-55.1V169.3L935.6,169.3z M717.8,444.8c-30.1,0-54.4-24.7-54.4-55.1c0-30.4,24.3-55.2,54.4-55.2c30.1,0,54.5,24.7,54.5,55.2C772.2,420.2,747.8,444.8,717.8,444.8L717.8,444.8z M500,444.8c-30.1,0-54.4-24.7-54.4-55.1c0-30.4,24.3-55.2,54.4-55.2c30.1,0,54.4,24.7,54.4,55.2C554.4,420.2,530.1,444.8,500,444.8L500,444.8z M282.2,444.8c-30.1,0-54.5-24.7-54.5-55.1c0-30.4,24.4-55.2,54.5-55.2c30.1,0,54.4,24.7,54.4,55.2C336.7,420.2,312.3,444.8,282.2,444.8L282.2,444.8z"></path>
                             </svg>
                             <span class="tooltip">Chat</span>
-                          </button>
+                          </button> -->
                           
                           <form class="form" id="form" style="display: none;">
                             <input class="input" type="text" placeholder="Name">
@@ -175,7 +178,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="linksModalLabel">Links</h5>
+                                    <h5 class="modal-title reading12" id="linksModalLabel">Links</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
@@ -192,8 +195,8 @@
                     <!-- "View Links" button with id="viewLinksIndex" -->
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="cat-item rounded p-4" data-bs-toggle="modal" data-bs-target="#linksModal" id="viewLinksIndex">
-                            <i class="fa-solid fa-link text-primary mb-4" style="font-size: 2.3em;"></i>
-                            <h6 class="mb-3">View Links</h6>
+                            <i class="fa-solid fa-link text-primary mb-4 speaker" style="font-size: 2.6em; text-align: left;"></i>
+                            <h6 class="mb-3 screenr12 reading12" style="text-align: left;">View Links</h6>
                         </a>
                     </div>
                     
@@ -202,39 +205,42 @@
                     
 
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa-solid fa-volume-high"></i>
-                            <h6 class="mb-3 reading12">Human Resource</h6>
+                        <a class="cat-item rounded p-4" id="screenreader" onclick="buttonPressed12()" style="cursor: pointer;">
+                            <i class="fa-solid fa-volume-high speaker" id="screenlogo"></i>
+                            <h6 class="mb-3 screenr12 reading12">Screen Reader</h6>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
-                            <h6 class="mb-3 reading12">Project Management</h6>
+                        <a class="cat-item rounded p-4" id="colorblind" onclick="colorblind()" style="cursor: pointer;">
+                            <i class="fa-solid fa-eye speaker"></i>
+                            <h6 class="mb-3 screenr12 reading12">Color Blind</h6>
                         </a>
                     </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
-                            <h6 class="mb-3 reading12">Business Development</h6>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp"  data-wow-delay="0.1s">
+                        <a class="cat-item rounded p-4" id="textenlarge" onclick="textenlargement()" style="cursor: pointer;">
+                            <i class="fa-solid fa-magnifying-glass speaker" id="textenlargelogo"></i>
+                            <h6 class="mb-3 screenr12 reading12">Text Enlargement</h6>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
-                            <h6 class="mb-3 reading12">Sales & Communication</h6>
+                        <a class="cat-item rounded p-4" onclick="highlightlinks()" style="cursor: pointer;">
+                            <i class="fa-solid fa-highlighter speaker"></i>
+                            <h6 class="mb-3 reading12 screenr12">Highlight Links</h6>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
-                            <h6 class="mb-3 reading12">Teaching & Education</h6>
+                        <a class="cat-item rounded p-4"id="hideimage" onclick="hideimages()" style="cursor: pointer;">
+                            <i class="fa-regular fa-image speaker" id="hideimagelogo"></i>
+                            <h6 class="mb-3 reading12 screenr12">Hide Images</h6>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <a class="cat-item rounded p-4" href="">
-                            <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
-                            <h6 class="mb-3 reading12">Design & Creative</h6>
+                        <a class="cat-item rounded p-4" onclick="textalign()" id="textalign1" style="cursor: pointer;">
+                            <i class="fa-solid fa-align-justify speaker" id="textalign1logo"  style="display: block;"></i>
+                            <i class="fa-solid fa-align-left speaker" id="textalign1logoL" style="display: none;"></i>
+                            <i class="fa-solid fa-align-right speaker" id="textalign1logoR" style="display: none;"></i>
+                            <i class="fa-solid fa-align-center speaker" id="textalign1logoC" style="display: none;"></i>
+                            <h6 class="mb-3 reading12 screenr12">Text Align</h6>
                         </a>
                     </div>
                 </div>
@@ -267,11 +273,11 @@
                         <h1 class="mb-4 reading12">We Help To Get The Best Job And Find A Talent</h1>
                         <p class="mb-4 reading12">Welcome to Empower, where we believe that diversity is not just a buzzword; it's the heart and soul of who we are. We are a job application platform dedicated to empowering individuals with disabilities to thrive in the professional world.
                            Our journey began with a simple yet profound vision: to create a space where everyone, regardless of their physical or cognitive challenges, could find meaningful employment opportunities. We understand that disability is not a limitation but rather a unique perspective, and we are committed to breaking down barriers and reshaping the job application landscape.</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Inclusivity</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Tailored Support</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Enlightened Employers</p>
-                        <p><i class="fa fa-check text-primary me-3 reading12"></i>Advocacy</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3 reading12" href="/about">Read More</a>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Inclusivity</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Tailored Support</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Enlightened Employers</p>
+                        <p class="reading12"><i class="fa fa-check text-primary me-3 "></i>Advocacy</p>
+                        <a class="btn btn-primary py-3 px-5 mt-3 reading12 " href="/about">Read More</a>
                     </div>
                     
                     <!-- <div class="popup" id="videoPopup">
@@ -330,21 +336,21 @@
                               <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" id="cimg"  src="/img/<%=job.Company%>.jpg" alt="<%=job.Company%> Logo" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded reading12" id="cimg"  src="/img/<%=job.Company%>.jpg" alt="<%=job.Company%> Logo" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
-                                            <h5 class="mb-3"><%=job.Name%></h5>
-                                            <h5 id="<%=job.Company%>" style="display:none;"><%=job.Company%></h5>
-                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i><%=job.Location%></span>
-                                            <span class="text-truncate me-3"><i class="fa-solid fa-map-pin" style="color:rgb(18, 18, 104)"></i> <%=job.Place%></span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i><%=job.Salary%></span>
+                                            <h5 class="mb-3 reading12"><%=job.Name%></h5>
+                                            <h5 class="reading12" id="<%=job.Company%>" style="display:none;"><%=job.Company%></h5>
+                                            <span class="text-truncate me-3 reading12"><i class="fa fa-map-marker-alt text-primary me-2 reading12"></i><%=job.Location%></span>
+                                            <span class="text-truncate me-3 reading12"><i class="fa-solid fa-map-pin" style="color:rgb(18, 18, 104) reading12"></i> <%=job.Place%></span>
+                                            <span class="text-truncate me-0 reading12"><i class="far fa-money-bill-alt text-primary me-2 reading12"></i><%=job.Salary%></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
                                             <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                            <button class="btn btn-primary view-button" data-jobid="<%=job._id%>">View Details</button>
+                                            <button class="btn btn-primary view-button reading12" data-jobid="<%=job._id%>">View Details</button>
                                         </div>
-                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                        <small class="text-truncate reading12"><i class="far fa-calendar-alt text-primary me-2 reading12"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
                                 </div>
                               </div>
@@ -460,15 +466,14 @@
         
 
 
+        <div id="statusMessage"></div>
         
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
 
 
 
        
-    <!-- JavaScript Libraries -->
      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
      <script src="/lib/wow/wow.min.js"></script>
@@ -476,11 +481,11 @@
      <script src="/lib/waypoints/waypoints.min.js"></script>
      <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
      
-     <!-- Template Javascript -->
+
      <script src="/js/main.js"></script>
      <script src="/js/readingMask.js"></script>
-     <script src="/js/screen_reader.js"></script>
- 
+     <script src="./js/screen_reader.js"></script>
+     <script src="./js/accessibilities.js"></script>
     
 
 </body>

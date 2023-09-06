@@ -1,3 +1,4 @@
+
 .popup {
     position: relative;
     display: flex;
@@ -39,4 +40,13 @@
     .popup video {
         max-width: 90%;
     }
+}
+.speaker
+{
+    font-size: 3em;
+}
+.screenr12
+{
+    margin-top: 9%;
+    
 }
