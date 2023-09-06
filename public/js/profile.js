@@ -14,6 +14,12 @@ else
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    let ongo = sessionStorage.getItem('ongo');
+    if(ongo == 'true'){
+      document.getElementById("changable").innerHTML="My Profile";
+      document.getElementById("changable").setAttribute("href", "myprofile");
+    }
+
     let fileInput = document.getElementById("file-input");
     let fileList = document.getElementById("files-list");
     let numOfFiles = document.getElementById("num-of-files");

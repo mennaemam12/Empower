@@ -13,6 +13,8 @@ router.get("/",async (req,res)=>{
 router.post("/select",filtering.select);
 router.post("/",filtering.filter);
 router.post("/accept",filtering.acceptApplicant)
+router.post("/final",filtering.finalAcceptance)
+router.get("/:id",filtering.viewProfile)
 
 
 

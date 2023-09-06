@@ -9,10 +9,8 @@ router.use(bodyParser.json());
 const fs = require('fs').promises; // Import the 'promises' version of the 'fs' module.
 const profile=require("../controllers/myprofile.controller")
 router.get('/', async (req, res) => {
-    const getuser = req.session.email;
-    const getprofile = await Users.find({ email: getuser });
-    console.log(getprofile);
-    res.render('profile', {getprofile });
+    const getprofile = req.session.user;
+    res.render('profile', {getprofile,viewer:"user"});
   });
 
   router.post('/', upload.array('files', 10), async (req, res) => {
@@ -46,7 +44,7 @@ router.get('/', async (req, res) => {
     getprofile.Urls = [...getprofile.Urls, ...urls];
     await getprofile.save();
   
-    res.redirect('/myprofile');
+    res.render('profile', {getprofile,viewer:"user"});
   });
   router.post('/national', upload.array('nationalIdFiles', 10), async (req, res) => {
     const getuser = req.session.email;
@@ -78,8 +76,8 @@ router.get('/', async (req, res) => {
     // Update the user profile with the new Urls array.
     getprofile.NationalID = [...getprofile.NationalID, ...nationalID];
     await getprofile.save();
-  
-    res.redirect('/myprofile');
+
+    res.render('profile', {getprofile,viewer:"user"});
   });
   router.post("/update",profile.updateprofile);
   router.post("/addskill",profile.newskill);

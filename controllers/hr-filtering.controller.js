@@ -121,8 +121,8 @@ function calculateMatchingWordCount(sentence, words) {
 }
 
 const acceptApplicant=async function(req,res){
-      console.log(req.body.user);
-      console.log(req.body.job);
+  console.log(req.body.user);
+  console.log(req.body.job);
       const user= await Users.findById(req.body.user);
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -132,7 +132,26 @@ const acceptApplicant=async function(req,res){
       }
       user.acceptedCV.push(req.body.job);
       await user.save();
-      res.send("success")
+      res.send("true")
 }
 
-module.exports={select,filter,acceptApplicant}
+const finalAcceptance=async function(req,res){
+ console.log(req.body.user);
+  const user= await Users.findById(req.body.user);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  if (user.acceptedJob.includes(req.body.job)) {
+    return res.status(400).json({ error: 'Cv already accepted' });
+  }
+  user.acceptedJob.push(req.body.job);
+  await user.save();
+  res.send("true")
+}
+
+const viewProfile=async function(req,res){
+    var getprofile= await Users.findById(req.params.id);
+    res.render('profile', {getprofile,viewer:"admin"});
+}
+
+module.exports={select,filter,acceptApplicant,viewProfile,finalAcceptance};

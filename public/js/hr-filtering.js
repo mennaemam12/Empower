@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const jobSelect = document.getElementById("job-select");
     const companySelect = document.getElementById("company-select");
+    var newElement;
   
     jobSelect.addEventListener("change", function() {
       const selectedJob = jobSelect.value;
@@ -75,16 +76,50 @@ document.addEventListener("DOMContentLoaded", function() {
     popup.style.display = "none";
   }
 
-  function accept(){
-    const user=document.getElementById("userId");
+  function accept(id){
     const job=document.getElementById("jobId");
-    const accepted=document.getElementById(user.innerHTML);
+    const accepted=document.getElementById(id);
     $.ajax({
       url: `/dashboard/accept`,
       method: "POST",
-      data:{user:user.innerHTML,job:job.innerHTML},
-      success: function (success) {
-          $(accepted).html("CV Accepted");
+      data:{user:id,job:job.innerHTML},
+      success: function (response) {
+        if(response==="true"){
+        
+          newElement = document.createElement('a');
+          newElement.setAttribute('class', 'cv-accepted');
+          newElement.setAttribute('href', '#');
+          newElement.setAttribute('id', "curr");
+          newElement.textContent = 'Send Offer';
+          newElement.onclick = function() {
+            finalAcceptance(id); // Make sure 'id' is defined in this context
+            return false; // Prevent the default behavior of the anchor link
+          };
+          accepted.replaceWith(newElement)
+          
+        }
+      },
+      error: function (err) {
+          console.log(err);
+        },
+      });
+    
+  }
+
+  function finalAcceptance(id){
+    const job=document.getElementById("jobId");
+    const button = document.getElementById("curr");
+    console.log(button);
+    $.ajax({
+      url: `/dashboard/final`,
+      method: "POST",
+      data:{user:id,job:job.innerHTML},
+      success: function (response) {
+        if(response==="true"){
+         
+          $(button).html("Accepted");
+          $(button).prop("disabled", true);
+        }
       },
       error: function (err) {
           console.log(err);

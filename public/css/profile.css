@@ -192,7 +192,7 @@ label {
   display: flex;
   flex-wrap: wrap;
   margin-top: 20px;
-  justify-content: space-between;
+ 
 }
 
 .file-preview {
@@ -204,6 +204,7 @@ label {
   text-align: center;
   background-color: #fff;
   width: calc(33.33% - 20px); /* Initially, show 3 per row */
+  margin-right: 15px ;
 
   /* Media queries to adjust the number of columns */
   @media screen and (max-width: 768px) {
