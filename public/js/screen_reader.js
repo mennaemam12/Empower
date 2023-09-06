@@ -41,7 +41,6 @@ function mouseleaveHandler() {
         hasBeenRead = false;
     }, 10);
 }
-
 function buttonPressed12() {
     num++;
     console.log(num);
@@ -49,6 +48,8 @@ function buttonPressed12() {
     const elements = document.querySelectorAll('.reading12');
 
     if (num % 2 === 0) {
+        
+        speakText("Screen Reader on");
         let screenreader = document.getElementById("screenreader");
         let screenlogo = document.getElementById("screenlogo");
         screenlogo.style.transition = "color 0.5s ease";
@@ -62,6 +63,7 @@ function buttonPressed12() {
            
             });
     } else {
+        speakText("Screen Reader off");
         elements.forEach(element => {
             element.removeEventListener('mouseenter', mouseenterHandler);
             element.removeEventListener('mouseleave', mouseleaveHandler);

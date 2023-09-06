@@ -14,7 +14,7 @@ function colorblind() {
     }
 
     // Define or modify the CSS rule to set color to black for all elements
-    var cssText = "* { filter: saturate(1); filter: hue-rotate(3.542rad);}";
+    var cssText = "* {filter: saturate(1); filter: hue-rotate(3.542rad);}";
 
     // If styles already exist, append the new styles
     if (styleElement.innerHTML) {
