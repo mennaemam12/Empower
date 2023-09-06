@@ -97,7 +97,18 @@ $(document).ready(function () {
         data: formData,
         processData: false,
         contentType: false,
-        success: function (response) {
+        success: function (response) { 
+            let label=document.getElementById('prop-label')
+            if (label) {
+                label.classList.remove('hidden');
+                setTimeout(function() {
+                    label.classList.add('hidden');
+                    
+                }, 5000);
+              }
+              setTimeout(() => {
+                window.location.replace("/addposition");
+              }, 6000);
         },
         error: function (error) {
           console.error(error); // Log any errors that occurred

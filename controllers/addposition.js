@@ -36,6 +36,7 @@ let addposition= async (req,res)=>
           return res.status(500).send('Failed to move one or more files');
         }
       });
+      res.send('success');
 
 
 
