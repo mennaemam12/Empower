@@ -135,4 +135,9 @@ const acceptApplicant=async function(req,res){
       res.send("success")
 }
 
-module.exports={select,filter,acceptApplicant}
+const viewProfile=async function(req,res){
+    var getprofile= await Users.findById(req.params.id);
+    res.render('profile', {getprofile,viewer:"user"});
+}
+
+module.exports={select,filter,acceptApplicant,viewProfile};

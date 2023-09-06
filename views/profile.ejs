@@ -37,12 +37,8 @@
         <div class="avatar">
           <img src="" alt="User Avatar" />
         </div>
-        <% if (getprofile.length > 0) { %>
-          <h1><%= getprofile[0].Firstname %></h1>
+          <h1><%= getprofile.Firstname %></h1>
           <p>Cairo, Egypt</p>
-        <% } else { %>
-          <h1>User Not Found</h1>
-        <% } %>
       </div>
     </div>
       <div class="profile-content">
@@ -55,7 +51,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  value="<%= getprofile[0].Firstname %>"
+                  value="<%= getprofile.Firstname %>"
                   readonly
                 />
               </div>
@@ -66,7 +62,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  value="<%= getprofile[0].Lastname %>"
+                  value="<%= getprofile.Lastname %>"
                   readonly
                 />
               </div>
@@ -77,7 +73,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  value="<%= getprofile[0].email %>"
+                  value="<%= getprofile.email %>"
                   readonly
                 />
               </div>
@@ -91,14 +87,18 @@
                   class="form-control"
                   id="phone-input"
                   name="phone"
-                  value="<%= getprofile[0].Phone %>"
-                />
+                  value="<%= getprofile.Phone %>"
+                >
               </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
                 <label for="bio">Bio</label>
-                <textarea class="form-control bio" id="bio-input" name="bio" rows="4" placeholder="Tell Us About Yourself More !"> <%= getprofile[0].Bio %></textarea>
+                <% var bio="" %>
+                <% if(getprofile.Bio!=undefined) {
+                    bio=getprofile.Bio; 
+                 } %>
+                <textarea class="form-control bio" id="bio-input" name="bio" rows="4" placeholder="Tell Us About Yourself More !"><%=bio%></textarea>         
                 <button type="submit" id="submit-button" class="btn btn-primary position">Update</button>
               </div>
             </div>
@@ -109,7 +109,7 @@
           <h2>Skills</h2>
           <ul class="skills-list" id="skills-list">
             <!-- Existing skills from the database -->
-            <% getprofile[0].Skills.forEach(skill => { %>
+            <% getprofile.Skills.forEach(skill => { %>
               <li><%= skill %></li>
             <% }) %>
           </ul>
@@ -133,19 +133,19 @@
       
           <!-- Uploaded files previews -->
           <div id="uploaded-images-preview">
-            <% getprofile[0].Urls.forEach((file, index) => { %>
-              <div class="file-preview" id="file-preview-<%= index %>">
+            <% var index=0;%>
+            <% getprofile.Urls.forEach((file) => { %>
+              <div class="file-preview" id="file-preview-<%=index%>">
                 <span class="file-name"><%= file %></span>
                 <div class="file-preview-content">
                   <% if (file && file.match(/\.(png|jpeg|jpg|webp)$/i)) { %>
-                    <!-- Use an absolute path for images -->
                     <img src="/uploads/<%= file %>" alt="Preview" />
                   <% } else if (file && file.match(/\.(pdf)$/i)) { %>
-                    <!-- Use an absolute path for PDFs -->
                     <a href="/uploads/<%= file %>" target="_blank">Open PDF</a>
                   <% } %>
                 </div>
               </div>
+              <%index++;%>
             <% }); %>
         </div>        
       </div>
@@ -164,7 +164,7 @@
       
       <!-- Uploaded files previews -->
       <div id="uploaded-images-preview">
-        <% getprofile[0].NationalID.forEach((file1, index) => { %>
+        <% getprofile.NationalID.forEach((file1, index) => { %>
           <div class="file-preview" id="file-preview-<%= index %>">
             <span class="file-name"><%= file1 %></span>
             <div class="file-preview-content">
