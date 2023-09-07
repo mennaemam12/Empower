@@ -6,11 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const linksList = document.getElementById("linksList");
 
 
-    const links = tempDiv.querySelectorAll('a');
-
 
     // Function to display links in the modal container
-    function displayLinks() {
+    function displayLinks(links) {
         // Clear previous content
         linksList.innerHTML = "";
 
@@ -18,16 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
         links.forEach(function (link) {
             const li = document.createElement("li");
             const a = document.createElement("a");
-            a.href = link.href;
-            a.textContent = link.innerHTML;
+            a.href = link.url;
+            a.textContent = link.text;
             li.appendChild(a);
             linksList.appendChild(li);
         });
+        document.getElementById("linksModal").style.display="block";
     }
 
     // Add click event listener to the "View Links" button
     viewLinksIndexButton.addEventListener("click", function () {
         // Display the links in the modal container
+        this.style.borderColor="green";
         displayLinks(getAllLinksOnPage()); // Function to get all links on the page
     });
 
