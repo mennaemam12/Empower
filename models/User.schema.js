@@ -60,6 +60,14 @@ const UserSchema = new Schema ({
     HRmessage:{
         type:String,
         trim:true
+    },
+    acceptedCV:{
+        type:Array,
+        trim:true
+    },
+    acceptedJob:{
+        type:Array,
+        trim:true
     }
 },{timestamp:true});
 

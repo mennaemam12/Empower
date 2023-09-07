@@ -7,7 +7,28 @@ const Job = require('../models/jobs.schema.js');
 const Users=require('../models/User.schema.js')
 
 const getUploadResume=async function (req, res) {
-    res.render("uploadResume",{email:(req.session.authenticated)?req.session.email:""});
+  const notificationMessages = [];
+  if (req.session && req.session.email) {
+    const getuser1 = req.session.email;
+    const getprofile1 = await Users.findOne({ email: getuser1 }).exec();
+    const acceptedCvArray = getprofile1.acceptedCV;
+  
+    // Define notificationMessages as an empty array
+   
+  
+    for (const jobId of acceptedCvArray) {
+      const job = await Job.findOne({ _id: jobId }).exec();
+  
+      if (job) {
+        // Create a notification message based on job details
+        const notificationMessage = `Congratulations! Your CV Has Been Approved By The HR for the Title: ${job.Name} at ${job.Company}.`;
+  
+        // Push the message to the notificationMessages array
+        notificationMessages.push(notificationMessage);
+      }
+    }
+  }
+    res.render("uploadResume",{email:(req.session.authenticated)?req.session.email:"",notificationMessages});
 };
 
 

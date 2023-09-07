@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const indexController=require('../controllers/index.controller.js');
 const getjob=require('../controllers/job-detail.controller');
+const nav=require('../controllers/nav.controller.js');
 router.use(bodyParser.json());
 
 router.get("/",indexController.getIndex);

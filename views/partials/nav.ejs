@@ -17,8 +17,82 @@
                     <a href="" class="dropdown-item reading12">Job Detail</a>
                 </div>
             </div>
-            <a href="" class="nav-item nav-link reading12">Contact</a>
+            <div class="indicator"></div>
+            <img src="/img/notification.png" class="img" id="notificationToggle">
+            <div class="notifications" id="notifications">
+                <span class="close-btn" id="closeBtn">&times;</span>
+                <h2>Notification Title</h2>
+                <% for (const message of notificationMessages) { %>
+                    <div class="notification-block">
+                       
+                        <p><%= message %></p>
+                    </div>
+                <% } %>
+            </div>
         </div>
         <a href="reg" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block reading12" id="changable">Registration <i class="fa fa-arrow-right ms-3"></i></a>
     </div>
+</nav>
+<style>
+        .notifications {
+            position: absolute;
+            top: 50px;
+            top: 0;
+            right: -400px; /* Start off-screen */
+            width: 400px; /* Larger width */
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: right 0.3s ease-in-out, height 0.3s ease-in-out;
+            border-radius: 10px;
+            overflow: hidden;
+            transform: translateY(80px);
+        }
+
+        /* Style for the active state of notifications */
+        .notifications.active {
+            right: 10px; /* Move the notifications into view */
+            height: auto;
+            transform: translateY(10);
+        }
+
+        /* Close button style */
+        .close-btn {
+            float: right;
+            cursor: pointer;
+        }
+
+    img{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        margin-top: 20px;
+        margin-right: 25px;
+    }
+    .notification-block {
+    background-color: #f0f0f0; /* Background color for the block */
+    padding: 10px; /* Adjust padding as needed */
+    margin: 10px 0; /* Adjust margin as needed */
+    border: 2px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    /* Add more styling properties as desired */
+}
+
+</style>
+<script>
+    const notificationImage = document.getElementById("notificationToggle");
+    const notifications = document.getElementById("notifications");
+    const closeBtn = document.getElementById("closeBtn");
+
+    notificationImage.addEventListener("click", () => {
+        notifications.classList.toggle("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+        notifications.classList.remove("active");
+    });
+</script>
+</body>
+</html>
 </nav>

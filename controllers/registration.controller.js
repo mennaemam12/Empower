@@ -3,11 +3,14 @@ const router=Router();
 const mongoose=require('mongoose');
 const user = require('../models/User.schema');
 const bcrypt = require('bcrypt');
-
-
+const notificationController = require('./nav.controller.js');
 let errornum=3;
 let registration= async (req,res)=>
 {
+    let notificationMessages = [];
+    if (req.session && req.session.email) {
+      notificationMessages = await notificationController.notifiy(req, res);
+  }
     let{Firstname,Lastname,email,pass1,accessibilityValue,page}=req.body;
     let{inemail,inpass,page1}=req.body;
     if(page=="signup")
@@ -24,7 +27,7 @@ let registration= async (req,res)=>
              req.session.user=user1[0];
              req.session.authenticated=true;
              req.session.save();
-             res.send({result:"success",Email:email});
+             res.send({result:"success",Email:email,notificationMessages});
         }
         else
         {
@@ -55,7 +58,7 @@ let registration= async (req,res)=>
              req.session.user=user1[0];
              req.session.authenticated=true;
              req.session.save();
-             res.send({success:"success",email:user1[0].email});
+             res.send({success:"success",email:user1[0].email,notificationMessages});
         }
         }
     }
