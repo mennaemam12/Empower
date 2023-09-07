@@ -34,30 +34,29 @@
     </div>
 </nav>
 <style>
-        .notifications {
-            position: absolute;
-            top: 50px;
-            top: 0;
-            right: -400px; /* Start off-screen */
-            width: 400px; /* Larger width */
-            background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            transition: right 0.3s ease-in-out, height 0.3s ease-in-out;
-            border-radius: 10px;
-            overflow: hidden;
-            transform: translateY(80px);
-        }
+ .notifications {
+    position: absolute;
+    top: 50px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease-in-out, height 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    transform: translateY(-100%); /* Move it off the top of the screen */
+    display: none; /* Hide it by default */
+}
 
-        /* Style for the active state of notifications */
-        .notifications.active {
-            right: 10px; /* Move the notifications into view */
-            height: auto;
-            transform: translateY(10);
-        }
+.notifications.active {
+    transform: translateY(50px); 
+    right: 10px;
+    display: block; /* Make it visible when active */
+    
+}
 
         /* Close button style */
-        .close-btn {
+       .close-btn {
             float: right;
             cursor: pointer;
         }
@@ -81,17 +80,18 @@
 
 </style>
 <script>
-    const notificationImage = document.getElementById("notificationToggle");
-    const notifications = document.getElementById("notifications");
-    const closeBtn = document.getElementById("closeBtn");
+const notificationImage = document.getElementById("notificationToggle");
+const notifications = document.getElementById("notifications");
+const closeBtn = document.getElementById("closeBtn");
 
-    notificationImage.addEventListener("click", () => {
-        notifications.classList.toggle("active");
-    });
+notificationImage.addEventListener("click", () => {
+    notifications.classList.toggle("active");
+});
 
-    closeBtn.addEventListener("click", () => {
-        notifications.classList.remove("active");
-    });
+closeBtn.addEventListener("click", () => {
+    notifications.classList.remove("active");
+});
+
 </script>
 </body>
 </html>
