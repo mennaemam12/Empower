@@ -12,6 +12,7 @@ const appliedfor=require("./routes/applied-for");
 const profile=require('./routes/profile');
 const dashboard=require("./routes/dashboard.js");
 const addposition=require("./routes/addposition.js");
+const aboutUs=require("./routes/aboutUs.js");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -48,5 +49,6 @@ app.use("/appliedfor",appliedfor);
 app.use("/myprofile",profile);
 app.use("/dashboard",dashboard);
 app.use("/addposition",addposition);
+app.use("/about",aboutUs);
 
 module.exports= app;

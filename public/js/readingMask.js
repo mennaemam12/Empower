@@ -51,15 +51,11 @@ function mouseLeaveHandler(){
     jobMask.style.display = 'none';
 }
 
-
-
-
  // Function to update the reading mask position based on mouse movement
  function updateReadingMaskPosition(event) {
     readingMask.style.transform = `translate(${event.clientX+5}px, ${event.clientY+5}px)`;
     jobMask.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
 }
-
 
 function buttonPressed(){
     console.log(enabled);

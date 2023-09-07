@@ -4,6 +4,20 @@ const signinbut=document.getElementById("signinbut");
 const register=document.getElementById("register");
 const img=document.getElementById("img");
 
+let ongo = sessionStorage.getItem('ongo');
+
+if(ongo == 'true'){
+   document.getElementById("changable").innerHTML="My Profile"
+   document.getElementById("changable").setAttribute("href", "myprofile");
+   document.getElementById("upload").style.display="flex";
+    document.getElementById("dropdown").style.display="flex";
+}
+else
+{
+    document.getElementById("upload").style.display="none";
+    document.getElementById("dropdown").style.display="none";
+}
+
 
 
 signinbut.addEventListener('click', function() {
@@ -169,6 +183,7 @@ $(document).ready(function () {
           
                sessionStorage.setItem('ongo', "true");
                sessionStorage.setItem('Email',response.Email);
+               sessionStorage.setItem('disability',accessibilityValue);
                window.location.replace("/");
          }
          else

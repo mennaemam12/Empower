@@ -1,7 +1,20 @@
 
-let ongo;
-let fail1,fail2;
-let check=false;
+// let ongo = sessionStorage.getItem('ongo');
+
+// if(ongo == 'true'){
+//    document.getElementById("changable").innerHTML="My Profile"
+//    document.getElementById("changable").setAttribute("href", "myprofile");
+//    document.getElementById("upload").style.display="flex";
+//     document.getElementById("dropdown").style.display="flex";
+// }
+// else
+// {
+//     document.getElementById("upload").style.display="none";
+//     document.getElementById("dropdown").style.display="none";
+// }
+// let fail1,fail2;
+// let check=false;
+
 
 
 
@@ -39,22 +52,7 @@ function validatepass1(field){
     }
 }
 
-    // function forget()
-    // {
-    //     document.getElementById("myForm1").style.display="none"
-    //     document.getElementById("myForm2").style.display="block";
-    // }
-    // function signin()
-    // {
-    //     document.getElementById("myForm2").style.display="none";
-    //     document.getElementById("myForm1").style.display="block";
-    //     document.getElementById("myForm1").style.paddingTop="40%";
-    // }
-    // function Email()
-    // {
-    //     document.getElementById("myForm3").style.display="none";
-    //     document.getElementById("myForm2").style.display="block";
-    // }
+   
     
 
 $(document).ready(function () {
@@ -78,6 +76,7 @@ $(document).ready(function () {
           {
             sessionStorage.setItem('ongo', "true");
             sessionStorage.setItem('Email',response.email);
+            sessionStorage.setItem('disability',response.disability);
             window.location.replace("/");
           }
           else if(response.success=="admin")

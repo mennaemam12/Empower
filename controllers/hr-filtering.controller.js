@@ -108,7 +108,7 @@ const filter=async function(req,res){
 
         const filteredSortedData = sortedData.filter(data => data);
         filteredSortedData.sort((a, b) => b.matchingCount - a.matchingCount);
-        res.render("dashboard",{jobs:jobs,sortedData:filteredSortedData,job:chosenJob.Name,company:chosenJob.Company});
+        res.render("dashboard",{jobs:jobs,sortedData:filteredSortedData,job:chosenJob});
             
 }
     
@@ -120,4 +120,38 @@ function calculateMatchingWordCount(sentence, words) {
    return matchingCount;
 }
 
-module.exports={select,filter}
+const acceptApplicant=async function(req,res){
+  console.log(req.body.user);
+  console.log(req.body.job);
+      const user= await Users.findById(req.body.user);
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+      if (user.acceptedCV.includes(req.body.job)) {
+        return res.status(400).json({ error: 'Cv already accepted' });
+      }
+      user.acceptedCV.push(req.body.job);
+      await user.save();
+      res.send("true")
+}
+
+const finalAcceptance=async function(req,res){
+ console.log(req.body.user);
+  const user= await Users.findById(req.body.user);
+  if (!user) {
+    return res.status(404).json({ error: 'User not found' });
+  }
+  if (user.acceptedJob.includes(req.body.job)) {
+    return res.status(400).json({ error: 'Cv already accepted' });
+  }
+  user.acceptedJob.push(req.body.job);
+  await user.save();
+  res.send("true")
+}
+
+const viewProfile=async function(req,res){
+    var getprofile= await Users.findById(req.params.id);
+    res.render('profile', {getprofile,viewer:"admin"});
+}
+
+module.exports={select,filter,acceptApplicant,viewProfile,finalAcceptance};

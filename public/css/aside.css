@@ -44,9 +44,9 @@ body{
     padding: .3rem;
     
 }
-body::-webkit-scrollbar{
+/* body::-webkit-scrollbar{
     display: none;
-}
+} */
 
 .transition-fade{
     opacity: 1;

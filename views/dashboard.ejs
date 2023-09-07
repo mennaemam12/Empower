@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel ="shortcut icon" type= "x-icon" href="/img/job.png"> 
     <link rel="stylesheet" href="/css/aside.css">
     <link rel="stylesheet" href="./css/fonts.css">
 
@@ -61,7 +62,7 @@
                         </clipPath>
                     </defs>
                 </svg>
-                <h2 style="color: white;">Our<span style="color: white;">Name</span></h2>
+                <h2 style="color: white;"><span style="color: white;">Empower</span></h2>
             </div>
             <div class="close" id="close-btn">
                 <i class='bx bxs-log-out-circle'></i>
@@ -102,7 +103,7 @@
                     <label for="job-select">Select Job:</label>
                     <select class="selecting" id="job-select" name="job">
                         <% if(sortedData!=""){%>
-                            <option value=<%=job%><%=job%>></option>
+                            <option value=<%=job.Name%>><%=job.Name%></option>
                         <%}else{%>
                         <option class="options" value="">select job</option>
                         <%}%>
@@ -118,7 +119,7 @@
                     <label for="company-select">Select Company:</label>
                     <select class="selecting" id="company-select" name="company" >
                         <% if(sortedData!=""){%>
-                            <option value=<%=company%><%=company%>></option>
+                            <option value=<%=job.Company%>><%=job.Company%></option>
                         <%}else{%>
                         <option class="options"  value="">select company</option>
                         <%}%>
@@ -147,10 +148,18 @@
                         </div>
                         <a href="#" class="view-resume-button" 
                         onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Resume </a>  
-                        <a href="#" class="view-profile-button" 
-                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">View Profile </a> 
-                        <a href="#" class="accept-button" 
-                        onclick="openResumePopup('/uploads/'+'<%=fileName%>'+' resume.pdf')">Accept CV </a> 
+                        <a href="dashboard/<%=sortedData[k].user._id%>" class="view-profile-button" 
+                        onclick=>View Profile </a> 
+                         
+                        <p id="userId" style="display: none;"><%=sortedData[k].user._id%></p>
+                        <p id="jobId" style="display: none;"><%=job._id%></p>
+                        <%if(sortedData[k].user.acceptedJob.includes(job._id)){%>
+                            <a class="cv-accepted" href="#" id="<%=sortedData[k].user._id%>" >Accepted </a> 
+                        <% }else if(sortedData[k].user.acceptedCV.includes(job._id)){ %>
+                            <a class="cv-accepted" href="#" id="<%=sortedData[k].user._id%>" onclick="finalAcceptance('<%=sortedData[k].user._id%>')">Send Offer </a>
+                        <%}else{%>
+                            <a class="accept-button" href="#" id="<%=sortedData[k].user._id%>" onclick="accept('<%=sortedData[k].user._id%>')">Accept CV </a> 
+                        <%}%>
                     </div>
                     
                    

@@ -240,8 +240,9 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(43, 57, 64, .5), rgba(43, 57, 64, .5)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(43, 57, 64, .5), rgba(43, 57, 64, .5)), url(../img/bg-2.jpg) center center no-repeat;
     background-size: cover;
+    background-size: 1500px 450px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -457,3 +458,24 @@
     background-position: right;
     transition-duration: 1s;
   }
+  #viewLinksIndex {
+  background-color: #fff;
+  
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#viewLinksIndex:hover {
+    border: 1px solid #ddd;
+}
+
+#viewLinksIndex i {
+  font-size: 24px;
+}
+
+#viewLinksIndex h6 {
+  font-size: 16px;
+  margin-top: 10px;
+}

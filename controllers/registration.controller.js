@@ -58,7 +58,7 @@ let registration= async (req,res)=>
              req.session.user=user1[0];
              req.session.authenticated=true;
              req.session.save();
-             res.send({success:"success",email:user1[0].email,notificationMessages});
+             res.send({success:"success",email:user1[0].email,disability:user1[0].accessibilityValue,notificationMessages});
         }
         }
     }
