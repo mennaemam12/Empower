@@ -29,7 +29,7 @@ router.get('/', async(req,res)=>
       }
     
     };
-    res.render('about',notificationMessages);
+    res.render('about',{notificationMessages});
 })
 
 module.exports = router;
