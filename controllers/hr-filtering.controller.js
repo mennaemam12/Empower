@@ -89,17 +89,17 @@ const filter=async function(req,res){
             var matching;
 
               if(matchingCount>30)
-                matching=5;
+                matching=10;
               else if(matchingCount>20)
-                matching=4
+                matching=8;
               else if(matchingCount>10)
-                matching=3;
+                matching=6;
               else if(matchingCount==0)
                 matching=0;
               else
-                matching=1;
+                matching=2;
         
-              const totalMatchingScore = matchingDisabilities * 20 + matchingPosition * 10 + matching;
+              const totalMatchingScore = matchingDisabilities * 20 + matchingPosition * 8 + matching;
               return {user, matchingScore: totalMatchingScore };
         }
         }))
