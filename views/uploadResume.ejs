@@ -30,6 +30,12 @@
     <!-- Template Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/styleUploadResume.css" rel="stylesheet">
+
+    <style>
+        .footer{
+            margin-top:100px;
+        }
+    </style>
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -67,38 +73,38 @@
         </div>
         <!-- Header End -->
 
-        <div class="main-container">
-            <div class="upload-container">
-                <form id="upload-form" method="post" action="/uploadResume"  enctype="multipart/form-data">
-                    <label for="resume-upload" class="upload-button" id="uploadLabel" >Upload Resume</label>
-                    <input type="file" id="resume-upload" name="resume" class="hidden">
-               </form>  
-            </div>
-        <div>
-            <div id="viewEdit">
-                <div>
-                    <button id="openPopup">View Resume</button>
+        <div class="main-container" style="height:2000px">
+                <div class="upload-container">
+                    <form id="upload-form" method="post" action="/uploadResume"  enctype="multipart/form-data">
+                            <label for="resume-upload" class="upload-button" id="uploadLabel" >Upload Resume</label>
+                            <input type="file" id="resume-upload" name="resume" class="hidden">
+                    </form>  
                 </div>
-                <div style="margin-left: 5%;">
-                    <form id="edit-form" method="post" action="/uploadResume/edit"  enctype="multipart/form-data">
-                        <input type="file" id="resume-edit" name="newResume" class="hidden">
-                        <label for="resume-edit" id="edit-button" >Edit Resume</label>
-                   </form>  
+            <div>
+                <div id="viewEdit">
+                    <div>
+                        <button id="openPopup">View Resume</button>
+                    </div>
+                    <div style="margin-left: 5%;">
+                        <form id="edit-form" method="post" action="/uploadResume/edit"  enctype="multipart/form-data">
+                            <input type="file" id="resume-edit" name="newResume" class="hidden">
+                            <label for="resume-edit" id="edit-button" >Edit Resume</label>
+                    </form>  
+                    </div>
+                </div>
+                <div id="pdfPopup" class="popup">
+                    <div class="popup-content">
+                        <button id="closePopup">X</button>
+                        <iframe id="pdfFrame" src=""></iframe>
+                    </div>
                 </div>
             </div>
-            <div id="pdfPopup" class="popup">
-                <div class="popup-content">
-                    <button id="closePopup">X</button>
-                    <iframe id="pdfFrame" src=""></iframe>
-                </div>
+
+            <div id="job-list" style="margin-top: 4%;width: 1000px;margin-left: 13%; ">
+
             </div>
-        </div>
 
-        <div id="job-list" style="margin-top: 4%;width: 1000px;margin-left: 13%;">
-
-        </div>
-
-        </div>
+       </div>
         
 
          <!-- Footer Start -->
