@@ -15,11 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create a list of links
         links.forEach(function (link) {
             const li = document.createElement("li");
+            li.style.listStyle = "square"; 
+            const myList = document.querySelector("ul"); 
             const a = document.createElement("a");
             a.href = link.url;
             a.textContent = link.text;
             li.appendChild(a);
-            linksList.appendChild(li);
+            myList.appendChild(li);
+
+            ;
         });
         document.getElementById("linksModal").style.display="block";
     }
@@ -34,12 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to get all links on the page
     function getAllLinksOnPage() {
         const allLinks = [];
-        const pageLinks = document.querySelectorAll("a"); // Adjust the selector as needed
-
+        const pageLinks = document.querySelectorAll("a.linkss");
+        let i=0;
         pageLinks.forEach(function (link) {
-            allLinks.push({ text: link.textContent, url: link.href });
-        });
+            if(i<=10)
+            {
+                allLinks.push({ text: link.textContent, url: link.href });
+            }
+            i++; 
 
+            
+        });
+        console.log(allLinks);
         return allLinks;
+        
     }
 });
