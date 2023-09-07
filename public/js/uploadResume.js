@@ -59,7 +59,7 @@ function pdfToText() {
                 <div class="job-item p-4 mb-4">
                 <div class="row g-4">
                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid border rounded" id="cimg"  src="/img/${data.job.Company}.jpg" alt="${data.job.Company} Logo" style="width: 80px; height: 80px;">
+                    <img class="flex-shrink-0 img-fluid border rounded" id="cimg"  src="/img/${data.job.Companylogo}" alt="${data.job.Company} Logo" style="width: 80px; height: 80px;">
                     <div class="text-start ps-4">
                         <h5 class="mb-3">${data.job.Name}</h5>
                         <h5 id="company" style="display:none;">${data.job.Company}</h5>
