@@ -2,6 +2,12 @@ let num = 1;
 let hasBeenRead = false;
 let speaking = false;
 
+let session13=sessionStorage.getItem('disability');
+if(session13==="blind")
+{
+    buttonPressed12();   
+}
+
 function speakText(text) {
     if ('speechSynthesis' in window) {
         const synth = window.speechSynthesis;

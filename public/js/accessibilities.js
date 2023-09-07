@@ -8,6 +8,17 @@ let j=0;
 let k=0;
 let x=0;
 let y=0;
+let session12=sessionStorage.getItem('disability');
+if(session12==="colourBlind")
+{
+    colorblind();  
+    textenlargement(); 
+}
+else if(session12==="adhd")
+{
+    textenlargement(); 
+    textalign();
+}
 function colorblind() {
     
     if(colorblindcounter[i]==1)
