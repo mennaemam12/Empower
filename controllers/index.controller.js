@@ -9,7 +9,7 @@ const getIndex=async function (req, res) {
     const getuser = req.session.email;
     const getprofile = await Users.findOne({ email: getuser }).exec();
     const acceptedCvArray = getprofile.acceptedCV;
-  
+
     // Define notificationMessages as an empty array
    
   
@@ -18,7 +18,7 @@ const getIndex=async function (req, res) {
   
       if (job) {
         // Create a notification message based on job details
-        const notificationMessage = `Congratulations! Your CV Has Been Approved By The HR for the Title: ${job.Name} at ${job.Company}.`;
+       const notificationMessage = `Congratulations! Your CV Has Been Approved By The HR for the Title: ${job.Name} at ${job.Company}.`;
   
         // Push the message to the notificationMessages array
         notificationMessages.push(notificationMessage);
@@ -43,16 +43,16 @@ const getIndex=async function (req, res) {
     
       for (const jobId of acceptedCvArray) {
         const job = await Job.findOne({ _id: jobId }).exec();
-    
+        var notificationMessage="";
+
         if (job) {
           // Create a notification message based on job details
-          const notificationMessage = `Congratulations! Your CV Has Been Approved By The HR for the Title: ${job.Name} at ${job.Company}.`;
+         notificationMessage = `Congratulations! Your CV Has Been Approved By The HR for the Title: ${job.Name} at ${job.Company}.`;
     
           // Push the message to the notificationMessages array
           notificationMessages.push(notificationMessage);
         }
-      }
-    
+      
     };
       var jobDetails= await Job.findById(req.params.id);
       const appliedJobIdsFromDatabase  = await Users.find({ email: req.session.email }, 'Appliedjobs');
@@ -62,4 +62,6 @@ const getIndex=async function (req, res) {
         notificationMessages
       });
     };  
+
+  }
   module.exports={getIndex,getJobDetails};

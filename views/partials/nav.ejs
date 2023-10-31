@@ -22,11 +22,13 @@
             <div class="notifications" id="notifications">
                 <span class="close-btn" id="closeBtn">&times;</span>
                 <h2>Notification Title</h2>
+                <%if(typeof notioficationMessages!=='undefined'){%>
                 <% for (const message of notificationMessages) { %>
                     <div class="notification-block">
                        
                         <p><%= message %></p>
                     </div>
+                <% } %>
                 <% } %>
             </div>
         </div>

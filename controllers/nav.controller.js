@@ -8,7 +8,7 @@ const notifiy = async (req, res) => {
 
   // Define notificationMessages as an empty array
   const notificationMessages = [];
-
+  
   for (const jobId of acceptedCvArray) {
     const job = await Job.findOne({ _id: jobId }).exec();
 
